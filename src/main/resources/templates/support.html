@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Support</title>
+</head>
+<body>
+<div th:switch="${tickets}">
+    <h2 th:case="null">No support tickets yet!</h2>
+    <div th:case="*">
+        <h2>Support Tickets</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ticket : ${tickets}">
+                <td th:text="${ticket.id}"></td>
+                <td th:text="${ticket.title}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/support/add">Add a new ticket</a></p>
+    <div>
+</body>
+</html>
