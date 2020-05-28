@@ -1,7 +1,6 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
-import  java.util.Date;
-
+import java.util.Date;
 
 
 public class UserProfile {
@@ -9,36 +8,32 @@ public class UserProfile {
     private int bankAccId; // optional
     private Date birthdate;
 
-    // Konstruktoren
+    // Constructors
     // 1. necessary
-    public UserProfile(String lastname,String firstname,String mailadress, String password)
-    {
-        this.lastname   = lastname;
-        this.firstname  = firstname;
+    public UserProfile(String lastname, String firstname, String mailadress, String password) {
+        this.lastname = lastname;
+        this.firstname = firstname;
         this.mailadress = mailadress;
-        this.password   = password;
+        this.password = password;
 
     }
 
     // 2. necessary + birthdate
-    public UserProfile(String lastname,String firstname,String mailadress, String password, Date birthdate)
-    {
-        this(lastname,firstname,mailadress,password);
-        this.birthdate  = birthdate;
+    public UserProfile(String lastname, String firstname, String mailadress, String password, Date birthdate) {
+        this(lastname, firstname, mailadress, password);
+        this.birthdate = birthdate;
     }
 
     // 3. ALL inclusive
-    public UserProfile(String lastname,String firstname,String mailadress, String password, Date birthdate, String bankAccNumber)
-    {
-        this(lastname,firstname,mailadress,password,birthdate);
+    public UserProfile(String lastname, String firstname, String mailadress, String password, Date birthdate, String bankAccNumber) {
+        this(lastname, firstname, mailadress, password, birthdate);
         this.bankAccNumber = bankAccNumber;
     }
 
     // Methods
 
 
-
-    //Setter & Getter private Attribs
+    // Setter & Getter of Attributes
     public String getFirstname() {
         return firstname;
     }
