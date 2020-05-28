@@ -38,7 +38,7 @@ public class UserProfile {
 
 
 
-    //Setter & Getter der privaten Attribute
+    //Setter & Getter private Attribs
     public String getFirstname() {
         return firstname;
     }
