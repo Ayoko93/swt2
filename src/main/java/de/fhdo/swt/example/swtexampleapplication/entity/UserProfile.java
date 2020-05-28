@@ -1,4 +1,4 @@
-package de.fhdo.swt.example.swtexampleapplication.controller;
+package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import  java.util.Date;
 
