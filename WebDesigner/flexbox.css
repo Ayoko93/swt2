@@ -1,0 +1,20 @@
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+div#HauptZusatz{
+  display: flex;
+  flex-direction: row;
+}
+
+main#hauptinhalt{
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+
+aside#zusatzinformationen{
+  flex: 1;
+}

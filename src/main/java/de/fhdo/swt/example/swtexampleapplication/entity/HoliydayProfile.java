@@ -3,7 +3,6 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 import java.util.Date;
 
 public class HoliydayProfile {
-
     private Date startDate;
     private Date endDate;
     private int numberPersons;
