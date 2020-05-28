@@ -19,10 +19,7 @@ public class HoliydayProfile {
     }
 
     public HoliydayProfile(Date startDate, Date endDate, int numberPersons, String country) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.numberPersons = numberPersons;
-        this.country = country;
+       this(startDate, endDate, numberPersons, country,null);
     }
 
     public Date getStartDate() {
