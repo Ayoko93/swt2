@@ -1,12 +1,12 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
-public class rating {
+public class Rating {
     private final int maxStars = 5;
     private int starCounter;
     private String ratingTest;
     private UserProfile valuer;
 
-    public rating(int starCounter, String ratingTest, UserProfile valuer) {
+    public Rating(int starCounter, String ratingTest, UserProfile valuer) {
         this.starCounter = starCounter;
         this.ratingTest = ratingTest;
         this.valuer = valuer;
