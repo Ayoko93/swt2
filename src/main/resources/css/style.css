@@ -48,7 +48,7 @@ h2 {
     grid-area: until;
 }
 
-.hotel-showDetails{
+ .hotel-showDetails{
     grid-area: details;
     border: 1px solid gray;
     align-items: center;
@@ -58,9 +58,8 @@ h2 {
     background-color: green;
     color: white;
     text-decoration: none;
-    display: block;
 }
 
-.hotel-showDetails:hover{
+ .hotel-showDetails:hover{
     background-color: limegreen;
-}
+}  
