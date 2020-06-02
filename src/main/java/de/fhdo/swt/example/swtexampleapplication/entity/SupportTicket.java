@@ -14,14 +14,14 @@ public class SupportTicket {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String bearbeiter;
-    private String autor;
+    private String assignee;
+    private String author;
     //private TicketStatus status;
-    private String titel;
-    private String beschreibung;
-    private Date erstelldatum;
-    private Date aktualisierungsdatum;
-    private ArrayList<String> kommentare;
+    private String title;
+    private String description;
+    private Date createdOn;
+    private Date updatedOn;
+    private ArrayList<String> comments;
 
 
     public long getId() {
@@ -32,59 +32,59 @@ public class SupportTicket {
         this.id = id;
     }
 
-    public String getBearbeiter() {
-        return bearbeiter;
+    public String getAssignee() {
+        return assignee;
     }
 
-    public void setBearbeiter(String bearbeiter) {
-        this.bearbeiter = bearbeiter;
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getBeschreibung() {
-        return beschreibung;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBeschreibung(String beschreibung) {
-        this.beschreibung = beschreibung;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Date getErstelldatum() {
-        return erstelldatum;
+    public Date getCreatedOn() {
+        return createdOn;
     }
 
-    public void setErstelldatum(Date erstelldatum) {
-        this.erstelldatum = erstelldatum;
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
     }
 
-    public Date getAktualisierungsdatum() {
-        return aktualisierungsdatum;
+    public Date getUpdatedOn() {
+        return updatedOn;
     }
 
-    public void setAktualisierungsdatum(Date aktualisierungsdatum) {
-        this.aktualisierungsdatum = aktualisierungsdatum;
+    public void setUpdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
-    public ArrayList<String> getKommentare() {
-        return kommentare;
+    public ArrayList<String> getComments() {
+        return comments;
     }
 
-    public void setKommentare(ArrayList<String> kommentare) {
-        this.kommentare = kommentare;
+    public void setComments(ArrayList<String> comments) {
+        this.comments = comments;
     }
 }
