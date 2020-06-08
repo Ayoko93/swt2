@@ -6,6 +6,11 @@ h2 {
     color: green;
 }
 
+main{
+    width: 80%;
+    align-content: center;
+}
+
 .holiday-card {
     margin: 10px;
     height: 200px;
@@ -48,7 +53,7 @@ h2 {
     grid-area: until;
 }
 
- .hotel-showDetails{
+.hotel-showDetails {
     grid-area: details;
     border: 1px solid gray;
     align-items: center;
@@ -60,6 +65,20 @@ h2 {
     text-decoration: none;
 }
 
- .hotel-showDetails:hover{
+.hotel-showDetails:hover {
     background-color: limegreen;
-}  
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row p {
+    margin-right: 20px;
+}
+
+.place::before {
+    content: url("../img/place-icon16.png");
+    margin-right: 5px;
+}
