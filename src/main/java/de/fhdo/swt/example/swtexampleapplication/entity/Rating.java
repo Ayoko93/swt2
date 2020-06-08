@@ -1,5 +1,6 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -46,6 +47,7 @@ public class Rating {
      * The comment left by the author. May be null.
      */
     @Nullable
+    @Column(nullable = true)
     private String comment;
 
     /**
