@@ -9,7 +9,6 @@ import java.util.Date;
 
 @Entity
 public class Holiday {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
