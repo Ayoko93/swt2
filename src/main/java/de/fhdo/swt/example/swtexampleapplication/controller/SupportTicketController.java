@@ -1,6 +1,5 @@
 package de.fhdo.swt.example.swtexampleapplication.controller;
 
-import de.fhdo.swt.example.swtexampleapplication.entity.Journey;
 import de.fhdo.swt.example.swtexampleapplication.entity.SupportTicket;
 import de.fhdo.swt.example.swtexampleapplication.repository.SupportTicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,10 @@ public class SupportTicketController {
         return "support";
     }
 
-    @GetMapping("/support/add")
-    public String showAddSupportTicketForm(Journey journey)
-    {
-        return "add-journey";
-    }
+    // @GetMapping("/support/add")
+    // public String showAddSupportTicketForm(Journey journey)
+    // {
+    //     return "add-journey";
+    // }
 
 }
