@@ -1,15 +1,15 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Holiday {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -27,6 +27,9 @@ public class Holiday {
     private String priceModel;
 
     private String travelAgency;
+    
+    @OneToMany
+    private Set<Rating> ratings;
 
     public String getCountry() {
         return country;
