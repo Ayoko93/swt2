@@ -1,6 +1,7 @@
 package de.fhdo.swt.example.swtexampleapplication.exception;
 
 public class JourneyNotFoundException extends RuntimeException {
+    private static final long serialVersionUID = 7765290896601941101L;
 
     public JourneyNotFoundException() {
         super();

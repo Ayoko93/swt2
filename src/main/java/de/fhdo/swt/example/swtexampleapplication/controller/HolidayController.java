@@ -3,7 +3,6 @@ package de.fhdo.swt.example.swtexampleapplication.controller;
 import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
 import de.fhdo.swt.example.swtexampleapplication.entity.Holidays;
 import de.fhdo.swt.example.swtexampleapplication.entity.RecommendedHotels;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
