@@ -4,9 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import java.util.Optional;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import javax.annotation.Nullable;
 
@@ -35,6 +34,7 @@ public class Rating {
     /**
      * The author of this rating.
      */
+    @OneToOne
     private UserProfile author;
 
     /**
@@ -45,12 +45,13 @@ public class Rating {
     /**
      * The comment left by the author. May be null.
      */
-    private Optional<String> comment;
+    @Nullable
+    private String comment;
 
     /**
      * The holiday the rating is for.
      */
-    @OneToMany
+    @ManyToOne
     private Holiday holiday;
 
     /**
@@ -70,7 +71,7 @@ public class Rating {
             Holiday holiday) {
         setAuthor(author);
         setRating(stars);
-        this.comment = Optional.ofNullable(comment);
+        this.comment = comment;
         setHoliday(holiday);
     }
 
@@ -131,9 +132,10 @@ public class Rating {
     }
 
     /**
-     * @return the comment written by the author, if set
+     * @return the comment written by the author or {@code null} if there is
+     *         none
      */
-    public Optional<String> getComment() {
+    public String getComment() {
         return comment;
     }
 
@@ -143,14 +145,14 @@ public class Rating {
      *                remove it
      */
     public void setComment(@Nullable String comment) {
-        this.comment = Optional.ofNullable(comment);
+        this.comment = comment;
     }
 
     /**
      * Remove the comment of this rating.
      */
     public void removeComment() {
-        this.comment = Optional.empty();
+        this.comment = null;
     }
 
     /**

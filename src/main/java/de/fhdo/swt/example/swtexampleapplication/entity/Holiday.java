@@ -1,7 +1,7 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +28,7 @@ public class Holiday {
 
     private String travelAgency;
     
-    @ManyToOne
+    @OneToMany
     private Set<Rating> ratings;
 
     public String getCountry() {
