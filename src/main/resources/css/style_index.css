@@ -1,7 +1,14 @@
+/* ------------------------ general settings ---------------------------*/
 * {
   font-family: Helvetica, Arial, "Courier New", Courier, monospace;
 }
 
+h2 {
+  color: green;
+}
+
+
+/* ------------------------ navigation header design settings ---------------------------*/
 header nav a {
   text-decoration: none;
   background-color: #00ff00;
@@ -12,10 +19,6 @@ header nav a {
   color: black;
 }
 
-body {
-  margin: 0px;  
-}
-
 header {
   background-color: rgb(30, 30, 30);
   padding: 15px;
@@ -24,17 +27,6 @@ header {
 header #header{
   max-width: 1500px;
   margin: 0 auto;
-}
-
-
-
-#centerdesign{
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-header :hover {
-  color: white;
 }
 
 header nav {
@@ -50,6 +42,30 @@ header nav#login{
   float: right;
 }
 
+header :hover {
+  color: white;
+}
+
+/* ------------------------body settings ---------------------------*/
+
+#centerdesign{
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0px;  
+}
+
+div#centerdesign {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  padding: 15px;
+}
+
 aside {
   padding: 3px;
   margin: 10px;
@@ -63,18 +79,11 @@ aside h4{
 }
 
 footer {
-  position: fixed;
-  bottom: 10px;
-  left: 15px;
-}
-
-div#centerdesign {
-  display: flex;
-  flex-direction: column;
-
+  padding: 15px;
 }
 
 
+/* ------------------------ display size settings ---------------------------*/
 @media screen and (max-width: 768px) {
   header nav#menu {
     display: flex;
@@ -82,7 +91,8 @@ div#centerdesign {
   }
 
   header img{
-    height: 100px;
+    width: 90%;
+    height: auto;
   }
 
 }
