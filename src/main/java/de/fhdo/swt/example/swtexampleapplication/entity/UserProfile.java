@@ -1,11 +1,14 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserProfile {
@@ -14,8 +17,13 @@ public class UserProfile {
     private long id;
 
     private String lastName, firstName, mailAdress, password, bankAccNumber;
-    private int bankAccId; // optional
     private Date birthDate;
+
+    @Column(nullable = true)
+    private int bankAccId; // optional
+
+    @OneToMany
+    private Set<Rating> ratings;
 
     // Constructors
     // 1. necessary
