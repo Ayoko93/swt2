@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class RecommendedHotels extends ArrayList<Holiday> {
+    private static final long serialVersionUID = 5703517368533614451L;
 
-    public RecommendedHotels(){
+    public RecommendedHotels() {
         for(int i = 1; i <= 5; i++)
         {
             Holiday h = new Holiday();

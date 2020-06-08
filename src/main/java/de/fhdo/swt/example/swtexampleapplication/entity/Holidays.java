@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Holidays extends ArrayList<Holiday> {
+    private static final long serialVersionUID = -6660835738761367121L;
 
-    public Holidays(){
+    public Holidays() {
         for(int i = 1; i <= 10; i++)
         {
             Holiday h = new Holiday();
