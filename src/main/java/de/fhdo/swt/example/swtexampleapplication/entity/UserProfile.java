@@ -4,29 +4,29 @@ import java.util.Date;
 
 
 public class UserProfile {
-    private String lastname, firstname, mailadress, password, bankAccNumber;
+    private String lastName, firstName, mailAdress, password, bankAccNumber;
     private int bankAccId; // optional
-    private Date birthdate;
+    private Date birthDate;
 
     // Constructors
     // 1. necessary
-    public UserProfile(String lastname, String firstname, String mailadress, String password) {
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.mailadress = mailadress;
+    public UserProfile(String lastName, String firstName, String mailAdress, String password) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.mailAdress = mailAdress;
         this.password = password;
 
     }
 
     // 2. necessary + birthdate
-    public UserProfile(String lastname, String firstname, String mailadress, String password, Date birthdate) {
-        this(lastname, firstname, mailadress, password);
-        this.birthdate = birthdate;
+    public UserProfile(String lastName, String firstName, String mailAdress, String password, Date birthDate) {
+        this(lastName, firstName, mailAdress, password);
+        this.birthDate = birthDate;
     }
 
     // 3. ALL inclusive
-    public UserProfile(String lastname, String firstname, String mailadress, String password, Date birthdate, String bankAccNumber) {
-        this(lastname, firstname, mailadress, password, birthdate);
+    public UserProfile(String lastName, String firstName, String mailAdress, String password, Date birthDate, String bankAccNumber) {
+        this(lastName, firstName, mailAdress, password, birthDate);
         this.bankAccNumber = bankAccNumber;
     }
 
@@ -34,28 +34,28 @@ public class UserProfile {
 
 
     // Setter & Getter of Attributes
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getMailadress() {
-        return mailadress;
+    public String getMailAdress() {
+        return mailAdress;
     }
 
-    public void setMailadress(String mailadress) {
-        this.mailadress = mailadress;
+    public void setMailAdress(String mailAdress) {
+        this.mailAdress = mailAdress;
     }
 
     public String getPassword() {
@@ -74,12 +74,12 @@ public class UserProfile {
         this.bankAccNumber = bankAccNumber;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public int getBankAccId() {
