@@ -1,0 +1,99 @@
+.holiday-card {
+    margin: 10px;
+    height: auto;
+    display: grid;
+    align-items: center;
+
+
+    grid-template-columns: 380px 10px auto auto 10%;
+    grid-template-areas: "img . name  name   price"
+                         "img . desc  desc   desc"
+                         "img . from  until  details";
+                         border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #F7F7F7;
+    padding: 10px;
+}
+
+.holiday-card img {
+    grid-area: img;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hotel-name {
+    grid-area: name;
+    font-style: italic;
+}
+
+.hotel-price {
+    grid-area: price;
+    color: green;
+    font-weight: bold;
+}
+
+.hotel-description {
+    grid-area: desc;
+    text-align: left;
+}
+
+.hotel-startDate {
+    grid-area: from;
+}
+
+.hotel-endDate {
+    grid-area: until;
+}
+
+.hotel-showDetails{
+    grid-area: details;
+    border: 1px solid gray;
+    text-align: center;    
+
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 6px
+}
+
+.hotel-showDetails:hover{
+    background-color: limegreen;
+}  
+
+
+/* ------------------------ display size settings ---------------------------*/
+@media screen and (max-width: 768px) {
+
+    .hotel-name {
+        margin-top: 10px;
+    }
+
+    .holiday-card img {
+        width: auto;
+        height: 120px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+   
+     
+    .holiday-card {
+        height: auto;
+        align-content: center;
+        text-align: center;
+        align-self: center;
+        padding: 10px;
+        padding-bottom: 15px;
+        grid-template-rows: 30px 120px auto 40px 40px 20px;
+        grid-template-columns: auto;
+
+        grid-template-areas: "name name"
+                             "img   img"
+                             "desc  desc"
+                             "from  price"
+                             "until price"
+                             "details details";                            
+    }
+
+}

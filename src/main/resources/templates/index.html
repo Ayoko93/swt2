@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raumbuchung</title>
-    <link rel="stylesheet" type="text/css" href="../css/index_style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style_index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style_holiday_card.css" />
   </head>
 
   <body>
@@ -53,18 +53,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         <h2>Suche deinen traumhaften Urlaub</h2>
         <div class="search-bar">
             <form>
@@ -90,63 +78,13 @@
             <img class="hotel-img" src="../img/example.jfif" alt="Bild vom Hotel"/>
             <!--<p class="hotel-country" th:text="${recommended.country}">Germany</p>-->
             <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
-            <p class="hotel-description" th:text="${recommended.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
+            <p class="hotel-description" th:text="${recommended.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service </p>
             <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
             <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
             <p class="hotel-price" th:text="${recommended.price}">2500€</p>
             <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
         </div>
     
-        <div th:each="recommended : ${recommendations}" class="holiday-card">
-            <h4 class="hotel-name" th:text="${recommended.hotelName}">Luxury Bahia Principe Akumal</h4>
-            <img class="hotel-img" src="../img/example.jfif" alt="Bild vom Hotel"/>
-            <!--<p class="hotel-country" th:text="${recommended.country}">Germany</p>-->
-            <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
-            <p class="hotel-description" th:text="${recommended.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
-            <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
-            <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
-            <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-            <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
-        </div>
-    
-        <h3>Sonst bieten wir noch folgendes an...</h3>
-        <div th:each="recommended : ${recommendations}" class="holiday-card">
-            <h4 class="hotel-name" th:text="${recommended.hotelName}">Luxury Bahia Principe Akumal</h4>
-            <img class="hotel-img" src="../img/example.jfif" alt="Bild vom Hotel"/>
-            <!--<p class="hotel-country" th:text="${recommended.country}">Germany</p>-->
-            <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
-            <p class="hotel-description" th:text="${recommended.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
-            <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
-            <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
-            <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-            <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -157,11 +95,13 @@
 
 
       </main>
+      
+      <footer>
+        <br />
+        <small>&copy;Copyright FAK Technology</small>
+      </footer>
     </div>
 
-    <footer>
-      <br />
-      <small>&copy;Copyright FAK Technology</small>
-    </footer>
+
   </body>
 </html>
