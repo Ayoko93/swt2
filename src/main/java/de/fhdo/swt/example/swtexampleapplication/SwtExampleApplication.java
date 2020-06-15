@@ -32,7 +32,7 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday.setCountry("Germany");
 		holiday.setCurrency("Euro");
 		holiday.setHotelName("ABC Hotel");
-		holiday.setPrice(50);
+		holiday.setPricePerDay(50);
 		holiday.setPriceModel("ABC");
 		holiday.setTravelAgency("ABC Travel");
 		holiday.setStartDate(Date.from(Instant.now()));
