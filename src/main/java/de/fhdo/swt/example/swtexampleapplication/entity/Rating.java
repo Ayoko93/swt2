@@ -79,7 +79,7 @@ public class Rating {
                     + "rating has to be between 0 and 5");
     }
 
-   
+
     public String getComment() {
         return comment;
     }
