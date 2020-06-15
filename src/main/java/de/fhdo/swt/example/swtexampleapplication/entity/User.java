@@ -3,6 +3,7 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 import java.util.Date;
 import java.util.Set;
 
+import javax.annotation.Nullable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,8 +20,9 @@ public class User {
     private String lastName, firstName, mailAdress, password, bankAccNumber;
     private Date birthDate;
 
+    @Nullable
     @Column(nullable = true)
-    private int bankAccId; // optional
+    private int bankAccId;
 
     @OneToMany
     private Set<Rating> ratings;
