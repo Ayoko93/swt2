@@ -1,7 +1,5 @@
 package de.fhdo.swt.example.swtexampleapplication.service;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 /**
@@ -10,10 +8,11 @@ import javax.validation.Valid;
  */
 public interface EntityService<T> {
 	/**
-	 * Finds all data of type {@code T} and returns it as a list
+	 * Finds all data of type {@code T} and returns them in an iterable
+	 * container.
 	 * @return all instances of {@code T} found in the database
 	 */
-	public List<T> findAll();
+	public Iterable<T> findAll();
 
 	/**
 	 * Finds a specifiy table entry of type {@code T} by it's id.
@@ -23,11 +22,11 @@ public interface EntityService<T> {
 	public T findById(long id);
 
 	/**
-	 * Save a list of valid instances of type {@code T} in the database. This
-	 * method may be used to add as well as update entities.
-	 * @param entities the list of entities to save.
+	 * Save an iterable container of valid instances of type {@code T} in the
+	 * database. This method may be used to add as well as update entities.
+	 * @param entities the container of entities to save.
 	 */
-	public void saveAll(@Valid List<T> entities);
+	public void saveAll(@Valid Iterable<T> entities);
 
 	/**
 	 * Save a valid instance of type {@code T} in the database. This method may

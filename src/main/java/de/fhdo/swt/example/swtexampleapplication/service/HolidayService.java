@@ -1,6 +1,5 @@
 package de.fhdo.swt.example.swtexampleapplication.service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import javax.validation.Valid;
@@ -29,8 +28,8 @@ public class HolidayService implements EntityService<Holiday> {
 	 * @return all holidays found in the corresponding table
 	 */
 	@Override
-	public List<Holiday> findAll() {
-		return (List<Holiday>)repo.findAll();
+	public Iterable<Holiday> findAll() {
+		return repo.findAll();
 	}
 
 	/**
@@ -55,7 +54,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * 									it is {@code null}
 	 */
 	@Override
-	public void saveAll(@Valid List<Holiday> holidays) {
+	public void saveAll(@Valid Iterable<Holiday> holidays) {
 		repo.saveAll(holidays);
 	}
 
