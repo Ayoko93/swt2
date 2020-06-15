@@ -63,6 +63,7 @@ main{
     background-color: green;
     color: white;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 .hotel-showDetails:hover {
@@ -81,4 +82,16 @@ main{
 .place::before {
     content: url("../img/place-icon16.png");
     margin-right: 5px;
+}
+
+.buchen-button{
+    float: right;
+    border-radius: 5px;
+    background-color: green;
+    border: 1px solid gray;
+    color: white;
+}
+
+.buchen-button:hover{
+    background-color: limegreen;
 }
