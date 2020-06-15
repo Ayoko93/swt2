@@ -14,6 +14,7 @@ import javax.annotation.Nullable;
 /**
  * A data class for a Rating. Holds information about the author, the rating as
  * well as any comment left by the author.
+ * @author Jan Preuschoff
  */
 @Entity
 public class Rating {
@@ -31,11 +32,13 @@ public class Rating {
      * The primary identifier of this rating. Basically the primary key inside
      * the database table. Of no further use in the program.
      */
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    /**
+     * The author of this rating.
+     */
     @ManyToOne
     private User author;
 
