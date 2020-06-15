@@ -16,12 +16,18 @@ public class Holiday {
     private long id;
 
     private String country;
+
+
+    private String continent;
     private String city;
     private String hotelName;
 
     private Date startDate;
     private Date endDate;
-    private double price;
+
+
+    private int travelDuration;
+    private double pricePerDay;
     private String currency;
 
     private String description;
@@ -72,12 +78,12 @@ public class Holiday {
         this.endDate = endDate;
     }
 
-    public double getPrice() {
-        return price;
+    public double getPricePerDay() {
+        return pricePerDay;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPricePerDay(double pricePerDay) {
+        this.pricePerDay = pricePerDay;
     }
 
     public String getCurrency() {
@@ -119,4 +125,13 @@ public class Holiday {
     public void setId(long id) {
         this.id = id;
     }
+
+    public int getTravelDuration() { return travelDuration; }
+
+    public void setTravelDuration(int travelDuration) { this.travelDuration = travelDuration; }
+
+    public String getContinent() { return continent; }
+
+    public void setContinent(String continent) { this.continent = continent; }
+
 }

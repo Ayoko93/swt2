@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html xmlns:th="http://thymeleaf.org">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raumbuchung</title>
-    <link rel="stylesheet" type="text/css" href="../css/style_index.css" />
-    <link rel="stylesheet" type="text/css" href="../css/style_holiday_card.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style_index.css" th:href="@{/css/style_index.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style_holiday_card.css" />
   </head>
 
   <body>
@@ -17,7 +17,7 @@
         </nav>
 
         <div id="logo">
-          <a href="dashboard.html">
+          <a href="index.html">
             <img src="../img/titel.png" height="120" alt="Titelbild" />
           </a>
           <br/>
@@ -70,7 +70,7 @@
             <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
             <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
             <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-            <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
+            <a class="hotel-showDetails" href="holiday-detail.html">Details anzeigen</a>
         </div>
     
         <div th:each="recommended : ${recommendations}" class="holiday-card">
@@ -82,7 +82,7 @@
             <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
             <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
             <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-            <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
+            <a class="hotel-showDetails" href="holiday-detail.html">Details anzeigen</a>
         </div>
     
 

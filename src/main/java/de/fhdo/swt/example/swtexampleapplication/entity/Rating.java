@@ -31,13 +31,11 @@ public class Rating {
      * The primary identifier of this rating. Basically the primary key inside
      * the database table. Of no further use in the program.
      */
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    /**
-     * The author of this rating.
-     */
     @ManyToOne
     private User author;
 
@@ -55,9 +53,7 @@ public class Rating {
     @Column(nullable = true)
     private String comment;
 
-    /**
-     * The holiday the rating is for.
-     */
+
     @ManyToOne
     private Holiday holiday;
 
@@ -119,9 +115,6 @@ public class Rating {
             this.author = author;
     }
 
-    /**
-     * @return the amount of stars given by the author of this rating
-     */
     public int getRating() {
         return stars;
     }
@@ -166,18 +159,12 @@ public class Rating {
         this.comment = null;
     }
 
-    /**
-     * @return the holiday this rating is for
-     */
+
     public Holiday getHoliday() {
         return holiday;
     }
 
-    /**
-     * Sets the holiday this rating is for.
-     * @param holiday the holiday this rating is for
-     * @throws NullPointerException if {@code holiday} is {@code null}
-     */
+
     public void setHoliday(Holiday holiday) {
         if(holiday == null)
             throw new NullPointerException("Holiday is null");
