@@ -19,7 +19,7 @@ public class RecommendedHotels extends ArrayList<Holiday> {
             h.setEndDate(new Date());
             h.setStartDate(new Date());
             h.setHotelName("Golden 5 Diamond Resort");
-            h.setPrice(1200.15);
+            h.setPricePerDay(1200.15);
             h.setPriceModel("All-inclusive");
             h.setTravelAgency("DER Touristik");
 

@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HolidayController {
 
-    @GetMapping("/holidays")
+    @GetMapping("/")
     public String showHolidaysForm(Holiday holiday, Model model){
         model.addAttribute("holidays", new Holidays());
         model.addAttribute("recommendations", new RecommendedHotels());
-        return "holidays";
+        return "index";
     }
+
+
 
 }

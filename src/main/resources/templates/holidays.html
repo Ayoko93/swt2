@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Holiday</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
         <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
         <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
         <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-        <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
+        <a class="hotel-showDetails" href="hotel-detail.html">Details anzeigen</a>
     </div>
 
     <div th:each="recommended : ${recommendations}" class="holiday-card">
@@ -36,7 +36,7 @@
         <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
         <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
         <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-        <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
+        <a class="hotel-showDetails" href="hotel-detail.html">Details anzeigen</a>
     </div>
 
     <div th:each="recommended : ${recommendations}" class="holiday-card">
@@ -48,7 +48,7 @@
         <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
         <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
         <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-        <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
+        <a class="hotel-showDetails" href="hotel-detail.html">Details anzeigen</a>
     </div>
 
     <h3>Sonst bieten wir noch folgendes an...</h3>
@@ -61,7 +61,7 @@
         <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
         <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
         <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-        <a class="hotel-showDetails" href="hotel-details.html">Details anzeigen</a>
+        <a class="hotel-showDetails" href="hotel-detail.html">Details anzeigen</a>
     </div>
 
 </body>
