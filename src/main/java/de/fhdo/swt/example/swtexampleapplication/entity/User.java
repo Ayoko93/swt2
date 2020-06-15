@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class UserProfile {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -27,7 +27,7 @@ public class UserProfile {
 
     // Constructors
     // 1. necessary
-    public UserProfile(String lastName, String firstName, String mailAdress, String password) {
+    public User(String lastName, String firstName, String mailAdress, String password) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.mailAdress = mailAdress;
@@ -36,13 +36,13 @@ public class UserProfile {
     }
 
     // 2. necessary + birthdate
-    public UserProfile(String lastName, String firstName, String mailAdress, String password, Date birthDate) {
+    public User(String lastName, String firstName, String mailAdress, String password, Date birthDate) {
         this(lastName, firstName, mailAdress, password);
         this.birthDate = birthDate;
     }
 
     // 3. ALL inclusive
-    public UserProfile(String lastName, String firstName, String mailAdress, String password, Date birthDate, String bankAccNumber) {
+    public User(String lastName, String firstName, String mailAdress, String password, Date birthDate, String bankAccNumber) {
         this(lastName, firstName, mailAdress, password, birthDate);
         this.bankAccNumber = bankAccNumber;
     }
