@@ -4,9 +4,6 @@ public class HolidayFinder {
 
     private int destinationId;
 
-
-
-
     public double calcPrice(Holiday exampleHoliday)
     {
 
