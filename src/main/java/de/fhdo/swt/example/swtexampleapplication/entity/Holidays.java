@@ -17,7 +17,7 @@ public class Holidays extends ArrayList<Holiday> {
             h.setEndDate(new Date());
             h.setStartDate(new Date());
             h.setHotelName("Bahia Principe Luxury Akumal");
-            h.setPrice(2500.99);
+            h.setPricePerDay(2500.99);
             h.setPriceModel("All-inclusive");
             h.setTravelAgency("ITS Reisen");
 

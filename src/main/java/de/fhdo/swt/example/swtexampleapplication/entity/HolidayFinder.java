@@ -3,26 +3,19 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 public class HolidayFinder {
 
     private int destinationId;
-    private double pricePerDay;
-    private double allPrice;
 
 
-    public double getPricePerDay() {
-        return pricePerDay;
-    }
 
-    public void setPricePerDay(Holiday exampleHoliday) {
-        this.pricePerDay =  exampleHoliday.getPrice() / exampleHoliday.getTravelDuration();
-    }
 
     public double calcPrice(Holiday exampleHoliday)
     {
-        this.allPrice = exampleHoliday.getTravelDuration() * pricePerDay;
-        return allPrice;
+
+        return exampleHoliday.getTravelDuration() * exampleHoliday.getPricePerDay();
     }
 
-    public boolean checkBelow(int priceIdea)
+    public boolean checkPriceRange(Holiday exampleHoliday, int priceIdea)
     {
+        double allPrice = calcPrice(exampleHoliday);
         if (allPrice != 0) {
              if (allPrice < priceIdea){
                 return true;
@@ -31,6 +24,21 @@ public class HolidayFinder {
         return false;
     }
 
+    public boolean checkContinent(Holiday exampleHoliday, String continent){
+        if (exampleHoliday.getContinent() == continent)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkCity(Holiday exampleHoliday, String city){
+        if (exampleHoliday.getContinent() == city)
+        {
+            return true;
+        }
+        return false;
+    }
     // For one Search
     private int destinationRange = 10;
 
