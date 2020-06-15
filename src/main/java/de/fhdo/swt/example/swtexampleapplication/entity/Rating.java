@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import javax.annotation.Nullable;
+
 
 /**
  * A data class for a Rating.
@@ -31,7 +31,7 @@ public class Rating {
     private int stars;
 
 
-    @Nullable
+
     @Column(nullable = true)
     private String comment;
 
@@ -40,7 +40,7 @@ public class Rating {
     private Holiday holiday;
 
 
-    public Rating(UserProfile author, int stars, @Nullable String comment,
+    public Rating(UserProfile author, int stars,  String comment,
             Holiday holiday) {
         setAuthor(author);
         setRating(stars);
@@ -85,7 +85,7 @@ public class Rating {
     }
 
 
-    public void setComment(@Nullable String comment) {
+    public void setComment( String comment) {
         this.comment = comment;
     }
 
