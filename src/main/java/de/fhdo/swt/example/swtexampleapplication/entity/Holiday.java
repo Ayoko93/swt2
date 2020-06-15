@@ -20,6 +20,9 @@ public class Holiday {
 
     private Date startDate;
     private Date endDate;
+
+
+    private int travelDuration;
     private double price;
     private String currency;
 
@@ -117,5 +120,12 @@ public class Holiday {
 
     public void setId(long id) {
         this.id = id;
+    }
+    public int getTravelDuration() {
+        return travelDuration;
+    }
+
+    public void setTravelDuration(int travelDuration) {
+        this.travelDuration = travelDuration;
     }
 }
