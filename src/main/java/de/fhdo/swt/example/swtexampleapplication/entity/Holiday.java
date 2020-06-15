@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -29,7 +30,7 @@ public class Holiday {
     private String travelAgency;
     
     @OneToMany
-    private Set<Rating> ratings;
+    private Set<Rating> ratings = new HashSet<Rating>();
 
     public String getCountry() {
         return country;
