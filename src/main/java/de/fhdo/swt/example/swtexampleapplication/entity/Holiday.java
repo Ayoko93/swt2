@@ -38,6 +38,10 @@ public class Holiday {
     @OneToMany
     private Set<Rating> ratings = new HashSet<Rating>();
 
+    public long getId() {
+        return id;
+    }
+
     public String getCountry() {
         return country;
     }
@@ -116,10 +120,6 @@ public class Holiday {
 
     public void setTravelAgency(String travelAgency) {
         this.travelAgency = travelAgency;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public void setId(long id) {

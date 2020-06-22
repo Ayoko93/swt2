@@ -17,7 +17,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String lastName, firstName, mailAdress, password, bankAccNumber;
+    private String lastName;
+
+    private String firstName;
+
+    private String mailAdress;
+
+    private String password;
+
+    @Nullable
+    @Column(nullable = true)
+    private String bankAccNumber;
+
+    @Nullable
+    @Column(nullable = true)
     private Date birthDate;
 
     @Nullable
@@ -56,6 +69,10 @@ public class User {
 
 
     // Setter & Getter of Attributes
+    public long getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
