@@ -47,8 +47,6 @@
   
         <main id="hauptinhalt">
                 <h2 th:text="${holiday.hotelName}">Hotelname</h2>
-        
-        
                 
                 <div class="row">
                     <p class="place"><b th:text="@{${holiday.country} + ' - ' + ${holiday.city}}">Country - </b></p>
@@ -76,65 +74,7 @@
                 </form>
   
         </main>
-        
-        <footer>
-          <br />
-        </div>
 
-        <nav id="menu">
-          <a href="index.html">Suche</a>
-          <a href="index.html">Meine Buchungen</a>
-          <a href="index.html">Favoriten</a>
-          <a href="impressum.html">Impressum</a>
-        </nav>
-      </div>
-    </header>
-
-    <div id="centerdesign">
-      <aside id="zusatzinformationen">
-        <h4>Unterstützung zum Coronavirus (COVID-19)</h4>
-
-        Bitte informieren Sie sich über Reiseeinschränkungen. Möglicherweise
-        sind Reisen nur für bestimmte Zwecke erlaubt und insbesondere
-        touristische Reisen sind unter Umständen nicht gestattet.
-      </aside>
-
-      <main id="hauptinhalt">
-        <h2>
-          Bahia Principe Luxury Akumal &starf;&starf;&starf;&starf;&starf;
-        </h2>
-
-        <div class="row">
-          <p class="place"><b>Mexiko - Akumal</b></p>
-          <p><b>Bewertung:</b> &starf;&starf;&starf;&starf;&star;</p>
-        </div>
-
-        <img width="100%" src="../img/example.jfif" alt="Bild vom Hotel" />
-
-        <h3>Beschreibung</h3>
-        <p>
-          Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte
-          Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer
-          suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets
-          bietet Exklusivität on top.
-        </p>
-
-        <div class="hotel-details row">
-          <p><b>Zeitraum:</b> 01.07.2020 - 15.07.2020</p>
-          <p><b>Verpflegung:</b> all-inclusive</p>
-          <p><b>Reiseveranstalter:</b> DER Touristik</p>
-          <p><b>Preis:</b> 2500&euro;</p>
-        </div>
-
-        <form action="POST">
-          <input
-            class="buchen-button"
-            type="submit"
-            name="buchen"
-            value="Kostenpflichtig buchen"
-          />
-        </form>
-      </main>
 
       <footer>
         <br />
