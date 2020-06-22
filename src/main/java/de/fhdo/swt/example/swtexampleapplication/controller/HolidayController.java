@@ -18,7 +18,7 @@ public class HolidayController {
     public String showHolidaysForm(Holiday holiday, Model model){
         Iterable<Holiday> data = service.findAll();
         model.addAttribute("holidays", data);
-        model.addAttribute("recommended", data);
+        model.addAttribute("recommendations", data);
         return "index";
     }
 

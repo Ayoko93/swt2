@@ -55,7 +55,7 @@
     
         <h3>Wir empfehlen Ihnen...</h3>
         <div th:each="recommended : ${recommendations}" class="holiday-card">
-            <h4 class="hotel-name" th:text="${recommended.hotelName}">Luxury Bahia Principe Akumal</h4>
+            <h4 class="hotel-name" th:text="${recommended.hotel.name}">Luxury Bahia Principe Akumal</h4>
             <img class="hotel-img" src="../static/img/example.jfif" th:src="@{/img/example.jfif}" alt="Bild vom Hotel"/>
             <!--<p class="hotel-country" th:text="${recommended.country}">Germany</p>-->
             <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
