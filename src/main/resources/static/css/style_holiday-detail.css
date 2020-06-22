@@ -8,7 +8,7 @@
 }
 
 .place::before {
-    content: url("../../img/place-icon16.png");
+    content: url("../img/place-icon16.png");
     margin-right: 5px;
 }
 

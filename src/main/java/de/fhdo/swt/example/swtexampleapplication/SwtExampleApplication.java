@@ -40,17 +40,29 @@ public class SwtExampleApplication implements CommandLineRunner {
 				+ "dolore culpa tempor exercitation mollit commodo nisi et.");
 		hotelService.save(hotel);
 
-		Holiday holiday = new Holiday();
-		holiday.setHotel(hotel);
-		holiday.setCurrency("Euro");
-		holiday.setPricePerDay(50);
-		holiday.setPriceModel("ABC");
-		holiday.setTravelAgency("ABC Travel");
-		holiday.setStartDate(Date.from(Instant.now()));
-		holiday.setStartDate(Date.from(Instant.now()));
+		Holiday holiday1 = new Holiday();
+		holiday1.setHotel(hotel);
+		holiday1.setCurrency("Euro");
+		holiday1.setPricePerDay(50);
+		holiday1.setPriceModel("ABC");
+		holiday1.setTravelAgency("ABC Travel");
+		holiday1.setStartDate(Date.from(Instant.now()));
+		holiday1.setStartDate(Date.from(Instant.now()));
 
-		holidayService.save(holiday);
+		Holiday holiday2 = new Holiday();
+		holiday2.setHotel(hotel);
+		holiday2.setCurrency("Euro");
+		holiday2.setPricePerDay(50);
+		holiday2.setPriceModel("ABC");
+		holiday2.setTravelAgency("ABC Travel");
+		holiday2.setStartDate(Date.from(Instant.now()));
+		holiday2.setStartDate(Date.from(Instant.now()));
+
+		holidayService.save(holiday1);
+		holidayService.save(holiday2);
 		userService.save(new User("Preuschoff", "Jan",
 				"preuschoffjan@gmail.com", "123456"));
+		
+		hotel.getHolidays().forEach(e -> System.out.println(e.getId()));
 	}
 }

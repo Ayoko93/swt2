@@ -1,27 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet" type="text/css" href="../static/css/style_index.css" th:href="@{/css/style_index.css}" />
-    <link
-      rel="stylesheet" type="text/css" href="../static/css/style_holiday-detail.css" />
-    <title>Bahia Principe Luxury Akumal</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/style_index.css" th:href="@{/css/style_index.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/style_holiday-detail.css" th:href="@{/css/style_holiday-detail.css}">
+    <title>FAK Reiseportal</title>
+</head>
+
+<body>
 
   <body>
     <header>
-      <div id="header">
-        <nav id="login">
-          <a href="login.html">Anmelden</a>
-          <a href="registration.html">Registrieren</a>
-        </nav>
-
-        <div id="logo">
-          <a href="index.html">
-            <img src="../img/titel.png" height="120" alt="Titelbild" />
-          </a>
+        <div id="header">
+          <nav id="login">
+            <a href="index.html">Anmelden</a>
+            <a href="index.html">Registrieren</a>
+          </nav>
+  
+          <div id="logo">
+            <a href="index.html">
+                <img src="../static/img/titel.png" th:src="@{/img/titel.png}" height="120" alt="Titelbild" />
+            </a>
+            <br/>
+          </div>
+  
+          <nav id="menu">
+            <a href="/">Suche</a>
+            <a href="index.html">Meine Buchungen</a>
+            <a href="index.html">Favoriten</a>
+            <a href="index.html">Impressum</a>
+          </nav>
+        </div>
+      </header>
+  
+  
+      <div id="centerdesign">
+  
+        <aside id="zusatzinformationen">
+          <h4>Unterstützung zum Coronavirus (COVID-19)</h4>
+          
+          Bitte informieren Sie sich über Reiseeinschränkungen. Möglicherweise
+          sind Reisen nur für bestimmte Zwecke erlaubt und insbesondere
+          touristische Reisen sind unter Umständen nicht gestattet.
+        </aside>
+  
+        <main id="hauptinhalt">
+                <h2 th:text="${holiday.hotelName}">Hotelname</h2>
+        
+        
+                
+                <div class="row">
+                    <p class="place"><b th:text="@{${holiday.country} + ' - ' + ${holiday.city}}">Country - </b></p>
+                    <p><b>Bewertung:</b> &starf;&starf;&starf;&starf;&star;</p>
+                </div>
+        
+                <img width="100%" src="../static/img/example.jfif" th:src="@{/img/example.jfif}" alt="Bild vom Hotel" />
+        
+                <h3>Beschreibung</h3>
+                <p th:text="${holiday.description}">
+                    Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service
+                    in einem Hotel am Meeresufer suchen.
+                    Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.
+                </p>
+        
+                <div class="hotel-details row">
+                    <p><b>Zeitraum:</b><span th:text="@{${holiday.startDate} + ' - ' + ${holiday.endDate}}">01.07.2020 - 15.07.2020</span></p>
+                    <p><b>Verpflegung:</b><span th:text="${holiday.priceModel}">all-inclusive</span></p>
+                    <p><b>Reiseveranstalter:</b><span th:text="${holiday.travelAgency}">DER Touristik</span></p>
+                    <p><b>Preis:</b><span th:text="${holiday.pricePerDay}">1200€</span></p>
+                </div>
+        
+                <form action="POST">
+                    <input class="buchen-button" type="submit" name="buchen" value="Kostenpflichtig buchen">
+                </form>
+  
+        </main>
+        
+        <footer>
           <br />
         </div>
 
