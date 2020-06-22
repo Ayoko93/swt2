@@ -17,7 +17,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String lastName, firstName, mailAdress, password, bankAccNumber;
+    private String lastName, firstName, mailAddress, password, bankAccNumber;
     private Date birthDate;
 
     @Nullable
@@ -34,7 +34,7 @@ public class User {
     public User(String lastName, String firstName, String mailAdress, String password) {
         this.lastName = lastName;
         this.firstName = firstName;
-        this.mailAdress = mailAdress;
+        this.mailAddress = mailAdress;
         this.password = password;
 
     }
@@ -71,12 +71,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getMailAdress() {
-        return mailAdress;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
-    public void setMailAdress(String mailAdress) {
-        this.mailAdress = mailAdress;
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
     }
 
     public String getPassword() {
