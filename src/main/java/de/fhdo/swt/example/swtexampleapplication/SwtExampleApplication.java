@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
+import de.fhdo.swt.example.swtexampleapplication.entity.User;
 import de.fhdo.swt.example.swtexampleapplication.service.EntityService;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -24,6 +25,8 @@ public class SwtExampleApplication implements CommandLineRunner {
 
 	@Autowired
 	EntityService<Holiday> holidayService;
+	@Autowired
+	EntityService<User> userService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -43,6 +46,9 @@ public class SwtExampleApplication implements CommandLineRunner {
 				+ "culpa tempor exercitation mollit commodo nisi et.");
 
 		holidayService.save(holiday);
-		holidayService.findAll().forEach(e -> System.out.println(e.getHotelName()));
+		holidayService.findAll().forEach(e -> System.out.println(e.getId()));
+
+		userService.save(new User("Preuschoff", "Jan", "preuschoffjan@gmail.com", "123456"));
+		userService.findAll().forEach(e -> System.out.println(e.getId()));
 	}
 }
