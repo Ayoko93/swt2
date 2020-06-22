@@ -25,11 +25,11 @@ public class SwtExampleApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	EntityService<Hotel> hotelService;
+	private EntityService<Hotel> hotelService;
 	@Autowired
-	EntityService<Holiday> holidayService;
+	private EntityService<Holiday> holidayService;
 	@Autowired
-	EntityService<User> userService;
+	private EntityService<User> userService;
 
 	@Override
 	public void run(String... args) throws Exception {
