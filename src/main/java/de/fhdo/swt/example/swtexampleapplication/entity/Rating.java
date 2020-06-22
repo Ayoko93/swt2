@@ -14,7 +14,6 @@ import javax.annotation.Nullable;
 /**
  * A data class for a Rating. Holds information about the author, the rating as
  * well as any comment left by the author.
- * @author Jan Preuschoff
  */
 @Entity
 public class Rating {

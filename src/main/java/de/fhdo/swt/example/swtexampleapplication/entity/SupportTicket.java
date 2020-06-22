@@ -87,4 +87,5 @@ public class SupportTicket {
     public void setComments(ArrayList<String> comments) {
         this.comments = comments;
     }
+
 }
