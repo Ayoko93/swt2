@@ -1,9 +1,10 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Nullable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -61,14 +62,14 @@ public class Hotel {
     /**
      * All ratings for this hotel.
      */
-    @OneToMany
-    private Set<Rating> ratings = new HashSet<Rating>();
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Rating> ratings = new ArrayList<>();
     
     /**
      * All holidays in this hotel.
      */
-	@OneToMany
-    private Set<Holiday> holidays = new HashSet<Holiday>();
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Holiday> holidays = new ArrayList<>();
     
     /**
      * Constructs an instance of this class.
@@ -243,14 +244,62 @@ public class Hotel {
     /**
      * @return the ratings for this hotel
      */
-    public Set<Rating> getRatings() {
+    public Iterable<Rating> getRatings() {
         return ratings;
+    }
+
+    /**
+     * Adds a rating for this hotel.
+     * @param rating the rating to add
+     * @throws IllegalArgumentException if {@code rating} is {@code null}
+     */
+    public void addRating(Rating rating) {
+        if(rating == null)
+            throw new IllegalArgumentException("Rating is null");
+        else if(ratings.add(rating))
+            rating.setHotel(this);
+    }
+
+    /**
+     * Removes a rating from this hotel.
+     * @param rating the rating to remove
+     * @throws IllegalArgumentException if {@code rating} is {@code null}
+     */
+    public void removeRating(Rating rating) {
+        if(rating == null)
+            throw new IllegalArgumentException("Rating is null");
+        else if(ratings.remove(rating) && rating.getHotel() == this)
+            rating.setHotel(null);
     }
 
     /**
      * @return the holidays this hotel is referenced in
      */
-    public Set<Rating> getHolidays() {
-        return ratings;
+    public Iterable<Holiday> getHolidays() {
+        return holidays;
+    }
+
+    /**
+     * Adds a holiday that references this hotel.
+     * @param holiday the holiday to add
+     * @throws IllegalArgumentException if {@code holiday} is {@code null}
+     */
+    public void addHoliday(Holiday holiday) {
+        if(holiday == null)
+            throw new IllegalArgumentException("Holiday is null");
+        else if(holidays.add(holiday))
+            holiday.setHotel(this);
+    }
+
+    /**
+     * Removes a holiday that no longer references this hotel.
+     * @param holiday the holiday to remove
+     * @throws IllegalArgumentException if {@code holiday} is {@code null}
+     */
+    public void removeHoliday(Holiday holiday) {
+        if(holiday == null)
+            throw new IllegalArgumentException("Holiday is null");
+        else if(holidays.remove(holiday) && holiday.getHotel() == this)
+            holiday.setHotel(null);
     }
 }

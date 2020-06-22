@@ -2,6 +2,7 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,13 +53,13 @@ public class Rating {
     /**
      * The author of this rating.
      */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User author;
 
     /**
      * The hotel this rating is for.
      */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Hotel hotel;
 
     /**
@@ -75,8 +76,8 @@ public class Rating {
      * @param author the author of this rating
      * @param hotel  the hotel this rating is for
      * 
-     * @throws IllegalArgumentException if either {@code author} or
-     *                                  {@code hotel} is {@code null}
+     * @throws IllegalArgumentException if either {@code author} is
+     *                                  {@code null}
      * @throws IllegalArgumentException if {@code stars} is outside the valid
      *                                  range of values defined by
      *                                  {@link #minStars} and {@link maxStars}
@@ -93,8 +94,8 @@ public class Rating {
      * @param author  the author of this rating
      * @param hotel   the hotel this rating is for
      * 
-     * @throws IllegalArgumentException if either {@code author} or
-     *                                  {@code hotel} is {@code null}
+     * @throws IllegalArgumentException if either {@code author} is
+     *                                  {@code null}
      * @throws IllegalArgumentException if {@code stars} is outside the valid
      *                                  range of values, defined by
      *                                  {@link #minStars} and {@link maxStars}
@@ -190,13 +191,9 @@ public class Rating {
 
     /**
      * Sets the hotel this rating is for.
-     * @param holiday the hotel this rating is for
-     * @throws IllegalArgumentException if {@code hotel} is {@code null}
+     * @param hotel the hotel this rating is for
      */
     public void setHotel(Hotel hotel) {
-        if(hotel == null)
-            throw new IllegalArgumentException("Holiday is null");
-        else
-            this.hotel = hotel;
+        this.hotel = hotel;
     }
 }
