@@ -239,4 +239,18 @@ public class Hotel {
     public void removeDescription() {
         this.description = null;
     }
+
+    /**
+     * @return the ratings for this hotel
+     */
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    /**
+     * @return the holidays this hotel is referenced in
+     */
+    public Set<Rating> getHolidays() {
+        return ratings;
+    }
 }
