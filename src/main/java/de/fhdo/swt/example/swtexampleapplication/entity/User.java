@@ -27,6 +27,9 @@ public class User {
     @OneToMany
     private Set<Rating> ratings;
 
+    public User() {
+    }
+
     // Constructors
     // 1. necessary
     public User(String lastName, String firstName, String mailAdress, String password) {
