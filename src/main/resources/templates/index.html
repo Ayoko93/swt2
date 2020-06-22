@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raumbuchung</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style_index.css" th:href="@{/css/style_index.css}"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/style_holiday_card.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style_holiday_card.css" th:href="@{/css/style_holiday_card.css}"/>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
 
         <div id="logo">
           <a href="index.html">
-            <img src="../img/titel.png" height="120" alt="Titelbild" />
+            <img src="../static/img/titel.png" th:src="@{/img/titel.png}" height="120" alt="Titelbild" />
           </a>
           <br/>
         </div>
@@ -45,9 +45,6 @@
 
       <main id="hauptinhalt">
 
-        
-
-
 
         <h2>Suche deinen traumhaften Urlaub</h2>
         <div class="search-bar">
@@ -59,34 +56,15 @@
         <h3>Wir empfehlen Ihnen...</h3>
         <div th:each="recommended : ${recommendations}" class="holiday-card">
             <h4 class="hotel-name" th:text="${recommended.hotelName}">Luxury Bahia Principe Akumal</h4>
-            <img class="hotel-img" src="../img/example.jfif" alt="Bild vom Hotel"/>
+            <img class="hotel-img" src="../static/img/example.jfif" th:src="@{/img/example.jfif}" alt="Bild vom Hotel"/>
             <!--<p class="hotel-country" th:text="${recommended.country}">Germany</p>-->
             <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
             <p class="hotel-description" th:text="${recommended.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
             <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
             <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
-            <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-            <a class="hotel-showDetails" href="holiday-detail.html">Details anzeigen</a>
+            <p class="hotel-price" th:text="${recommended.pricePerDay}">2500€</p>
+            <a class="hotel-showDetails" href="holiday-detail.html" th:href="@{'holiday/' + ${recommended.id}}">Details anzeigen</a>
         </div>
-    
-        <div th:each="recommended : ${recommendations}" class="holiday-card">
-            <h4 class="hotel-name" th:text="${recommended.hotelName}">Luxury Bahia Principe Akumal</h4>
-            <img class="hotel-img" src="../img/example.jfif" alt="Bild vom Hotel"/>
-            <!--<p class="hotel-country" th:text="${recommended.country}">Germany</p>-->
-            <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
-            <p class="hotel-description" th:text="${recommended.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service </p>
-            <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
-            <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
-            <p class="hotel-price" th:text="${recommended.price}">2500€</p>
-            <a class="hotel-showDetails" href="holiday-detail.html">Details anzeigen</a>
-        </div>
-    
-
-
-
-
-
-
 
       </main>
       

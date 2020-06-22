@@ -10,6 +10,7 @@ public class RecommendedHotels extends ArrayList<Holiday> {
         for(int i = 1; i <= 5; i++)
         {
             Holiday h = new Holiday();
+            h.setId(i);
             h.setCity("Hurghada");
             h.setCountry("Ägypten");
             h.setCurrency("Euro");
