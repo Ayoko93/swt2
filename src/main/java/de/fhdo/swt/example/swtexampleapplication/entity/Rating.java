@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.Range;
 import javax.annotation.Nullable;
 
 /**
- * A data class for a Rating. Holds information about the author, the rating as
+ * A data class for a rating. Holds information about the author, the rating as
  * well as any comment left by the author.
  * @author Jan Preuschoff
  */
@@ -57,10 +57,10 @@ public class Rating {
     private User author;
 
     /**
-     * The holiday this rating is for.
+     * The hotel this rating is for.
      */
     @ManyToOne
-    private Holiday holiday;
+    private Hotel hotel;
 
     /**
      * Constructs an instance of this class.
@@ -72,18 +72,18 @@ public class Rating {
     /**
      * Constructs an instance of this class.
      * 
-     * @param stars   the amount of stars given
-     * @param author  the author of this rating
-     * @param holiday the holiday this rating is for
+     * @param stars  the amount of stars given
+     * @param author the author of this rating
+     * @param hotel  the hotel this rating is for
      * 
-     * @throws IllegalArgumentException if either {@code author} or {@code holiday}
-     *                                  is {@code null}
+     * @throws IllegalArgumentException if either {@code author} or
+     *                                  {@code hotel} is {@code null}
      * @throws IllegalArgumentException if {@code stars} is outside the valid
      *                                  range of values defined by
      *                                  {@link #minStars} and {@link maxStars}
      */
-    public Rating(int stars, User author, Holiday holiday) {
-        this(stars, null, author, holiday);
+    public Rating(int stars, User author, Hotel hotel) {
+        this(stars, null, author, hotel);
     }
 
     /**
@@ -92,20 +92,27 @@ public class Rating {
      * @param stars   the amount of stars given
      * @param comment the comment left by the author
      * @param author  the author of this rating
-     * @param holiday the holiday this rating is for
+     * @param hotel   the hotel this rating is for
      * 
-     * @throws IllegalArgumentException if either {@code author} or {@code holiday}
-     *                                  is {@code null}
+     * @throws IllegalArgumentException if either {@code author} or
+     *                                  {@code hotel} is {@code null}
      * @throws IllegalArgumentException if {@code stars} is outside the valid
      *                                  range of values, defined by
      *                                  {@link #minStars} and {@link maxStars}
      */
     public Rating(int stars, @Nullable String comment, User author,
-            Holiday holiday) {
+            Hotel hotel) {
         setRating(stars);
         this.comment = comment;
         setAuthor(author);
-        setHoliday(holiday);
+        setHotel(hotel);
+    }
+
+    /**
+     * @return the unique identifier of this rating.
+     */
+    public long getId() {
+        return id;
     }
 
     /**
@@ -178,19 +185,19 @@ public class Rating {
     /**
      * @return the holiday this rating is for
      */
-    public Holiday getHoliday() {
-        return holiday;
+    public Hotel getHotel() {
+        return hotel;
     }
 
     /**
-     * Sets the holiday this rating is for.
-     * @param holiday the holiday this rating is for
-     * @throws IllegalArgumentException if {@code holiday} is {@code null}
+     * Sets the hotel this rating is for.
+     * @param holiday the hotel this rating is for
+     * @throws IllegalArgumentException if {@code hotel} is {@code null}
      */
-    public void setHoliday(Holiday holiday) {
-        if(holiday == null)
+    public void setHotel(Hotel hotel) {
+        if(hotel == null)
             throw new IllegalArgumentException("Holiday is null");
         else
-            this.holiday = holiday;
+            this.hotel = hotel;
     }
 }

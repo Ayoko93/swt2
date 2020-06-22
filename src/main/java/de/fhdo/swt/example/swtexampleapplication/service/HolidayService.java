@@ -28,7 +28,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * Finds a holiday by it's id.
 	 * @param id the holiday's id
 	 * @return the holiday the id belongs to
-	 * @throws NoSuchElementException of no holiday with the given id can be
+	 * @throws NoSuchElementException if no holiday with the given id can be
 	 * 								  found
 	 */
 	@Override
@@ -50,6 +50,8 @@ public class HolidayService implements EntityService<Holiday> {
 	/**
 	 * Save a valid holiday inside the database. This method may be used to add
 	 * as well as update a holiday.
+	 * @param holiday the holiday to save
+	 * @throws IllegalArgumentException if {@code holiday} is {@code null}
 	 */
 	@Override
 	public void save(@Valid Holiday holiday) {
