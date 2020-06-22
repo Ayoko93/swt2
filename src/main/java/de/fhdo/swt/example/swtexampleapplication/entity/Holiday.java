@@ -1,13 +1,13 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.annotation.Nullable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Holiday {
@@ -15,51 +15,26 @@ public class Holiday {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String country;
-
-
-    private String continent;
-    private String city;
-    private String hotelName;
-
+    @Nullable
+    @Column(nullable=true)
     private Date startDate;
-    private Date endDate;
 
+    @Nullable
+    @Column(nullable=true)
+    private Date endDate;
 
     private int travelDuration;
     private double pricePerDay;
     private String currency;
 
-    private String description;
     private String priceModel;
-
     private String travelAgency;
-    
-    @OneToMany
-    private Set<Rating> ratings = new HashSet<Rating>();
 
-    public String getCountry() {
-        return country;
-    }
+    @ManyToOne
+    private Hotel hotel;
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getHotelName() {
-        return hotelName;
-    }
-
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
+    public long getId() {
+        return id;
     }
 
     public Date getStartDate() {
@@ -94,14 +69,6 @@ public class Holiday {
         this.currency = currency;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getPriceModel() {
         return priceModel;
     }
@@ -118,20 +85,22 @@ public class Holiday {
         this.travelAgency = travelAgency;
     }
 
-    public long getId() {
-        return id;
+    public int getTravelDuration() {
+        return travelDuration;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setTravelDuration(int travelDuration) {
+        this.travelDuration = travelDuration;
     }
 
-    public int getTravelDuration() { return travelDuration; }
+    public Hotel getHotel() {
+        return hotel;
+    }
 
-    public void setTravelDuration(int travelDuration) { this.travelDuration = travelDuration; }
-
-    public String getContinent() { return continent; }
-
-    public void setContinent(String continent) { this.continent = continent; }
-
+    public void setHotel(Hotel hotel) {
+        if(hotel == null)
+            throw new IllegalArgumentException("Hotel is null");
+        else
+            this.hotel = hotel;
+    }
 }

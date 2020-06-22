@@ -2,14 +2,14 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import java.util.Date;
 
-public class HoliydayProfile {
+public class HolidayProfile {
     private Date startDate;
     private Date endDate;
     private int numberPersons;
     private String country;
     private String city;
 
-    public HoliydayProfile(Date startDate, Date endDate, int numberPersons, String country, String city) {
+    public HolidayProfile(Date startDate, Date endDate, int numberPersons, String country, String city) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.numberPersons = numberPersons;
@@ -17,7 +17,7 @@ public class HoliydayProfile {
         this.city = city;
     }
 
-    public HoliydayProfile(Date startDate, Date endDate, int numberPersons, String country) {
+    public HolidayProfile(Date startDate, Date endDate, int numberPersons, String country) {
        this(startDate, endDate, numberPersons, country,null);
     }
 

@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.Range;
 import javax.annotation.Nullable;
 
 /**
- * A data class for a Rating. Holds information about the author, the rating as
+ * A data class for a rating. Holds information about the author, the rating as
  * well as any comment left by the author.
  */
 @Entity
@@ -31,13 +31,9 @@ public class Rating {
      * The primary identifier of this rating. Basically the primary key inside
      * the database table. Of no further use in the program.
      */
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-    @ManyToOne
-    private User author;
 
     /**
      * The amount of stars the author gave.
@@ -53,68 +49,74 @@ public class Rating {
     @Column(nullable = true)
     private String comment;
 
-
+    /**
+     * The author of this rating.
+     */
     @ManyToOne
-    private Holiday holiday;
+    private User author;
+
+    /**
+     * The hotel this rating is for.
+     */
+    @ManyToOne
+    private Hotel hotel;
 
     /**
      * Constructs an instance of this class.
-     * 
-     * @param author  the author of this rating
-     * @param stars   the amount of stars given
-     * @param comment the comment left by the author
-     * @param holiday the holiday this rating is for
-     * 
-     * @throws NullPointerException if either {@code author} or {@code holiday}
-     *                              is {@code null}
-     * @throws IllegalArgumentException if {@code stars} is outside the valid
-     *                                  range of values, defined by
-     *                                  {@link #minStars} and {@link maxStars}
      */
-    public Rating(User author, int stars, @Nullable String comment,
-            Holiday holiday) {
-        setAuthor(author);
-        setRating(stars);
-        this.comment = comment;
-        setHoliday(holiday);
+    public Rating() {
+        stars = -1;
     }
 
     /**
      * Constructs an instance of this class.
      * 
-     * @param author  the author of this rating
-     * @param stars   the amount of stars given
-     * @param holiday the holiday this rating is for
+     * @param stars  the amount of stars given
+     * @param author the author of this rating
+     * @param hotel  the hotel this rating is for
      * 
-     * @throws NullPointerException if either {@code author} or {@code holiday}
-     *                              is {@code null}
+     * @throws IllegalArgumentException if either {@code author} or
+     *                                  {@code hotel} is {@code null}
      * @throws IllegalArgumentException if {@code stars} is outside the valid
      *                                  range of values defined by
      *                                  {@link #minStars} and {@link maxStars}
      */
-    public Rating(User author, int stars, Holiday holiday) {
-        this(author, stars, null, holiday);
+    public Rating(int stars, User author, Hotel hotel) {
+        this(stars, null, author, hotel);
     }
 
     /**
-     * @return the author of this rating
+     * Constructs an instance of this class.
+     * 
+     * @param stars   the amount of stars given
+     * @param comment the comment left by the author
+     * @param author  the author of this rating
+     * @param hotel   the hotel this rating is for
+     * 
+     * @throws IllegalArgumentException if either {@code author} or
+     *                                  {@code hotel} is {@code null}
+     * @throws IllegalArgumentException if {@code stars} is outside the valid
+     *                                  range of values, defined by
+     *                                  {@link #minStars} and {@link maxStars}
      */
-    public User getAuthor() {
-        return author;
+    public Rating(int stars, @Nullable String comment, User author,
+            Hotel hotel) {
+        setRating(stars);
+        this.comment = comment;
+        setAuthor(author);
+        setHotel(hotel);
     }
 
     /**
-     * Sets the author of this rating.
-     * @param author the author of this rating
-     * @throws NullPointerException if {@code author} is {@code null}
+     * @return the unique identifier of this rating.
      */
-    public void setAuthor(User author) {
-        if(author == null)
-            throw new NullPointerException("Author is null");
-        else
-            this.author = author;
+    public long getId() {
+        return id;
     }
 
+    /**
+     * @return the amount of stars given by the author
+     */
     public int getRating() {
         return stars;
     }
@@ -159,16 +161,42 @@ public class Rating {
         this.comment = null;
     }
 
+    /**
+     * @return the author of this rating
+     */
+    public User getAuthor() {
+        return author;
+    }
 
-    public Holiday getHoliday() {
-        return holiday;
+    /**
+     * Sets the author of this rating.
+     * @param author the author of this rating
+     * @throws IllegalArgumentException if {@code author} is {@code null}
+     */
+    public void setAuthor(User author) {
+        if(author == null)
+            throw new IllegalArgumentException("Author is null");
+        else
+            this.author = author;
     }
 
 
-    public void setHoliday(Holiday holiday) {
-        if(holiday == null)
-            throw new NullPointerException("Holiday is null");
+    /**
+     * @return the holiday this rating is for
+     */
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    /**
+     * Sets the hotel this rating is for.
+     * @param holiday the hotel this rating is for
+     * @throws IllegalArgumentException if {@code hotel} is {@code null}
+     */
+    public void setHotel(Hotel hotel) {
+        if(hotel == null)
+            throw new IllegalArgumentException("Holiday is null");
         else
-            this.holiday = holiday;
+            this.hotel = hotel;
     }
 }

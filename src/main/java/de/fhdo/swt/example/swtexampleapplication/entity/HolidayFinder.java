@@ -22,15 +22,22 @@ public class HolidayFinder {
     }
 
     public boolean checkContinent(Holiday exampleHoliday, String continent){
-        if (exampleHoliday.getContinent() == continent)
+        if (exampleHoliday.getHotel().getContinent() == continent)
         {
             return true;
         }
         return false;
     }
 
+    public boolean checkCountry(Holiday exampleHoliday, String country){
+        if (exampleHoliday.getHotel().getCountry() == country)
+        {
+            return true;
+        }
+        return false;
+    }
     public boolean checkCity(Holiday exampleHoliday, String city){
-        if (exampleHoliday.getContinent() == city)
+        if (exampleHoliday.getHotel().getContinent() == city)
         {
             return true;
         }

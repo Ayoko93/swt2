@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raumbuchung</title>
+    <title>FAK Reiseportal</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style_index.css" th:href="@{/css/style_index.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/style_holiday_card.css" th:href="@{/css/style_holiday_card.css}"/>
   </head>
@@ -13,7 +13,7 @@
       <div id="header">
         <nav id="login">
           <a href="login.html">Anmelden</a>
-          <a href="index.html">Registrieren</a>
+          <a href="registration.html">Registrieren</a>
         </nav>
 
         <div id="logo">
@@ -27,7 +27,7 @@
           <a href="index.html">Suche</a>
           <a href="holidays.html">Meine Buchungen</a>
           <a href="index.html">Favoriten</a>
-          <a href="index.html">Impressum</a>
+          <a href="impressum.html">Impressum</a>
         </nav>
       </div>
     </header>
@@ -43,7 +43,7 @@
         touristische Reisen sind unter Umständen nicht gestattet.
       </aside>
 
-      <main id="hauptinhalt">
+      <main>
 
 
         <h2>Suche deinen traumhaften Urlaub</h2>
@@ -59,7 +59,7 @@
             <img class="hotel-img" src="../static/img/example.jfif" th:src="@{/img/example.jfif}" alt="Bild vom Hotel"/>
             <!--<p class="hotel-country" th:text="${recommended.country}">Germany</p>-->
             <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
-            <p class="hotel-description" th:text="${recommended.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
+            <p class="hotel-description" th:text="${recommended.hotel.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
             <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
             <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
             <p class="hotel-price" th:text="${recommended.pricePerDay}">2500€</p>
@@ -73,7 +73,6 @@
         <small>&copy;Copyright FAK Technology</small>
       </footer>
     </div>
-
 
   </body>
 </html>

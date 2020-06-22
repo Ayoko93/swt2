@@ -127,7 +127,7 @@ body {
 
 
 form .stars {
-  background: url("../img/stars.png") repeat-x 0 0;
+  background: url("../../img/stars.png") repeat-x 0 0;
   width: 150px;
   margin: 0 auto;
 }
@@ -172,14 +172,13 @@ form .stars span {
   top: 0;
   left: 0;
   height: 30px;
-  background: url("../img/stars.png") repeat-x 0 -60px;
+  background: url("../../img/stars.png") repeat-x 0 -60px;
   -webkit-transition: -webkit-width 0.1s;
   -moz-transition: -moz-width 0.1s;
   -ms-transition: -ms-width 0.1s;
   -o-transition: -o-width 0.1s;
   transition: width 0.1s;
 }
-
 
 
 /* ------------------------ display size settings ---------------------------*/
@@ -189,5 +188,4 @@ form .stars span {
     display: flex;
     flex-direction: column;
   }
-
 }

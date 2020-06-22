@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
+import de.fhdo.swt.example.swtexampleapplication.entity.Hotel;
+import de.fhdo.swt.example.swtexampleapplication.entity.User;
 import de.fhdo.swt.example.swtexampleapplication.service.EntityService;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -23,26 +25,32 @@ public class SwtExampleApplication implements CommandLineRunner {
 	}
 
 	@Autowired
+	EntityService<Hotel> hotelService;
+	@Autowired
 	EntityService<Holiday> holidayService;
+	@Autowired
+	EntityService<User> userService;
 
 	@Override
 	public void run(String... args) throws Exception {
+		Hotel hotel = new Hotel("Europe", "Germany", "Dortmund",
+				"ABC-Straße 5", "ABC Hotel", "Et ullamco Lorem deserunt aute. "
+				+ "Aliquip ut aliquip elit excepteur fugiat ex cillum in "
+				+ "occaecat. Nulla cupidatat nostrud in Lorem exercitation ut "
+				+ "dolore culpa tempor exercitation mollit commodo nisi et.");
+		hotelService.save(hotel);
+
 		Holiday holiday = new Holiday();
-		holiday.setCity("Dortmund");
-		holiday.setCountry("Germany");
+		holiday.setHotel(hotel);
 		holiday.setCurrency("Euro");
-		holiday.setHotelName("ABC Hotel");
 		holiday.setPricePerDay(50);
 		holiday.setPriceModel("ABC");
 		holiday.setTravelAgency("ABC Travel");
 		holiday.setStartDate(Date.from(Instant.now()));
 		holiday.setStartDate(Date.from(Instant.now()));
-		holiday.setDescription("Et ullamco Lorem deserunt aute. Aliquip ut "
-				+ "aliquip elit excepteur fugiat ex cillum in occaecat. "
-				+ "Nulla cupidatat nostrud in Lorem exercitation ut dolore "
-				+ "culpa tempor exercitation mollit commodo nisi et.");
 
 		holidayService.save(holiday);
-		holidayService.findAll().forEach(e -> System.out.println(e.getHotelName()));
+		userService.save(new User("Preuschoff", "Jan",
+				"preuschoffjan@gmail.com", "123456"));
 	}
 }

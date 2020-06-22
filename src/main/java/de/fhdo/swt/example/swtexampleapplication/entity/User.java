@@ -3,6 +3,7 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 import java.util.Date;
 import java.util.Set;
 
+import javax.annotation.Nullable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,34 +17,50 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String lastName, firstName, mailAdress, password, bankAccNumber;
+    private String lastName;
+
+    private String firstName;
+
+    private String mailAddress;
+
+    private String password;
+
+    @Nullable
+    @Column(nullable = true)
+    private String bankAccNumber;
+
+    @Nullable
+    @Column(nullable = true)
     private Date birthDate;
 
+    @Nullable
     @Column(nullable = true)
-    private int bankAccId; // optional
+    private int bankAccId;
 
     @OneToMany
     private Set<Rating> ratings;
 
+    public User() { }
+
     // Constructors
     // 1. necessary
-    public User(String lastName, String firstName, String mailAdress, String password) {
+    public User(String lastName, String firstName, String mailAddress, String password) {
         this.lastName = lastName;
         this.firstName = firstName;
-        this.mailAdress = mailAdress;
+        this.mailAddress = mailAddress;
         this.password = password;
 
     }
 
     // 2. necessary + birthdate
-    public User(String lastName, String firstName, String mailAdress, String password, Date birthDate) {
-        this(lastName, firstName, mailAdress, password);
+    public User(String lastName, String firstName, String mailAddress, String password, Date birthDate) {
+        this(lastName, firstName, mailAddress, password);
         this.birthDate = birthDate;
     }
 
     // 3. ALL inclusive
-    public User(String lastName, String firstName, String mailAdress, String password, Date birthDate, String bankAccNumber) {
-        this(lastName, firstName, mailAdress, password, birthDate);
+    public User(String lastName, String firstName, String mailAddress, String password, Date birthDate, String bankAccNumber) {
+        this(lastName, firstName, mailAddress, password, birthDate);
         this.bankAccNumber = bankAccNumber;
     }
 
@@ -51,6 +68,10 @@ public class User {
 
 
     // Setter & Getter of Attributes
+    public long getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -67,12 +88,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getMailAdress() {
-        return mailAdress;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
-    public void setMailAdress(String mailAdress) {
-        this.mailAdress = mailAdress;
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
     }
 
     public String getPassword() {
