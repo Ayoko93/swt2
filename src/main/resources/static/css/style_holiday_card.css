@@ -9,10 +9,12 @@
     "img . name  name   price"
     "img . desc  desc   desc"
     "img . from  until  details";
-  border: 1px solid gray;
+  /*border: 1px solid gray;*/
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   border-radius: 10px;
-  background-color:#f2f2f2;
+  /*background-color:#f2f2f2;*/
   padding: 10px;
+  margin-bottom: 30px;
 }
 
 .holiday-card img {

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAK Reiseportal</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/style_index.css"
+      th:href="@{/css/style_index.css}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/css/style_search.css"
+      th:href="@{/css/style_holiday_card.css}"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div id="header">
+        <nav id="login">
+          <a href="login.html">Anmelden</a>
+          <a href="registration.html">Registrieren</a>
+        </nav>
+
+        <div id="logo">
+          <a href="index.html">
+            <img
+              src="../static/img/titel.png"
+              th:src="@{/img/titel.png}"
+              height="120"
+              alt="Titelbild"
+            />
+          </a>
+          <br />
+        </div>
+
+        <nav id="menu">
+          <a href="index.html">Suche</a>
+          <a href="holidays.html">Meine Buchungen</a>
+          <a href="index.html">Favoriten</a>
+          <a href="impressum.html">Impressum</a>
+        </nav>
+      </div>
+    </header>
+
+    <div id="centerdesign">
+      <aside id="zusatzinformationen">
+        <h4>Unterstützung zum Coronavirus (COVID-19)</h4>
+
+        Bitte informieren Sie sich über Reiseeinschränkungen. Möglicherweise
+        sind Reisen nur für bestimmte Zwecke erlaubt und insbesondere
+        touristische Reisen sind unter Umständen nicht gestattet.
+      </aside>
+
+      <main>
+        
+        <h1>Reisesuche</h1>
+
+        <div class="form">
+          
+          <form class="search-form">
+            <input type="number" id="search_min_cost" placeholder="Min. Kosten" />
+            <input type="number" id="search_max_cost" placeholder="Max. Kosten" />
+
+            <input type="text" id="search_continent" placeholder="Kontinent" />
+            <input type="text" id="search_country" placeholder="Land" />
+            <input type="text" id="search_city" placeholder="Stadt" />
+
+            <input type="date" id="search_start_date" placeholder="Start Datum" />
+            <input type="date" id="search_end_date"placeholder="End Datum" />
+            <input type="number" id="search_person" placeholder="Anzahl Personen" />
+            
+            <button id="search_start">Suchen</button>
+          </form>
+        </div>
+
+
+
+
+
+      </main>
+
+      <footer>
+        <br />
+        <small>&copy;Copyright FAK Technology</small>
+      </footer>
+    </div>
+  </body>
+</html>
