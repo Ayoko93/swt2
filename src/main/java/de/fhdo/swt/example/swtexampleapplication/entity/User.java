@@ -27,8 +27,7 @@ public class User {
     @OneToMany
     private Set<Rating> ratings;
 
-    public User() {
-    }
+    public User() { }
 
     // Constructors
     // 1. necessary
