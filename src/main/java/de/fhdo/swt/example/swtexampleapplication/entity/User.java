@@ -31,23 +31,23 @@ public class User {
 
     // Constructors
     // 1. necessary
-    public User(String lastName, String firstName, String mailAdress, String password) {
+    public User(String lastName, String firstName, String mailAddress, String password) {
         this.lastName = lastName;
         this.firstName = firstName;
-        this.mailAddress = mailAdress;
+        this.mailAddress = mailAddress;
         this.password = password;
 
     }
 
     // 2. necessary + birthdate
-    public User(String lastName, String firstName, String mailAdress, String password, Date birthDate) {
-        this(lastName, firstName, mailAdress, password);
+    public User(String lastName, String firstName, String mailAddress, String password, Date birthDate) {
+        this(lastName, firstName, mailAddress, password);
         this.birthDate = birthDate;
     }
 
     // 3. ALL inclusive
-    public User(String lastName, String firstName, String mailAdress, String password, Date birthDate, String bankAccNumber) {
-        this(lastName, firstName, mailAdress, password, birthDate);
+    public User(String lastName, String firstName, String mailAddress, String password, Date birthDate, String bankAccNumber) {
+        this(lastName, firstName, mailAddress, password, birthDate);
         this.bankAccNumber = bankAccNumber;
     }
 
