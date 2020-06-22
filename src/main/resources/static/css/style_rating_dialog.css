@@ -1,0 +1,193 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* The Modal (background) */
+.modal {
+  /*display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 150px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 1px 16px;
+  background-color: #00ff00;
+  color: black;
+}
+
+.modal-body {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-body-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.modal-body-text textarea{
+  resize: vertical;
+}
+
+.modal-body-stars {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 2px 16px;
+  background-color: #00ff00;
+  color: white;
+}
+
+.modal-footer a {
+  text-decoration: none;
+  background-color: white;
+  padding: 4px 8px 4px 8px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  margin: 6px;
+  color: black;
+}
+
+
+
+
+
+
+
+form .stars {
+  background: url("../img/stars.png") repeat-x 0 0;
+  width: 150px;
+  margin: 0 auto;
+}
+
+form .stars input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+form .stars input[type="radio"].star-5:checked ~ span { width: 100%; }
+form .stars input[type="radio"].star-4:checked ~ span { width: 80%; }
+form .stars input[type="radio"].star-3:checked ~ span { width: 60%; }
+form .stars input[type="radio"].star-2:checked ~ span { width: 40%; }
+form .stars input[type="radio"].star-1:checked ~ span { width: 20%; }
+
+form .stars label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0!important;
+  padding: 0!important;
+  text-indent: -999em;
+  float: left;
+  position: relative;
+  z-index: 10;
+  background: transparent!important;
+  cursor: pointer;
+}
+
+form .stars label:hover ~ span { background-position: 0 -30px; }
+form .stars label.star-5:hover ~ span { width: 100% !important; }
+form .stars label.star-4:hover ~ span { width: 80% !important; }
+form .stars label.star-3:hover ~ span { width: 60% !important; }
+form .stars label.star-2:hover ~ span { width: 40% !important; }
+form .stars label.star-1:hover ~ span { width: 20% !important; }
+
+form .stars span {
+  display: block;
+  width: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  background: url("../img/stars.png") repeat-x 0 -60px;
+  -webkit-transition: -webkit-width 0.1s;
+  -moz-transition: -moz-width 0.1s;
+  -ms-transition: -ms-width 0.1s;
+  -o-transition: -o-width 0.1s;
+  transition: width 0.1s;
+}
+
+
+
+/* ------------------------ display size settings ---------------------------*/
+@media screen and (max-width: 768px) {
+  .modal-body {
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+}

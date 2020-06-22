@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/style_rating_dialog.css"
+    />
+  </head>
+  <body>
+    <h2>HALLOOOO</h2>
+    <button id="myBtn">Bewerten</button>
+
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+          
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Reise bewerten</h2>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-body-text">
+            <p>Bitte bewerte deine letzte Reise, sodass wir unser Portal immer weiter verbessern können.</p>
+            <textarea id="story" name="story" rows="5" cols="33"></textarea>
+          </div class>
+          <div class="modal-body-stars">
+
+            <p>Wie viele Sterne bekommt dein Urlaub?</p>
+
+            <form id="ratingsForm">
+              <div class="stars">
+                <input type="radio" name="star" class="star-1" id="star-1">
+                <label class="star-1" for="star-1">1</label>
+                <input type="radio" name="star" class="star-2" id="star-2">
+                <label class="star-2" for="star-2">2</label>
+                <input type="radio" name="star" class="star-3" id="star-3">
+                <label class="star-3" for="star-3">3</label>
+                <input type="radio" name="star" class="star-4" id="star-4">
+                <label class="star-4" for="star-4">4</label>
+                <input type="radio" name="star" class="star-5" id="star-5">
+                <label class="star-5" for="star-5">5</label>
+                <span></span>
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="index.html">Schließen</a>
+            <a href="index.html">Bewertung abgeben</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../js/script.js"></script>
+  </body>
+</html>
