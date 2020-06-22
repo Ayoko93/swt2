@@ -46,17 +46,17 @@
         </aside>
   
         <main id="hauptinhalt">
-                <h2 th:text="${holiday.hotelName}">Hotelname</h2>
+                <h2 th:text="${holiday.hotel.name}">Hotelname</h2>
                 
                 <div class="row">
-                    <p class="place"><b th:text="@{${holiday.country} + ' - ' + ${holiday.city}}">Country - </b></p>
+                    <p class="place"><b th:text="@{${holiday.hotel.country} + ' - ' + ${holiday.hotel.city}}">Country - </b></p>
                     <p><b>Bewertung:</b> &starf;&starf;&starf;&starf;&star;</p>
                 </div>
         
                 <img width="100%" src="../static/img/example.jfif" th:src="@{/img/example.jfif}" alt="Bild vom Hotel" />
         
                 <h3>Beschreibung</h3>
-                <p th:text="${holiday.description}">
+                <p th:text="${holiday.hotel.description}">
                     Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service
                     in einem Hotel am Meeresufer suchen.
                     Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.
