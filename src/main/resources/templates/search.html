@@ -63,24 +63,45 @@
         <div class="form">
           
           <form class="search-form">
-            <input type="number" id="search_min_cost" placeholder="Min. Kosten" />
-            <input type="number" id="search_max_cost" placeholder="Max. Kosten" />
 
-            <input type="text" id="search_continent" placeholder="Kontinent" />
-            <input type="text" id="search_country" placeholder="Land" />
-            <input type="text" id="search_city" placeholder="Stadt" />
+            <div class="search_item" id="item_min">
+              <span>Min. Kosten:</span>
+              <input type="number" id="search_min_cost" placeholder="Min. Kosten" />
+            </div>
+            <div class="search_item" id="item_max">
+              <span>Max. Kosten:</span>
+              <input type="number" id="search_max_cost" placeholder="Max. Kosten" />
+            </div>
 
-            <input type="date" id="search_start_date" placeholder="Start Datum" />
-            <input type="date" id="search_end_date"placeholder="End Datum" />
-            <input type="number" id="search_person" placeholder="Anzahl Personen" />
+            <div class="search_item" id="item_continent">
+              <span>Kontinent:</span>
+              <input type="text" id="search_continent" placeholder="Kontinent" />
+            </div>
+            <div class="search_item" id="item_country">
+              <span>Land:</span>
+              <input type="text" id="search_country" placeholder="Land" />
+            </div>
+            <div class="search_item" id="item_city">
+              <span>Stadt:</span>
+              <input type="text" id="search_city" placeholder="Stadt" />
+            </div>
+
+            <div class="search_item" id="item_start">
+              <span>Start Datum:</span>
+              <input type="date" id="search_start_date" placeholder="Start Datum" />
+            </div>
+            <div class="search_item" id="item_end">
+              <span>End Datum:</span>
+              <input type="date" id="search_end_date"placeholder="End Datum" />
+            </div>
+            <div class="search_item" id="item_person">
+              <span>Anzahl Personen:</span>
+              <input type="number" id="search_person" placeholder="Anzahl Personen" />
+            </div>
             
             <button id="search_start">Suchen</button>
           </form>
         </div>
-
-
-
-
 
       </main>
 
