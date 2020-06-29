@@ -40,8 +40,14 @@ public class UserController {
         return "profile";
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        SessionManager.instance.set("user", null);
+        return "redirect:/";
+    }
+
     @GetMapping("/login")
-    public String loginGet(Model model) {
+    public String loginGet() {
         return "login";
     }
 
