@@ -101,4 +101,9 @@ public class Holiday {
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
+
+    public double getTotalPrice(){
+        return pricePerDay*travelDuration;
+    }
+
 }

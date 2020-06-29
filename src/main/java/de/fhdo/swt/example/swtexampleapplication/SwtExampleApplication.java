@@ -33,14 +33,12 @@ public class SwtExampleApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Hotel hotel = new Hotel("Europe", "Germany", "Dortmund",
-				"ABC-Straße 5", "ABC Hotel", "Et ullamco Lorem deserunt aute. "
-				+ "Aliquip ut aliquip elit excepteur fugiat ex cillum in "
-				+ "occaecat. Nulla cupidatat nostrud in Lorem exercitation ut "
-				+ "dolore culpa tempor exercitation mollit commodo nisi et.");
+		Hotel hotel = new Hotel("Amerika", "Mexiko", "Akumal",
+				"Quantina Roo 10", "Bahia Principe Luxury Akumal", "Ein Hauch von Luxus und Exklusivität direkt am Strand: " +
+				"der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.");
 		hotel.setImagePath("/img/Luxury_Bahia_Principe.jfif");
 
-		Hotel hotel2 = new Hotel("Africa", "Egypt", "Hurghada", "Street 5", "Albatros White Beach", "White Beach Resort ist ein modernes Resort erbaut auf mehr als 80.000m² Grundfläche. " +
+		Hotel hotel2 = new Hotel("Afrika", "Ägypten", "Hurghada", "Street 5", "Albatros White Beach", "White Beach Resort ist ein modernes Resort erbaut auf mehr als 80.000m² Grundfläche. " +
 				"In einer ruhigen Umgebung und mit Blick auf das Meer werden Sie Ihren Traumurlaub genießen können. ");
 
 		hotel2.setImagePath("/img/Albatros_White_Beach.jpg");
@@ -55,7 +53,7 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday1.setTravelAgency("ABC Travel");
 		holiday1.setStartDate(Date.from(Instant.now()));
 		holiday1.setEndDate(Date.from(Instant.now()));
-
+		holiday1.setTravelDuration(14);
 
 		Holiday holiday2 = new Holiday();
 		holiday2.setCurrency("Euro");
@@ -65,6 +63,8 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday2.setStartDate(Date.from(Instant.now()));
 		holiday2.setEndDate(Date.from(Instant.now()));
 
+		holiday2.setTravelDuration(10);
+
 		Holiday holiday3 = new Holiday();
 		holiday3.setHotel(hotel);
 		holiday3.setCurrency("Euro");
@@ -73,6 +73,7 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday3.setTravelAgency("DER Touristik");
 		holiday3.setStartDate(Date.from(Instant.now()));
 		holiday3.setEndDate(Date.from(Instant.now()));
+		holiday3.setTravelDuration(20);
 
 		holidayService.save(holiday1);
 		holidayService.save(holiday2);

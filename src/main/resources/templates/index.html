@@ -44,7 +44,7 @@
       </aside>
 
       <main>
-        
+
         <h3>Wir empfehlen Ihnen...</h3>
 
         <div th:each="recommended : ${recommendations}" class="holiday-card">
@@ -57,7 +57,7 @@
             <p class="hotel-startDate" th:text="@{${#dates.format(recommended.startDate, 'dd-MMM-yyyy')}}">Rückreise: 18.05.2020</p>
             <p class="hotel-endDate" th:text="@{${#dates.format(recommended.endDate, 'dd-MMM-yyyy')}}">Rückreise: 18.05.2020</p>
 
-            <p class="hotel-price" th:text="@{${recommended.pricePerDay} + ' ' + ${recommended.currency}}">2500€</p>
+            <p class="hotel-price" th:text="@{${recommended.totalPrice} + ' ' + ${recommended.currency}}">2500€</p>
             <a class="hotel-showDetails" href="holiday-detail.html" th:href="@{'holiday/' + ${recommended.id}}">Details anzeigen</a>
         </div>
 
