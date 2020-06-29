@@ -14,4 +14,12 @@ public enum SessionManager {
                 .currentRequestAttributes();
         return attr.getRequest().getSession(true);
     }
+
+    public void set(String attribute, Object value) {
+        getSession().setAttribute(attribute, value);
+    }
+
+    public Object get(String attribute) {
+        return getSession().getAttribute(attribute);
+    }
 }
