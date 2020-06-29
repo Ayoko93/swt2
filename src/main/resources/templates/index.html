@@ -12,22 +12,22 @@
     <header>
       <div id="header">
         <nav id="login">
-          <a href="login.html">Anmelden</a>
-          <a href="registration.html">Registrieren</a>
+          <a href="login">Anmelden</a>
+          <a href="registration">Registrieren</a>
         </nav>
 
         <div id="logo">
-          <a href="index.html">
+          <a href="/">
             <img src="../static/img/titel.png" th:src="@{/img/titel.png}" height="120" alt="Titelbild" />
           </a>
           <br/>
         </div>
 
         <nav id="menu">
-          <a href="search.html">Suche</a>
-          <a href="holidays.html">Meine Buchungen</a>
-          <a href="index.html">Favoriten</a>
-          <a href="impressum.html">Impressum</a>
+          <a href="search">Suche</a>
+          <a href="/">Meine Buchungen</a>
+          <a href="profile">Mein Profil</a>
+          <a href="impressum">Impressum</a>
         </nav>
       </div>
     </header>
@@ -45,25 +45,19 @@
 
       <main>
 
-
-        <h2>Suche deinen traumhaften Urlaub</h2>
-        <div class="search-bar">
-            <form>
-                <input type="text" placeholder="Reiseziel, Hotel oder Ort eingeben"/>
-            </form>
-        </div>
-    
         <h3>Wir empfehlen Ihnen...</h3>
 
         <div th:each="recommended : ${recommendations}" class="holiday-card">
             <h4 class="hotel-name" th:text="${recommended.hotel.name}">Luxury Bahia Principe Akumal</h4>
-            <img class="hotel-img" src="../static/img/example.jfif" th:src="@{/img/example.jfif}" alt="Bild vom Hotel"/>
+            <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif" th:src="${recommended.hotel.imagePath}" alt="Bild vom Hotel"/>
             <!-- <p class="hotel-country" th:text="${recommended.country}">Germany</p> -->
             <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
             <p class="hotel-description" th:text="${recommended.hotel.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
-            <p class="hotel-startDate" th:text="@{${#dates.format(recommended.startDate, 'dd-MMM-yyyy')}">Beginn: 05.03.2020</p>
+
+            <p class="hotel-startDate" th:text="@{${#dates.format(recommended.startDate, 'dd-MMM-yyyy')}}">Rückreise: 18.05.2020</p>
             <p class="hotel-endDate" th:text="@{${#dates.format(recommended.endDate, 'dd-MMM-yyyy')}}">Rückreise: 18.05.2020</p>
-            <p class="hotel-price" th:text="@{${recommended.pricePerDay} + ' ' + ${recommended.currency}}">2500€</p>
+
+            <p class="hotel-price" th:text="@{${recommended.totalPrice} + ' ' + ${recommended.currency}}">2500€</p>
             <a class="hotel-showDetails" href="holiday-detail.html" th:href="@{'holiday/' + ${recommended.id}}">Details anzeigen</a>
         </div>
 

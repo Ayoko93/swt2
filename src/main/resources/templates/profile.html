@@ -28,7 +28,7 @@
 
         <div id="logo">
           <a href="/">
-            <img src="../static/img/titel" th:src="@/img/titel.png" height="120" alt="Titelbild" />
+            <img src="../static/img/titel.png" th:src="@{/img/titel.png}" height="120" alt="Titelbild" />
           </a>
           <br />
         </div>
@@ -48,13 +48,12 @@
         <div class="login-page">
             <div class="form">
               <form class="register-form">
-                <h1>Registrieren</h1>
-                <input type="text" placeholder="Vornamen"/>
-                <input type="text" placeholder="Nachnamen"/>
-                <input type="password" placeholder="Passwort"/>
-                <input type="text" placeholder="E-Mail Adresse"/>
-                <button>Registrieren</button>
-                <p class="message">Schon einen Account erstellt? <a href="login.html">Einloggen</a></p>
+                <h1>Mein Profil</h1>
+                <input th:value="${profile.firstName}" type="text" placeholder="Vornamen"/>
+                <input th:value="${profile.lastName}" type="text" placeholder="Nachnamen"/>
+                <input th:value="${profile.password}" type="password" placeholder="Passwort"/>
+                <input th:value="${profile.mailAddress}" type="text" placeholder="E-Mail Adresse"/>
+                <button>Speichern</button>
               </form>
   
             </div>
