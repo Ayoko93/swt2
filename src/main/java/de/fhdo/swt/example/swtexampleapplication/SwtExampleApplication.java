@@ -75,7 +75,5 @@ public class SwtExampleApplication implements CommandLineRunner {
 
 		userService.save(new User("Preuschoff", "Jan",
 				"preuschoffjan@gmail.com", "123456"));
-		
-		hotel.getHolidays().forEach(e -> System.out.println(e.getId()));
 	}
 }
