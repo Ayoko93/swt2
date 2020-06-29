@@ -7,10 +7,15 @@
 <body>
     <header th:fragment="header">
         <div id="header">
-            <nav id="login">
+            <nav th:if="${session.user == null}" id="login">
                 <a href="login">Anmelden</a>
                 <a href="registration">Registrieren</a>
             </nav>
+
+            <nav th:if="${session.user != null}" id="login">
+                <a href="logout">Abmelden</a>
+            </nav>
+
 
             <div id="logo">
                 <a href="/">
