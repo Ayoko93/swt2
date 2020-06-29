@@ -23,6 +23,16 @@ public class UserService implements EntityService<User> {
 	private UserRepository repo;
 
 	/**
+	 * Finds a user by his mail address and password.
+	 * @param email    the user's mail address
+	 * @param password the user's password
+	 * @return All users that could be found
+	 */
+	public Iterable<User> findByLogin(String email, String password) {
+		return repo.findByMailAddressAndPassword(email, password);
+	}
+
+	/**
 	 * Finds all users in the database and returns an iterable object for all
 	 * of them.
 	 * @return all users in the database

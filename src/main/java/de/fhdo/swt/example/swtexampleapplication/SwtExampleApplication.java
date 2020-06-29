@@ -96,10 +96,6 @@ public class SwtExampleApplication implements CommandLineRunner {
 
 		User user = new User("Preuschoff", "Jan","preuschoffjan@gmail.com", "123456");
 		userService.save(user);
-		System.out.println(user.getId());
-
-		userService.save(new User("Preuschoff", "Jan",
-				"preuschoffjan@gmail.com", "123456"));
 	}
 
 	@Override
