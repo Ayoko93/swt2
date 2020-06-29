@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,8 +25,7 @@ public class UserController {
 
     @GetMapping("/profile")
     public String showUserProfilePage(Model model) {
-        HttpSession session = SessionManager.instance.getSession();
-        Long uid = (Long)session.getAttribute("user");
+        Long uid = (Long)SessionManager.instance.get("user");
         if(uid == null)
             return "no-account";
 
@@ -53,8 +51,7 @@ public class UserController {
             @RequestParam("password") String password) {
         Iterator<User> user = service.findByLogin(email, password).iterator();
         if(user.hasNext()) {
-            SessionManager.instance.getSession().setAttribute("user",
-                    user.next().getId());
+            SessionManager.instance.set("user", user.next().getId());
             request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE,
                     HttpStatus.FOUND);
             return "redirect:profile";
@@ -75,8 +72,7 @@ public class UserController {
             @RequestParam("email") String email) {
         User user = new User(lastName, firstName, email, password);
         service.save(user);
-        SessionManager.instance.getSession().setAttribute("user",
-                user.getId());
+        SessionManager.instance.set("user", user.getId());
         request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE, HttpStatus.FOUND);
         return "redirect:profile";
     }

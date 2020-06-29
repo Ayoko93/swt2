@@ -25,7 +25,14 @@
   font-size: 14px;
 }
 
-.form button {
+.button{
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+
+}
+
+.form button, .button {
   background: #4caf50;
   width: 100%;
   border: 0;
@@ -56,6 +63,6 @@
   margin-bottom: 50px;
 }
 
-#b_login {
+.button {
  margin-bottom: 15px;
 }

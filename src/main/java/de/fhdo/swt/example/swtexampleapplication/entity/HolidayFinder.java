@@ -1,9 +1,6 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
 public class HolidayFinder {
-
-    private int destinationId;
-
     public double calcPrice(Holiday exampleHoliday) {
         return exampleHoliday.getTravelDuration() * exampleHoliday.getPricePerDay();
     }
@@ -42,5 +39,9 @@ public class HolidayFinder {
 
     public void setDestinationRange(int destinationRange) {
         this.destinationRange = destinationRange;
+    }
+
+    public int getDestinationRange() {
+        return destinationRange;
     }
 }
