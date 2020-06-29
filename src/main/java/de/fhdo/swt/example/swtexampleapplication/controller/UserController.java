@@ -1,20 +1,18 @@
 package de.fhdo.swt.example.swtexampleapplication.controller;
 
-// import de.fhdo.swt.example.swtexampleapplication.entity.User;
 import org.springframework.stereotype.Controller;
-// import org.springframework.ui.Model;
-// import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
-    // @GetMapping("/user")
-    // public String userForm(Model model) {
-    //     model.addAttribute("user", new User());
-    //     return "user";
-    // }
+    @GetMapping("/login")
+    public String userForm(Model model) {
+        return "login";
+    }
 
-    // @PostMapping("/user")
-    // public String createUser(@ModelAttribute User user) {
-    //     return "user";
-    // }
+    @GetMapping("/registration")
+    public String createUser(Model model) {
+        return "registration";
+    }
 }
