@@ -16,4 +16,9 @@ public class UserController {
     public String createUser(Model model) {
         return "login";
     }
+
+    @GetMapping("/noAccount")
+    public String noUserAccount(Model model) {
+        return "noAccount";
+    }
 }
