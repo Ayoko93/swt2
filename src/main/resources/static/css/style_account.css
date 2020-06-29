@@ -28,6 +28,8 @@
 .button{
   display: block;
   box-sizing: border-box;
+  text-decoration: none;
+
 }
 
 .form button, .button {
