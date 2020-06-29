@@ -58,8 +58,21 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday2.setStartDate(Date.from(Instant.now()));
 		holiday2.setStartDate(Date.from(Instant.now()));
 
+
+		Holiday holiday3 = new Holiday();
+		holiday3.setHotel(hotel);
+		holiday3.setCurrency("Euro");
+		holiday3.setPricePerDay(88);
+		holiday3.setPriceModel("all-inclusive");
+		holiday3.setTravelAgency("DER Touristik");
+		holiday3.setStartDate(Date.from(Instant.now()));
+		holiday3.setEndDate(Date.from(Instant.now()));
+
+
 		holidayService.save(holiday1);
 		holidayService.save(holiday2);
+		holidayService.save(holiday3);
+
 		userService.save(new User("Preuschoff", "Jan",
 				"preuschoffjan@gmail.com", "123456"));
 		
