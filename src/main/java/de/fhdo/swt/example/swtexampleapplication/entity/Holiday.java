@@ -5,6 +5,7 @@ import javax.persistence.ManyToOne;
 import javax.annotation.Nullable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.util.Date;
@@ -30,7 +31,7 @@ public class Holiday {
     private String priceModel;
     private String travelAgency;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Hotel hotel;
 
     public long getId() {
@@ -98,9 +99,6 @@ public class Holiday {
     }
 
     public void setHotel(Hotel hotel) {
-        if(hotel == null)
-            throw new IllegalArgumentException("Hotel is null");
-        else
-            this.hotel = hotel;
+        this.hotel = hotel;
     }
 }

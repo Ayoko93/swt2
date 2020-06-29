@@ -38,10 +38,10 @@ public class SwtExampleApplication implements CommandLineRunner {
 				+ "Aliquip ut aliquip elit excepteur fugiat ex cillum in "
 				+ "occaecat. Nulla cupidatat nostrud in Lorem exercitation ut "
 				+ "dolore culpa tempor exercitation mollit commodo nisi et.");
-		hotelService.save(hotel);
+
+		
 
 		Holiday holiday1 = new Holiday();
-		holiday1.setHotel(hotel);
 		holiday1.setCurrency("Euro");
 		holiday1.setPricePerDay(50);
 		holiday1.setPriceModel("ABC");
@@ -50,14 +50,12 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday1.setStartDate(Date.from(Instant.now()));
 
 		Holiday holiday2 = new Holiday();
-		holiday2.setHotel(hotel);
 		holiday2.setCurrency("Euro");
 		holiday2.setPricePerDay(50);
 		holiday2.setPriceModel("ABC");
 		holiday2.setTravelAgency("ABC Travel");
 		holiday2.setStartDate(Date.from(Instant.now()));
 		holiday2.setStartDate(Date.from(Instant.now()));
-
 
 		Holiday holiday3 = new Holiday();
 		holiday3.setHotel(hotel);
@@ -68,10 +66,13 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday3.setStartDate(Date.from(Instant.now()));
 		holiday3.setEndDate(Date.from(Instant.now()));
 
-
 		holidayService.save(holiday1);
 		holidayService.save(holiday2);
 		holidayService.save(holiday3);
+
+		hotel.addHoliday(holiday1);
+		hotel.addHoliday(holiday2);
+		hotelService.save(hotel);
 
 		userService.save(new User("Preuschoff", "Jan",
 				"preuschoffjan@gmail.com", "123456"));
