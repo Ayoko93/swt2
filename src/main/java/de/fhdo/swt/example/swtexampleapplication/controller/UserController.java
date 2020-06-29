@@ -43,12 +43,12 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String userGet(Model model) {
+    public String loginGet(Model model) {
         return "login";
     }
 
     @PostMapping("/login")
-    public String userPost(HttpServletRequest request,
+    public String loginPost(HttpServletRequest request,
             @RequestParam("email") String email,
             @RequestParam("password") String password) {
         Iterator<User> user = service.findByLogin(email, password).iterator();
@@ -63,12 +63,21 @@ public class UserController {
     }
 
     @GetMapping("/registration")
-    public String createUser(Model model) {
+    public String registerGet(Model model) {
         return "registration";
     }
 
-    @GetMapping("/noAccount")
-    public String noUserAccount(Model model) {
-        return "noAccount";
+    @PostMapping("/registration")
+    public String registerPost(HttpServletRequest request,
+            @RequestParam("firstName") String firstName,
+            @RequestParam("lastName") String lastName,
+            @RequestParam("password") String password,
+            @RequestParam("email") String email) {
+        User user = new User(lastName, firstName, email, password);
+        service.save(user);
+        SessionManager.instance.getSession().setAttribute("user",
+                user.getId());
+        request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE, HttpStatus.FOUND);
+        return "redirect:profile";
     }
 }
