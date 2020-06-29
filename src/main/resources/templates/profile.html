@@ -14,6 +14,7 @@
       rel="stylesheet"
       type="text/css"
       href="../static/css/style_account.css"
+      th:href="@{/css/style_account.css}"
     />
   </head>
 
@@ -21,22 +22,22 @@
     <header>
       <div id="header">
         <nav id="login">
-          <a href="login.html">Anmelden</a>
-          <a href="registration.html">Registrieren</a>
+          <a href="login">Anmelden</a>
+          <a href="registration">Registrieren</a>
         </nav>
 
         <div id="logo">
-          <a href="index.html">
-            <img src="../static/img/titel.png" height="120" alt="Titelbild" />
+          <a href="/">
+            <img src="../static/img/titel.png" th:src="@{/img/titel.png}" height="120" alt="Titelbild" />
           </a>
           <br />
         </div>
 
         <nav id="menu">
-          <a href="search.html">Suche</a>
-          <a href="index.html">Meine Buchungen</a>
-          <a href="profile.html">Mein Profil</a>
-          <a href="impressum.html">Impressum</a>
+          <a href="search">Suche</a>
+          <a href="index">Meine Buchungen</a>
+          <a href="profile">Mein Profil</a>
+          <a href="impressum">Impressum</a>
         </nav>
       </div>
     </header>
@@ -48,10 +49,10 @@
             <div class="form">
               <form class="register-form">
                 <h1>Mein Profil</h1>
-                <input type="text" placeholder="Vornamen"/>
-                <input type="text" placeholder="Nachnamen"/>
-                <input type="password" placeholder="Passwort"/>
-                <input type="text" placeholder="E-Mail Adresse"/>
+                <input th:value="${profile.firstName}" type="text" placeholder="Vornamen"/>
+                <input th:value="${profile.lastName}" type="text" placeholder="Nachnamen"/>
+                <input th:value="${profile.password}" type="password" placeholder="Passwort"/>
+                <input th:value="${profile.mailAddress}" type="text" placeholder="E-Mail Adresse"/>
                 <button>Speichern</button>
               </form>
   
