@@ -38,8 +38,7 @@ public class SwtExampleApplication implements CommandLineRunner {
 				+ "Aliquip ut aliquip elit excepteur fugiat ex cillum in "
 				+ "occaecat. Nulla cupidatat nostrud in Lorem exercitation ut "
 				+ "dolore culpa tempor exercitation mollit commodo nisi et.");
-
-		
+		hotelService.save(hotel);
 
 		Holiday holiday1 = new Holiday();
 		holiday1.setCurrency("Euro");
