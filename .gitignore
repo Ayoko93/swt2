@@ -37,6 +37,7 @@ hs_err_pid*
 # Binaries
 target/
 
-# Database import/export scripts
+# Database
 /db/import.sh
 /db/export.sh
+/src/main/resources/application.properties
