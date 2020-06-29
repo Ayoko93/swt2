@@ -29,13 +29,13 @@ public class UserController {
         HttpSession session = SessionManager.instance.getSession();
         Long uid = (Long)session.getAttribute("user");
         if(uid == null)
-            return "redirect:login";
+            return "no-account";
 
         User user;
         try {
             user = service.find(uid);
         } catch(NoSuchElementException e) {
-            return "redirect:login";
+            return "no-account";
         }
 
         model.addAttribute("profile", user);
