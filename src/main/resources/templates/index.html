@@ -61,8 +61,8 @@
             <!-- <p class="hotel-country" th:text="${recommended.country}">Germany</p> -->
             <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
             <p class="hotel-description" th:text="${recommended.hotel.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>
-            <p class="hotel-startDate" th:text="${recommended.startDate}">Beginn: 05.03.2020</p>
-            <p class="hotel-endDate" th:text="${recommended.endDate}">Rückreise: 18.05.2020</p>
+            <p class="hotel-startDate" th:text="@{${#dates.format(recommended.startDate, 'dd-MMM-yyyy')}">Beginn: 05.03.2020</p>
+            <p class="hotel-endDate" th:text="@{${#dates.format(recommended.endDate, 'dd-MMM-yyyy')}}">Rückreise: 18.05.2020</p>
             <p class="hotel-price" th:text="@{${recommended.pricePerDay} + ' ' + ${recommended.currency}}">2500€</p>
             <a class="hotel-showDetails" href="holiday-detail.html" th:href="@{'holiday/' + ${recommended.id}}">Details anzeigen</a>
         </div>
