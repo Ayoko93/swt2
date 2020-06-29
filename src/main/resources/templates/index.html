@@ -25,7 +25,7 @@
 
         <nav id="menu">
           <a href="search.html">Suche</a>
-          <a href="holidays.html">Meine Buchungen</a>
+          <a href="/">Meine Buchungen</a>
           <a href="index.html">Favoriten</a>
           <a href="impressum.html">Impressum</a>
         </nav>
@@ -57,7 +57,7 @@
 
         <div th:each="recommended : ${recommendations}" class="holiday-card">
             <h4 class="hotel-name" th:text="${recommended.hotel.name}">Luxury Bahia Principe Akumal</h4>
-            <img class="hotel-img" src="../static/img/example.jfif" th:src="@{/img/example.jfif}" alt="Bild vom Hotel"/>
+            <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif" th:src="${recommended.hotel.imagePath}" alt="Bild vom Hotel"/>
             <!-- <p class="hotel-country" th:text="${recommended.country}">Germany</p> -->
             <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
             <p class="hotel-description" th:text="${recommended.hotel.description}">Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service in einem Hotel am Meeresufer suchen. Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.</p>

@@ -51,7 +51,9 @@ public class Hotel {
      * The hotel name.
      */
 	private String name;
-    
+
+	private String imagePath;
+
     /**
      * A description for the hotel. May be {@code null} if none has been set.
      */
@@ -301,5 +303,13 @@ public class Hotel {
             throw new IllegalArgumentException("Holiday is null");
         else if(holidays.remove(holiday) && holiday.getHotel() == this)
             holiday.setHotel(null);
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

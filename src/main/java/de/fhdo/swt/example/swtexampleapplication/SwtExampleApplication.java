@@ -38,7 +38,15 @@ public class SwtExampleApplication implements CommandLineRunner {
 				+ "Aliquip ut aliquip elit excepteur fugiat ex cillum in "
 				+ "occaecat. Nulla cupidatat nostrud in Lorem exercitation ut "
 				+ "dolore culpa tempor exercitation mollit commodo nisi et.");
+		hotel.setImagePath("/img/Luxury_Bahia_Principe.jfif");
+
+		Hotel hotel2 = new Hotel("Africa", "Egypt", "Hurghada", "Street 5", "Albatros White Beach", "White Beach Resort ist ein modernes Resort erbaut auf mehr als 80.000m² Grundfläche. " +
+				"In einer ruhigen Umgebung und mit Blick auf das Meer werden Sie Ihren Traumurlaub genießen können. ");
+
+		hotel2.setImagePath("/img/Albatros_White_Beach.jpg");
+
 		hotelService.save(hotel);
+		hotelService.save(hotel2);
 
 		Holiday holiday1 = new Holiday();
 		holiday1.setCurrency("Euro");
@@ -47,7 +55,8 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday1.setTravelAgency("ABC Travel");
 		holiday1.setStartDate(Date.from(Instant.now()));
 		holiday1.setEndDate(Date.from(Instant.now()));
-		
+
+
 		Holiday holiday2 = new Holiday();
 		holiday2.setCurrency("Euro");
 		holiday2.setPricePerDay(150);
@@ -70,8 +79,9 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holidayService.save(holiday3);
 
 		hotel.addHoliday(holiday1);
-		hotel.addHoliday(holiday2);
+		hotel2.addHoliday(holiday2);
 		hotelService.save(hotel);
+		hotelService.save(hotel2);
 
 		userService.save(new User("Preuschoff", "Jan",
 				"preuschoffjan@gmail.com", "123456"));
