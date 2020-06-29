@@ -4,14 +4,11 @@ public class HolidayFinder {
 
     private int destinationId;
 
-    public double calcPrice(Holiday exampleHoliday)
-    {
-
+    public double calcPrice(Holiday exampleHoliday) {
         return exampleHoliday.getTravelDuration() * exampleHoliday.getPricePerDay();
     }
 
-    public boolean checkPriceRange(Holiday exampleHoliday, int priceIdea)
-    {
+    public boolean checkPriceRange(Holiday exampleHoliday, int priceIdea) {
         double allPrice = calcPrice(exampleHoliday);
         if (allPrice != 0) {
              if (allPrice < priceIdea){
@@ -22,23 +19,20 @@ public class HolidayFinder {
     }
 
     public boolean checkContinent(Holiday exampleHoliday, String continent){
-        if (exampleHoliday.getHotel().getContinent() == continent)
-        {
+        if (exampleHoliday.getHotel().getContinent().equals(continent)) {
             return true;
         }
         return false;
     }
 
     public boolean checkCountry(Holiday exampleHoliday, String country){
-        if (exampleHoliday.getHotel().getCountry() == country)
-        {
+        if (exampleHoliday.getHotel().getCountry().equals(country)) {
             return true;
         }
         return false;
     }
     public boolean checkCity(Holiday exampleHoliday, String city){
-        if (exampleHoliday.getHotel().getContinent() == city)
-        {
+        if (exampleHoliday.getHotel().getContinent().equals(city)) {
             return true;
         }
         return false;
@@ -49,8 +43,4 @@ public class HolidayFinder {
     public void setDestinationRange(int destinationRange) {
         this.destinationRange = destinationRange;
     }
-
-
-
-
 }
