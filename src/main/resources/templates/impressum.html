@@ -8,28 +8,7 @@
   </head>
 
   <body>
-    <header>
-      <div id="header">
-        <nav id="login">
-          <a href="login">Anmelden</a>
-          <a href="registration">Registrieren</a>
-        </nav>
-
-        <div id="logo">
-          <a href="/">
-            <img src="../static/img/titel.png" th:src="@{/img/titel.png}" height="120" alt="Titelbild" />
-          </a>
-          <br />
-        </div>
-
-        <nav id="menu">
-          <a href="index">Suche</a>
-          <a href="/">Meine Buchungen</a>
-          <a href="profile">Mein Profil</a>
-          <a href="impressum">Impressum</a>
-        </nav>
-      </div>
-    </header>
+  <header th:replace="fragments/header :: header"/>
 
     <div id="centerdesign">
       <main>
@@ -242,10 +221,7 @@
         alle Funktionen dieser Website nutzen können.<br />
       </main>
 
-      <footer>
-        <br />
-        <small>&copy;Copyright FAK Technology</small>
-      </footer>
+      <footer th:replace="fragments/footer :: footer"/>
     </div>
     
   </body>
