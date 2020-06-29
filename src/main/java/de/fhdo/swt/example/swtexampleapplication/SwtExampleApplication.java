@@ -10,7 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
+import de.fhdo.swt.example.swtexampleapplication.entity.HolidayProfile;
 import de.fhdo.swt.example.swtexampleapplication.entity.Hotel;
+import de.fhdo.swt.example.swtexampleapplication.entity.Rating;
 import de.fhdo.swt.example.swtexampleapplication.entity.User;
 import de.fhdo.swt.example.swtexampleapplication.service.EntityService;
 
@@ -29,10 +31,19 @@ public class SwtExampleApplication implements CommandLineRunner {
 	@Autowired
 	private EntityService<Holiday> holidayService;
 	@Autowired
+	private EntityService<HolidayProfile> holidayProfileService;
+	@Autowired
+	private EntityService<Rating> ratingService;
+	@Autowired
 	private EntityService<User> userService;
 
-	@Override
-	public void run(String... args) throws Exception {
+	private void resetTestData() {
+		hotelService.deleteAll();
+		holidayService.deleteAll();
+		holidayProfileService.deleteAll();
+		ratingService.deleteAll();
+		userService.deleteAll();
+
 		Hotel hotel = new Hotel("Europe", "Germany", "Dortmund",
 				"ABC-Straße 5", "ABC Hotel", "Et ullamco Lorem deserunt aute. "
 				+ "Aliquip ut aliquip elit excepteur fugiat ex cillum in "
@@ -75,5 +86,10 @@ public class SwtExampleApplication implements CommandLineRunner {
 
 		userService.save(new User("Preuschoff", "Jan",
 				"preuschoffjan@gmail.com", "123456"));
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		resetTestData();
 	}
 }

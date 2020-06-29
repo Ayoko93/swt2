@@ -2,12 +2,25 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class HolidayProfile {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    
     private Date startDate;
     private Date endDate;
     private int numberPersons;
     private String country;
     private String city;
+
+    public HolidayProfile() {
+    }
 
     public HolidayProfile(Date startDate, Date endDate, int numberPersons, String country, String city) {
         this.startDate = startDate;
