@@ -5,15 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class UserController {
+public class ImpressumController {
 
-    @GetMapping("/login")
-    public String userForm(Model model) {
-        return "login";
-    }
+    @GetMapping("/impressum")
+    public String showImpressumPage(Model model)
+    {
+        return "impressum";
 
-    @GetMapping("/registration")
-    public String createUser(Model model) {
-        return "login";
     }
 }
