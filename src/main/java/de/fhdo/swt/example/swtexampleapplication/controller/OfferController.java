@@ -1,9 +1,9 @@
 package de.fhdo.swt.example.swtexampleapplication.controller;
 
-import de.fhdo.swt.example.swtexampleapplication.entity.HolidayFinder;
-import de.fhdo.swt.example.swtexampleapplication.sorting.HolidaySorting;
-import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
-import de.fhdo.swt.example.swtexampleapplication.service.HolidayService;
+import de.fhdo.swt.example.swtexampleapplication.entity.OfferFinder;
+import de.fhdo.swt.example.swtexampleapplication.sorting.OfferComparatorFactory;
+import de.fhdo.swt.example.swtexampleapplication.entity.Offer;
+import de.fhdo.swt.example.swtexampleapplication.service.OfferService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 
 @Controller
-public class HolidayController {
+public class OfferController {
     @Autowired
-    private HolidayService service;
+    private OfferService service;
 
     @GetMapping("/")
-    public String showHolidaysForm(Holiday holiday, Model model,
+    public String showHolidaysForm(Offer holiday, Model model,
             @RequestParam(value = "search_min_cost", required = false, defaultValue = "") String minConst,
             @RequestParam(value = "search_max_cost", required = false, defaultValue = "") String maxCost,
             @RequestParam(value = "search_continent", required = false, defaultValue = "") String continent,
@@ -33,7 +33,7 @@ public class HolidayController {
         double maxC = (maxCost.isEmpty()) ? Double.MAX_VALUE : Double.parseDouble(maxCost);
         int countPerson = (person.isEmpty()) ? 0 : Integer.parseInt(person);
 
-        ArrayList<Holiday> selectedHolidays = new HolidayFinder()
+        ArrayList<Offer> selectedHolidays = new OfferFinder()
                 .searchForHolidays(service, minC, maxC, continent, country,
                 city, startDate, endDate, countPerson);
         
@@ -51,12 +51,12 @@ public class HolidayController {
     }
 
     @GetMapping("/holidays/{sorting}")
-    public String showHolidaysForm(Holiday holiday, Model model, @PathVariable String sorting) {
-        Iterable<Holiday> data = service.findAll();
-        ArrayList<Holiday> list = new ArrayList<>();
+    public String showHolidaysForm(Offer holiday, Model model, @PathVariable String sorting) {
+        Iterable<Offer> data = service.findAll();
+        ArrayList<Offer> list = new ArrayList<>();
         data.forEach(h -> list.add(h));
 
-        list.sort(HolidaySorting.createComparatorByName(sorting));
+        list.sort(OfferComparatorFactory.createComparatorByName(sorting));
 
         model.addAttribute("holidays", list);
         model.addAttribute("recommendations", list);
@@ -65,8 +65,8 @@ public class HolidayController {
 
 
     @GetMapping("/holiday/{id}")
-    public String showHolidaysForm(Holiday holiday, Model model, @PathVariable long id) {
-        Holiday data = service.find(id);
+    public String showHolidaysForm(Offer holiday, Model model, @PathVariable long id) {
+        Offer data = service.find(id);
 
         model.addAttribute("holiday", data);
         return "holiday-detail";

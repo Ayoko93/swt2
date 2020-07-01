@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import java.util.Date;
 
 @Entity
-public class Holiday {
+public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

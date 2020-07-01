@@ -1,36 +1,36 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
-import de.fhdo.swt.example.swtexampleapplication.service.HolidayService;
+import de.fhdo.swt.example.swtexampleapplication.service.OfferService;
 
 import java.util.ArrayList;
 
-public class HolidayFinder {
-    public double calcPrice(Holiday exampleHoliday) {
+public class OfferFinder {
+    public double calcPrice(Offer exampleHoliday) {
         return exampleHoliday.getTravelDuration() * exampleHoliday.getPricePerDay();
     }
 
-    public boolean checkPriceRange(Holiday exampleHoliday, int priceIdea) {
+    public boolean checkPriceRange(Offer exampleHoliday, int priceIdea) {
         double allPrice = calcPrice(exampleHoliday);
         return (allPrice != 0 && allPrice < priceIdea);
     }
 
-    public boolean checkMinPrice(Holiday exampleHoliday, double minPrice) {
+    public boolean checkMinPrice(Offer exampleHoliday, double minPrice) {
         return exampleHoliday.getTotalPrice() >= minPrice;
     }
 
-    public boolean checkMaxPrice(Holiday exampleHoliday, double maxPrice) {
+    public boolean checkMaxPrice(Offer exampleHoliday, double maxPrice) {
         return exampleHoliday.getTotalPrice() <= maxPrice;
     }
 
-    public boolean checkContinent(Holiday exampleHoliday, String continent) {
+    public boolean checkContinent(Offer exampleHoliday, String continent) {
         return exampleHoliday.getHotel().getContinent().equals(continent);
     }
 
-    public boolean checkCountry(Holiday exampleHoliday, String country) {
+    public boolean checkCountry(Offer exampleHoliday, String country) {
         return exampleHoliday.getHotel().getCountry().equals(country);
     }
 
-    public boolean checkCity(Holiday exampleHoliday, String city) {
+    public boolean checkCity(Offer exampleHoliday, String city) {
         return exampleHoliday.getHotel().getCity().equals(city);
     }
 
@@ -45,11 +45,11 @@ public class HolidayFinder {
         return destinationRange;
     }
 
-    public ArrayList<Holiday> searchForHolidays(HolidayService service,
+    public ArrayList<Offer> searchForHolidays(OfferService service,
             double minConst, double maxCost, String continent, String country,
             String city, String startDate, String endDate, int person) {
-        ArrayList<Holiday> selectedHolidays = new ArrayList<>();
-        for (Holiday h : service.findAll()) {
+        ArrayList<Offer> selectedHolidays = new ArrayList<>();
+        for (Offer h : service.findAll()) {
             if (!checkMinPrice(h, minConst))
                 continue;
             if (!checkMaxPrice(h, maxCost))

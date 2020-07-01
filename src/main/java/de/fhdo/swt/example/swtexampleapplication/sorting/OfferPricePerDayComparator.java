@@ -1,12 +1,12 @@
 package de.fhdo.swt.example.swtexampleapplication.sorting;
 
-import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
+import de.fhdo.swt.example.swtexampleapplication.entity.Offer;
 
 import java.util.Comparator;
 
-public class SortHolidaysByPriceByDay implements Comparator<Holiday> {
+public class OfferPricePerDayComparator implements Comparator<Offer> {
     @Override
-    public int compare(Holiday o1, Holiday o2) {
+    public int compare(Offer o1, Offer o2) {
         return Double.compare(o1.getPricePerDay(), o2.getPricePerDay());
     }
 }

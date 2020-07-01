@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
-import de.fhdo.swt.example.swtexampleapplication.repository.HolidayRepository;
+import de.fhdo.swt.example.swtexampleapplication.entity.Offer;
+import de.fhdo.swt.example.swtexampleapplication.repository.OfferRepository;
 
 /**
  * A service for finding holidays in the database.
@@ -17,12 +17,12 @@ import de.fhdo.swt.example.swtexampleapplication.repository.HolidayRepository;
  */
 @Service
 @Validated
-public class HolidayService implements EntityService<Holiday> {
+public class OfferService implements EntityService<Offer> {
 	/**
 	 * The repository used.
 	 */
 	@Autowired
-	private HolidayRepository repo;
+	private OfferRepository repo;
 
 	/**
 	 * Finds a holiday by it's id.
@@ -32,7 +32,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * 								  found
 	 */
 	@Override
-	public Holiday find(long id) {
+	public Offer find(long id) {
 		return repo.findById(id).orElseThrow(
 				() -> new NoSuchElementException("Could not find holiday with "
 				+ "id " + id));
@@ -43,7 +43,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * @return all holidays found in the corresponding table
 	 */
 	@Override
-	public Iterable<Holiday> findAll() {
+	public Iterable<Offer> findAll() {
 		return repo.findAll();
 	}
 
@@ -54,7 +54,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * @throws IllegalArgumentException if {@code holiday} is {@code null}
 	 */
 	@Override
-	public void save(@Valid Holiday holiday) {
+	public void save(@Valid Offer holiday) {
 		repo.save(holiday);
 	}
 
@@ -66,7 +66,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * 									it is {@code null}
 	 */
 	@Override
-	public void saveAll(@Valid Iterable<Holiday> holidays) {
+	public void saveAll(@Valid Iterable<Offer> holidays) {
 		repo.saveAll(holidays);
 	}
 
@@ -76,7 +76,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * @throws IllegalArgumentException if {@code holiday} is {@code null}
 	 */
 	@Override
-	public void delete(Holiday holiday) {
+	public void delete(Offer holiday) {
 		repo.delete(holiday);
 	}
 
@@ -96,7 +96,7 @@ public class HolidayService implements EntityService<Holiday> {
 	 * 									inside it is {@code null}
 	 */
 	@Override
-	public void deleteAll(Iterable<Holiday> holidays) {
+	public void deleteAll(Iterable<Offer> holidays) {
 		repo.deleteAll(holidays);
 	}
 

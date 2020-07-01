@@ -74,7 +74,7 @@ public class Hotel {
      * All holidays in this hotel.
      */
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Holiday> holidays = new ArrayList<>();
+    private List<Offer> offers = new ArrayList<>();
     
     /**
      * Constructs an instance of this class.
@@ -278,34 +278,34 @@ public class Hotel {
     }
 
     /**
-     * @return the holidays this hotel is referenced in
+     * @return the offers this hotel is referenced in
      */
-    public Iterable<Holiday> getHolidays() {
-        return holidays;
+    public Iterable<Offer> getOffers() {
+        return offers;
     }
 
     /**
-     * Adds a holiday that references this hotel.
-     * @param holiday the holiday to add
-     * @throws IllegalArgumentException if {@code holiday} is {@code null}
+     * Adds an offer that references this hotel.
+     * @param offer the offer to add
+     * @throws IllegalArgumentException if {@code offer} is {@code null}
      */
-    public void addHoliday(Holiday holiday) {
-        if(holiday == null)
-            throw new IllegalArgumentException("Holiday is null");
-        else if(holidays.add(holiday))
-            holiday.setHotel(this);
+    public void addOffer(Offer offer) {
+        if(offer == null)
+            throw new IllegalArgumentException("Offer is null");
+        else if(offers.add(offer))
+            offer.setHotel(this);
     }
 
     /**
-     * Removes a holiday that no longer references this hotel.
-     * @param holiday the holiday to remove
-     * @throws IllegalArgumentException if {@code holiday} is {@code null}
+     * Removes an offer that no longer references this hotel.
+     * @param offer the offer to remove
+     * @throws IllegalArgumentException if {@code offer} is {@code null}
      */
-    public void removeHoliday(Holiday holiday) {
-        if(holiday == null)
-            throw new IllegalArgumentException("Holiday is null");
-        else if(holidays.remove(holiday) && holiday.getHotel() == this)
-            holiday.setHotel(null);
+    public void removeOffer(Offer offer) {
+        if(offer == null)
+            throw new IllegalArgumentException("Offer is null");
+        else if(offers.remove(offer) && offer.getHotel() == this)
+            offer.setHotel(null);
     }
 
     public String getImagePath() {
