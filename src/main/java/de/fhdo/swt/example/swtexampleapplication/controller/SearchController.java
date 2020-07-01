@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.View;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
 
 @Controller
@@ -45,7 +46,7 @@ public class SearchController {
         double maxC = (maxCost.isEmpty()) ? 0 : Double.parseDouble(maxCost);
         int countPerson = (person.isEmpty()) ? 0 : Integer.parseInt(person);
 
-        new HolidayFinder().serchForHolidays(minC, maxC, continent, country, city, startDate, endDate, countPerson);
+        ArrayList<Holiday> selectedHolidays = new HolidayFinder().serchForHolidays(service, minC, maxC, continent, country, city, startDate, endDate, countPerson);
 
         return "search";
     }

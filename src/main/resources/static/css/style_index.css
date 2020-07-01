@@ -3,9 +3,7 @@
   font-family: Helvetica, Arial, "Courier New", Courier, monospace;
 }
 
-h2 {
-  color: green;
-}
+
 
 /* ------------------------ navigation header design settings ---------------------------*/
 header nav a {
@@ -68,6 +66,7 @@ main {
 aside {
   padding: 3px;
   margin: 10px;
+  margin-bottom: 0px;
   border: 2px rgb(0, 255, 0) solid;
   border-radius: 10px;
   flex: 1;
@@ -76,6 +75,7 @@ aside {
 aside h4{
   margin: 0px;
 }
+
 
 footer {
   padding: 15px;
