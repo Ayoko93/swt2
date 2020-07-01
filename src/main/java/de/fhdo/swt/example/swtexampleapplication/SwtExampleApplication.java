@@ -104,7 +104,6 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holidayService.save(holiday1);
 		holidayService.save(holiday2);
 		holidayService.save(holiday3);
-
 		holidayService.save(holiday4);
 
 		hotel.addHoliday(holiday1);

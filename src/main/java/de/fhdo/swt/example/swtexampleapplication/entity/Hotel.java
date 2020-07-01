@@ -52,6 +52,9 @@ public class Hotel {
      */
 	private String name;
 
+    /**
+     * The image path.
+     */
 	private String imagePath;
 
     /**

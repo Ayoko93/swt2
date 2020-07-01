@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAK Login</title>
+    <title>FAK Login Error</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -22,8 +22,7 @@
         <div class="login-page">
           <div class="form">
             <form class="login-form">
-              <h1>Bitte einloggen oder registrieren, um diese Seite zu sehen</h1>
-              
+              <h1 th:text="${errormsg}">Ein Fehler ist aufgetreten</h1>
               <a href="/login" class="button">Einloggen</a>
               <a href="/registration" class="button">Registrieren</a>
             </form>
