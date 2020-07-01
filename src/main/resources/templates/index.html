@@ -19,6 +19,14 @@
 
         <h3>Wir empfehlen Ihnen...</h3>
 
+          <div class="sorting">
+              <p>Sortierung: </p>
+              <a href="/holidays/hotelName">Hotelname</a>
+              <a href="/holidays/totalPrice">Gesamtpreis</a>
+              <a href="/holidays/pricePerDay">Preis pro Tag</a>
+              <a href="/holidays/travelDuration">Dauer</a>
+              <a href="/holidays/none">Keine Sortierung</a>
+          </div>
         <div th:each="recommended : ${recommendations}" class="holiday-card">
             <h4 class="hotel-name" th:text="${recommended.hotel.name}">Luxury Bahia Principe Akumal</h4>
             <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif" th:src="${recommended.hotel.imagePath}" alt="Bild vom Hotel"/>
@@ -30,7 +38,7 @@
             <p class="hotel-endDate" th:text="@{${#dates.format(recommended.endDate, 'dd-MMM-yyyy')}}">Rückreise: 18.05.2020</p>
 
             <p class="hotel-price" th:text="@{${recommended.totalPrice} + ' ' + ${recommended.currency}}">2500€</p>
-            <a class="hotel-showDetails" href="holiday-detail.html" th:href="@{'holiday/' + ${recommended.id}}">Details anzeigen</a>
+            <a class="hotel-showDetails" href="holiday-detail.html" th:href="@{'/holiday/' + ${recommended.id}}">Details anzeigen</a>
         </div>
 
 
