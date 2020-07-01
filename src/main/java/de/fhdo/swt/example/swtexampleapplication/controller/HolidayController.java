@@ -32,7 +32,7 @@ public class HolidayController {
         ArrayList<Holiday> list = new ArrayList<>();
         data.forEach(h -> list.add(h));
 
-        list.sort(HolidaySorting.getByName(sorting));
+        list.sort(HolidaySorting.createComparatorByName(sorting));
 
         model.addAttribute("holidays", list);
         model.addAttribute("recommendations", list);

@@ -4,10 +4,9 @@ import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
 
 import java.util.Comparator;
 
-public class SortByTravelDuration implements Comparator<Holiday>{
-
+public class SortHolidaysByPriceByDay implements Comparator<Holiday> {
     @Override
     public int compare(Holiday o1, Holiday o2) {
-        return Integer.compare(o1.getTravelDuration(), o2.getTravelDuration());
+        return Double.compare(o1.getPricePerDay(), o2.getPricePerDay());
     }
 }

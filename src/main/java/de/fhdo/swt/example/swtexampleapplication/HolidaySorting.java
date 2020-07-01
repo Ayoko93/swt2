@@ -6,18 +6,18 @@ import java.util.Comparator;
 
 public class HolidaySorting {
 
-    public static Comparator<Holiday> getByName(String name){
+    public static Comparator<Holiday> createComparatorByName(String name){
         switch (name.toLowerCase()) {
             case "hotelname":
-                return new SortByHotelName();
+                return new sortHolidaysByHotelName();
             case "totalprice":
-                return new SortByTotalPrice();
+                return new SortHolidaysByTotalPrice();
             case "priceperday":
-                return new SortByPriceByDay();
-            case "TravelDuration":
-                return new SortByTravelDuration();
+                return new SortHolidaysByPriceByDay();
+            case "travelduration":
+                return new SortHolidaysByTravelDuration();
             default:
-                return new SortByNothing();
+                return new SortHolidaysByNothing();
         }
 
     }
