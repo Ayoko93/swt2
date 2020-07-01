@@ -30,6 +30,14 @@ public class HolidayController {
                                    @RequestParam(value = "search_end_date", required = false) String endDate,
                                    @RequestParam(value = "search_person", required = false) String person) {
 
+
+        minConst = replaceNullToEmptyString(minConst);
+        maxCost = replaceNullToEmptyString(maxCost);
+        continent = replaceNullToEmptyString(continent);
+        country = replaceNullToEmptyString(country);
+        city = replaceNullToEmptyString(city);
+        person = replaceNullToEmptyString(person);
+
         double minC = (minConst.isEmpty()) ? 0 : Double.parseDouble(minConst);
         double maxC = (maxCost.isEmpty()) ? 0 : Double.parseDouble(maxCost);
         int countPerson = (person.isEmpty()) ? 0 : Integer.parseInt(person);
@@ -50,6 +58,9 @@ public class HolidayController {
         return "index";
     }
 
+    private String replaceNullToEmptyString(String value){
+        return value == null ? "" : value;
+    }
 
     @GetMapping("/holidays/{sorting}")
     public String showHolidaysForm(Holiday holiday, Model model, @PathVariable String sorting) {
