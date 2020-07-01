@@ -1,9 +1,7 @@
 package de.fhdo.swt.example.swtexampleapplication.controller;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,16 +1,10 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import de.fhdo.swt.example.swtexampleapplication.service.HolidayService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
 public class HolidayFinder {
-
-    @Autowired
-    private HolidayService service;
-
     public double calcPrice(Holiday exampleHoliday) {
         return exampleHoliday.getTravelDuration() * exampleHoliday.getPricePerDay();
     }
