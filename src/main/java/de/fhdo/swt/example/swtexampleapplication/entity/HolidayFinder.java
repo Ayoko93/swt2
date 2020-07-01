@@ -11,12 +11,7 @@ public class HolidayFinder {
 
     public boolean checkPriceRange(Holiday exampleHoliday, int priceIdea) {
         double allPrice = calcPrice(exampleHoliday);
-        if (allPrice != 0) {
-            if (allPrice < priceIdea) {
-                return true;
-            }
-        }
-        return false;
+        return (allPrice != 0 && allPrice < priceIdea);
     }
 
     public boolean checkMinPrice(Holiday exampleHoliday, double minPrice) {
@@ -57,7 +52,7 @@ public class HolidayFinder {
                 continue;
             if (maxCost != 0 && !checkMaxPrice(h, maxCost))
                 continue;
-            if(!continent.isEmpty() && !checkContinent(h, continent))
+            if (!continent.isEmpty() && !checkContinent(h, continent))
                 continue;
             if (!country.isEmpty() && !checkCountry(h, country))
                 continue;

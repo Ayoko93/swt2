@@ -14,7 +14,7 @@
     <aside th:replace="fragments/aside :: aside"/>
     <main>
       <h2>Reisesuche</h2>
-      <div class="form">          
+      <div class="form">
         <form class="search-form" method="get" action="/">
           <div class="search_item" id="item_min">
             <span>Min. Kosten:</span>
@@ -48,18 +48,23 @@
             <span>Anzahl Personen:</span>
             <input type="number" id="search_person" placeholder="Anzahl Personen" name="search_person" th:value="${search_person}"/>
           </div>
+          <div class="search_item" id="item_sorting">
+            <span>Sortieren nach:</span>
+            <select name="sorting">
+              <option value="none">Keine</option>
+              <option value="hotelname">Hotelname</option>
+              <option value="totalprice">Gesamtpreis</option>
+            </select>
+          </div>
           <button id="search_start">Suchen</button>
         </form>
       </div>
       <h2>Wir empfehlen Ihnen...</h2>
-        <div class="sorting">
-            <p>Sortiere nach: </p>
-            <a href="/holidays/hotelName">Hotelname</a>
-            <a href="/holidays/totalPrice">Gesamtpreis</a>
-            <a href="/holidays/pricePerDay">Preis pro Tag</a>
-            <a href="/holidays/travelDuration">Dauer</a>
-            <a href="/holidays/none">Keine Sortierung</a>
-        </div>
+      <!--<div class="sorting">
+      <p>Sortiere nach: </p>
+      <button type="button" name="sorting" value="hotelname">Hotelname</button>
+      <button type="button" name="sorting" value="totalPrice">Gesamtpreis</button>
+      </div>-->
       <div th:each="recommended : ${recommendations}" class="holiday-card">
         <h4 class="hotel-name" th:text="${recommended.hotel.name}">Luxury Bahia Principe Akumal</h4>
         <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif" th:src="${recommended.hotel.imagePath}" alt="Bild vom Hotel"/>
