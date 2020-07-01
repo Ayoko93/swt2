@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Past;
 
 @Entity
 @Table(name = "user_")
@@ -23,6 +24,7 @@ public class User {
 
     private String firstName;
 
+    @Column(unique = true)
     private String mailAddress;
 
     private String password;
@@ -31,6 +33,7 @@ public class User {
     @Column(nullable = true)
     private String bankAccNumber;
 
+    @Past
     @Nullable
     @Column(nullable = true)
     private Date birthDate;

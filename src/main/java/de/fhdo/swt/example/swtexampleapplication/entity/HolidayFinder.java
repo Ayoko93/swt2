@@ -1,6 +1,16 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
+import de.fhdo.swt.example.swtexampleapplication.service.HolidayService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+
 public class HolidayFinder {
+
+    @Autowired
+    private HolidayService service;
+
     public double calcPrice(Holiday exampleHoliday) {
         return exampleHoliday.getTravelDuration() * exampleHoliday.getPricePerDay();
     }
@@ -8,32 +18,33 @@ public class HolidayFinder {
     public boolean checkPriceRange(Holiday exampleHoliday, int priceIdea) {
         double allPrice = calcPrice(exampleHoliday);
         if (allPrice != 0) {
-             if (allPrice < priceIdea){
+            if (allPrice < priceIdea) {
                 return true;
-             }
+            }
         }
         return false;
     }
 
-    public boolean checkContinent(Holiday exampleHoliday, String continent){
-        if (exampleHoliday.getHotel().getContinent().equals(continent)) {
-            return true;
-        }
-        return false;
+    public boolean checkMinPrice(Holiday exampleHoliday, double minPrice) {
+        return exampleHoliday.getPricePerDay() <= minPrice;
     }
 
-    public boolean checkCountry(Holiday exampleHoliday, String country){
-        if (exampleHoliday.getHotel().getCountry().equals(country)) {
-            return true;
-        }
-        return false;
+    public boolean checkMaxPrice(Holiday exampleHoliday, double maxPrice) {
+        return exampleHoliday.getPricePerDay() >= maxPrice;
     }
-    public boolean checkCity(Holiday exampleHoliday, String city){
-        if (exampleHoliday.getHotel().getContinent().equals(city)) {
-            return true;
-        }
-        return false;
+
+    public boolean checkContinent(Holiday exampleHoliday, String continent) {
+        return exampleHoliday.getHotel().getContinent().equals(continent);
     }
+
+    public boolean checkCountry(Holiday exampleHoliday, String country) {
+        return exampleHoliday.getHotel().getCountry().equals(country);
+    }
+
+    public boolean checkCity(Holiday exampleHoliday, String city) {
+        return exampleHoliday.getHotel().getCity().equals(city);
+    }
+
     // For one Search
     private int destinationRange = 10;
 
@@ -44,4 +55,26 @@ public class HolidayFinder {
     public int getDestinationRange() {
         return destinationRange;
     }
+    
+    public ArrayList<Holiday> serchForHolidays(double minConst, double maxCost, String continent, String country, String city, String startDate, String endDate, int person) {
+        ArrayList<Holiday> selectedHolidays = new ArrayList<>();
+        for (Holiday h : service.findAll()) {
+            if (!checkMinPrice(h, minConst))
+                continue;
+            if (maxCost != 0 && !checkMaxPrice(h, maxCost))
+                continue;
+            if(!continent.isEmpty() && !checkContinent(h, continent))
+                continue;
+            if (!country.isEmpty() && !checkCountry(h, country))
+                continue;
+            if (!city.isEmpty() && !checkCity(h, city))
+                continue;
+
+            //TODO: Datum wird nicht berücksichtigt
+
+            selectedHolidays.add(h);
+        }
+        return selectedHolidays;
+    }
+
 }
