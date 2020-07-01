@@ -1,5 +1,6 @@
 package de.fhdo.swt.example.swtexampleapplication.entity;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import de.fhdo.swt.example.swtexampleapplication.service.HolidayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,11 +27,11 @@ public class HolidayFinder {
     }
 
     public boolean checkMinPrice(Holiday exampleHoliday, double minPrice) {
-        return exampleHoliday.getPricePerDay() <= minPrice;
+        return exampleHoliday.getPricePerDay() >= minPrice;
     }
 
     public boolean checkMaxPrice(Holiday exampleHoliday, double maxPrice) {
-        return exampleHoliday.getPricePerDay() >= maxPrice;
+        return exampleHoliday.getPricePerDay() <= maxPrice;
     }
 
     public boolean checkContinent(Holiday exampleHoliday, String continent) {
@@ -55,8 +56,8 @@ public class HolidayFinder {
     public int getDestinationRange() {
         return destinationRange;
     }
-    
-    public ArrayList<Holiday> serchForHolidays(double minConst, double maxCost, String continent, String country, String city, String startDate, String endDate, int person) {
+
+    public ArrayList<Holiday> serchForHolidays(HolidayService service, double minConst, double maxCost, String continent, String country, String city, String startDate, String endDate, int person) {
         ArrayList<Holiday> selectedHolidays = new ArrayList<>();
         for (Holiday h : service.findAll()) {
             if (!checkMinPrice(h, minConst))
@@ -71,7 +72,6 @@ public class HolidayFinder {
                 continue;
 
             //TODO: Datum wird nicht berücksichtigt
-
             selectedHolidays.add(h);
         }
         return selectedHolidays;
