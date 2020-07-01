@@ -1,6 +1,6 @@
 package de.fhdo.swt.example.swtexampleapplication.controller;
 
-import de.fhdo.swt.example.swtexampleapplication.HolidaySorting;
+import de.fhdo.swt.example.swtexampleapplication.sorting.HolidaySorting;
 import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
 import de.fhdo.swt.example.swtexampleapplication.service.HolidayService;
 

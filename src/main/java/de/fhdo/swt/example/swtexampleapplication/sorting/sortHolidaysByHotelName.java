@@ -1,4 +1,4 @@
-package de.fhdo.swt.example.swtexampleapplication;
+package de.fhdo.swt.example.swtexampleapplication.sorting;
 
 import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
 import org.springframework.util.comparator.Comparators;
