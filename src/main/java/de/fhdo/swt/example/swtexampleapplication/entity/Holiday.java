@@ -105,5 +105,4 @@ public class Holiday {
     public double getTotalPrice(){
         return pricePerDay*travelDuration;
     }
-
 }

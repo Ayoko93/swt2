@@ -15,11 +15,11 @@ public class HolidayFinder {
     }
 
     public boolean checkMinPrice(Holiday exampleHoliday, double minPrice) {
-        return exampleHoliday.getPricePerDay() >= minPrice;
+        return exampleHoliday.getTotalPrice() >= minPrice;
     }
 
     public boolean checkMaxPrice(Holiday exampleHoliday, double maxPrice) {
-        return exampleHoliday.getPricePerDay() <= maxPrice;
+        return exampleHoliday.getTotalPrice() <= maxPrice;
     }
 
     public boolean checkContinent(Holiday exampleHoliday, String continent) {
@@ -45,12 +45,14 @@ public class HolidayFinder {
         return destinationRange;
     }
 
-    public ArrayList<Holiday> serchForHolidays(HolidayService service, double minConst, double maxCost, String continent, String country, String city, String startDate, String endDate, int person) {
+    public ArrayList<Holiday> searchForHolidays(HolidayService service,
+            double minConst, double maxCost, String continent, String country,
+            String city, String startDate, String endDate, int person) {
         ArrayList<Holiday> selectedHolidays = new ArrayList<>();
         for (Holiday h : service.findAll()) {
             if (!checkMinPrice(h, minConst))
                 continue;
-            if (maxCost != 0 && !checkMaxPrice(h, maxCost))
+            if (!checkMaxPrice(h, maxCost))
                 continue;
             if (!continent.isEmpty() && !checkContinent(h, continent))
                 continue;
