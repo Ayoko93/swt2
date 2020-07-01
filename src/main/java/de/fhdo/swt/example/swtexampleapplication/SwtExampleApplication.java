@@ -53,8 +53,13 @@ public class SwtExampleApplication implements CommandLineRunner {
 				"In einer ruhigen Umgebung und mit Blick auf das Meer werden Sie Ihren Traumurlaub genießen können. ");
 		hotel2.setImagePath("/img/Albatros_White_Beach.jpg");
 
+		Hotel hotel3 = new Hotel("Asien", "Vereinigte Arabische Emirate", "Abu Dhabi", "Street 5", "Jumeirah at Etihad Towers Hotel", "Jumeirah at Etihad Towers - " +
+				"erleben Sie modernsten Luxus, authentische Gastfreundschaft und Service nach Ihren persönlichen Wünschen an der ersten Adresse Abu Dhabis, der Corniche.");
+		hotel3.setImagePath("/img/Etihad_Towers.jpg");
+
 		hotelService.save(hotel);
 		hotelService.save(hotel2);
+		hotelService.save(hotel3);
 
 		Holiday holiday1 = new Holiday();
 		holiday1.setCurrency("Euro");
@@ -85,14 +90,31 @@ public class SwtExampleApplication implements CommandLineRunner {
 		holiday3.setEndDate(Date.from(Instant.now()));
 		holiday3.setTravelDuration(20);
 
+		Holiday holiday4 = new Holiday();
+		holiday4.setHotel(hotel);
+		holiday4.setCurrency("Euro");
+		holiday4.setPricePerDay(170);
+		holiday4.setPriceModel("all-inclusive");
+		holiday4.setTravelAgency("ITS Reisen");
+		holiday4.setStartDate(Date.from(Instant.now()));
+		holiday4.setEndDate(Date.from(Instant.now()));
+		holiday4.setTravelDuration(7);
+
+
 		holidayService.save(holiday1);
 		holidayService.save(holiday2);
 		holidayService.save(holiday3);
 
+		holidayService.save(holiday4);
+
 		hotel.addHoliday(holiday1);
 		hotel2.addHoliday(holiday2);
+		hotel3.addHoliday(holiday4);
+
 		hotelService.save(hotel);
 		hotelService.save(hotel2);
+
+		hotelService.save(hotel3);
 
 		User user = new User("Preuschoff", "Jan","preuschoffjan@gmail.com", "123456");
 		userService.save(user);
