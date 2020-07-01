@@ -38,9 +38,11 @@ public class UserController {
     @GetMapping("/profile")
     public String showUserProfilePage(Model model) {
         User user = SessionManager.instance.getUser();
-        if(user == null)
-            return "no-account";
-        else {
+        if(user == null) {
+            model.addAttribute("errormsg", "Bitte loggen sie sich ein, um "
+                    + "diese Seite zu sehen.");
+            return "user-error";
+        } else {
             model.addAttribute("profile", user);
             return "profile";
         }
@@ -74,21 +76,25 @@ public class UserController {
      * user clicks on the Submit button on {@code /login}. Logs the user in if
      * the login is valid.
      * 
+     * @param model    the model to add attributes to
      * @param request  the request, used for setting the HTTP status code
      * @param email    the user's email address
      * @param password the user's password
      * @return the view to send to the user
      */
     @PostMapping("/login")
-    public String loginPost(HttpServletRequest request,
+    public String loginPost(Model model, HttpServletRequest request,
             @RequestParam("email") String email,
             @RequestParam("password") String password) {
         if(SessionManager.instance.login(email, password)) {
             request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE,
                     HttpStatus.FOUND);
             return "redirect:profile";
-        } else
-            return "login";
+        } else {
+            model.addAttribute("errormsg", "E-Mail-Adresse oder Passwort ist "
+                    + "falsch.");
+            return "user-error";
+        }
     }
 
     /**
@@ -107,6 +113,7 @@ public class UserController {
      * once the user clicks on the Submit button on {@code /registration}.
      * Registers the user and handles invalid data.
      * 
+     * @param model     the model to add attributes to
      * @param request   the request, used for setting the HTTP status code
      * @param firstName the user's first name
      * @param lastName  the user's last name
@@ -115,7 +122,7 @@ public class UserController {
      * @return the view to send to the user
      */
     @PostMapping("/registration")
-    public String registerPost(HttpServletRequest request,
+    public String registerPost(Model model, HttpServletRequest request,
             @RequestParam("firstName") String firstName,
             @RequestParam("lastName") String lastName,
             @RequestParam("password") String password,
@@ -123,7 +130,10 @@ public class UserController {
         if(SessionManager.instance.register(firstName, lastName, email, password)) {
             request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE, HttpStatus.FOUND);
             return "redirect:profile";
-        } else
-            return "registration";
+        } else {
+            model.addAttribute("errormsg", "Ein Nutzer mit dieser "
+                    + "E-Mail-Adresse existiert bereits.");
+            return "user-error";
+        }
     }
 }
