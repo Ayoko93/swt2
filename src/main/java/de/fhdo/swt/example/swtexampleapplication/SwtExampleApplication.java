@@ -112,7 +112,6 @@ public class SwtExampleApplication implements CommandLineRunner {
 
 		hotelService.save(hotel);
 		hotelService.save(hotel2);
-
 		hotelService.save(hotel3);
 
 		User user = new User("Preuschoff", "Jan","preuschoffjan@gmail.com", "123456");
