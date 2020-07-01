@@ -1,56 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/css/style_index.css" th:href="@{/css/style_index.css}">
-    <link rel="stylesheet" type="text/css" href="../static/css/style_holiday-detail.css" th:href="@{/css/style_holiday-detail.css}">
-    <title>FAK Reiseportal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style_index.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style_holiday-detail.css}">
+  <title>FAK Reiseportal</title>
 </head>
-
 <body>
-
-  <body>
-    <header th:replace="fragments/header :: header"/>
-  
-  
-      <div id="centerdesign">
-  
-        <aside th:replace="fragments/aside :: aside"/>
-  
-        <main id="hauptinhalt">
-                <h2 th:text="${holiday.hotel.name}">Hotelname</h2>
-                
-                <div class="row">
-                    <p class="place"><b th:text="@{${holiday.hotel.country} + ' - ' + ${holiday.hotel.city}}">Country - </b></p>
-                    <p><b>Bewertung:</b> &starf;&starf;&starf;&starf;&star;</p>
-                </div>
-        
-                <img width="100%" src="../static/img/Luxury_Bahia_Principe.jfif" th:src="${holiday.hotel.imagePath}" alt="Bild vom Hotel" />
-        
-                <h3>Beschreibung</h3>
-                <p th:text="${holiday.hotel.description}">
-                    Ein Hauch von Luxus und Exklusivität direkt am Strand: der perfekte Ort für alle, die erstklassigen Service
-                    in einem Hotel am Meeresufer suchen.
-                    Der dazugehörige Golfplatz und die modernen Ferienchalets bietet Exklusivität on top.
-                </p>
-        
-                <div class="hotel-details row">
-                    <p><b>Zeitraum:</b><span th:text="@{${#dates.format(holiday.startDate, 'dd-MM-yyyy')} + ' - ' + ${#dates.format(holiday.endDate, 'dd-MM-yyyy')}}">01.07.2020 - 15.07.2020</span></p>
-                    <p><b>Verpflegung:</b><span th:text="${holiday.priceModel}">all-inclusive</span></p>
-                    <p><b>Reiseveranstalter:</b><span th:text="${holiday.travelAgency}">DER Touristik</span></p>
-                    <p><b>Preis:</b><span th:text="@{${holiday.totalPrice} + ' ' + ${holiday.currency}}">1200€</span></p>
-                </div>
-        
-                <form action="POST">
-                    <input class="buchen-button" type="submit" name="buchen" value="Kostenpflichtig buchen">
-                </form>
-  
-        </main>
-
-
-      <footer th:replace="fragments/footer :: footer"/>
-      
-    </div>
-  </body>
+  <header th:replace="fragments/header :: header"/>
+    <div id="centerdesign">
+      <aside th:replace="fragments/aside :: aside"/>
+      <main id="hauptinhalt">
+        <h2 th:text="${holiday.hotel.name}"/>
+        <div class="row">
+          <p class="place"><b th:text="@{${holiday.hotel.country} + ' - ' + ${holiday.hotel.city}}"/></p>
+          <p><b>Bewertung:</b> &starf;&starf;&starf;&starf;&star;</p>
+        </div>
+        <img width="100%" th:src="${holiday.hotel.imagePath}" alt="Bild vom Hotel" />
+        <h3>Beschreibung</h3>
+        <p th:text="${holiday.hotel.description}"/>
+        <div class="hotel-details row">
+          <p><b>Zeitraum:</b><span th:text="@{${#dates.format(holiday.startDate, 'dd.MM.yyyy')} + ' - ' + ${#dates.format(holiday.endDate, 'dd.MM.yyyy')}}"/></p>
+          <p><b>Verpflegung:</b><span th:text="${holiday.priceModel}"/></p>
+          <p><b>Reiseveranstalter:</b><span th:text="${holiday.travelAgency}"/></p>
+          <p><b>Preis:</b><span th:text="@{${holiday.totalPrice} + ' ' + ${holiday.currency}}"/></p>
+        </div>
+        <form action="POST">
+          <input class="buchen-button" type="submit" name="buchen" value="Kostenpflichtig buchen">
+        </form>
+      </main>
+    <footer th:replace="fragments/footer :: footer"/>
+  </div>
+</body>
 </html>

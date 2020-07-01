@@ -1,46 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAK Login</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../static/css/style_index.css"
-      th:href="@{/css/style_index.css}"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../static/css/style_account.css"
-      th:href="@{/css/style_account.css}"
-    />
-  </head>
-
-  <body>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAK Login</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style_index.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style_account.css}"/>
+</head>
+<body>
   <header th:replace="fragments/header :: header"/>
-
-    <div id="centerdesign">
-      <main>
-        
-        <div class="login-page">
-            <div class="form">
-              <form class="register-form" method="POST">
-                <h1>Registrieren</h1>
-                <input type="text" placeholder="Vorname" name="firstName" required/>
-                <input type="text" placeholder="Nachname" name="lastName" required/>
-                <input type="text" placeholder="E-Mail Adresse" name="email" required/>
-                <input type="password" placeholder="Passwort" name="password" required/>
-                <button>Registrieren</button>
-                <p class="message">Schon einen Account erstellt? <a href="/login">Einloggen</a></p>
-              </form>
-  
-            </div>
-          </div>
-      </main>
-
-      <footer th:replace="fragments/footer :: footer"/>
-    </div>
-  </body>
+  <div id="centerdesign">
+    <main>
+      <div class="login-page">
+        <div class="form">
+          <form class="register-form" method="POST">
+            <h1>Registrieren</h1>
+            <input type="text" placeholder="Vorname" name="firstName" required/>
+            <input type="text" placeholder="Nachname" name="lastName" required/>
+            <input type="text" placeholder="E-Mail Adresse" name="email" required/>
+            <input type="password" placeholder="Passwort" name="password" required/>
+            <button>Registrieren</button>
+            <p class="message">Schon einen Account erstellt? <a href="/login">Einloggen</a></p>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"/>
+  </div>
+</body>
 </html>
