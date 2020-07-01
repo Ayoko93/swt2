@@ -26,12 +26,15 @@
         
         <div class="login-page">
             <div class="form">
-              <form class="register-form">
+              <form class="register-form" method="POST">
                 <h1>Mein Profil</h1>
-                <input th:value="${profile.firstName}" type="text" placeholder="Vornamen"/>
-                <input th:value="${profile.lastName}" type="text" placeholder="Nachnamen"/>
-                <input th:value="${profile.password}" type="password" placeholder="Passwort"/>
-                <input th:value="${profile.mailAddress}" type="text" placeholder="E-Mail Adresse"/>
+                <input th:value="${user.firstName}" name="firstName" type="text" placeholder="Vornamen" required/>
+                <input th:value="${user.lastName}" name="lastName" type="text" placeholder="Nachnamen" required/>
+                <input th:value="${user.mailAddress}" name="email" type="text" placeholder="E-Mail Adresse" required/>
+                <input th:value="${user.password}" name="password" type="password" placeholder="Passwort" required/>
+                <input th:value="${#dates.format(user.birthDate, 'dd.MM.yyyy')}" name="birthDate" type="text" placeholder="Geburtstag"/>
+                <input th:value="${user.iban}" name="iban" type="text" placeholder="IBAN"/>
+                <input th:value="${user.bic}" name="bic" type="text" placeholder="BIC"/>
                 <button>Speichern</button>
               </form>
   

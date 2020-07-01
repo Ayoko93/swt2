@@ -3,7 +3,6 @@ package de.fhdo.swt.example.swtexampleapplication.entity;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import de.fhdo.swt.example.swtexampleapplication.service.HolidayService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
