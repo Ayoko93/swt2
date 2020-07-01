@@ -22,9 +22,14 @@
         <div class="login-page">
           <div class="form">
             <form class="login-form">
-              <h1 th:text="${errormsg}">Ein Fehler ist aufgetreten</h1>
-              <a href="javascript:location=location.href"
-                  class="button">Okay</a>
+              <div th:if="${errormsg}">
+                <h1 th:text="${errormsg}"></h1>
+                <a href="javascript:location=location.href" class="button">Okay</a>
+              </div>
+              <div th:unless="${errormsg}">
+                <h1>Ein interner Fehler ist aufgetreten</h1>
+                <a href="/" class="button">Okay</a>
+              </div>
             </form>
           </div>
         </div>
