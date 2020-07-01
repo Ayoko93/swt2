@@ -1,7 +1,6 @@
 package de.fhdo.swt.example.swtexampleapplication;
 
 import de.fhdo.swt.example.swtexampleapplication.entity.Holiday;
-import org.springframework.util.comparator.Comparators;
 
 import java.util.Comparator;
 

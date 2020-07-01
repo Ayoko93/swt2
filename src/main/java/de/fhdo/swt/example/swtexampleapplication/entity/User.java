@@ -30,10 +30,6 @@ public class User {
 
     private String password;
 
-    @Nullable
-    @Column(nullable = true)
-    private String bankAccNumber;
-
     @Past
     @Nullable
     @Column(nullable = true)
@@ -41,7 +37,11 @@ public class User {
 
     @Nullable
     @Column(nullable = true)
-    private int bankAccId;
+    private String iban;
+
+    @Nullable
+    @Column(nullable = true)
+    private String bic;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL,
             orphanRemoval = true)
@@ -51,7 +51,8 @@ public class User {
 
     // Constructors
     // 1. necessary
-    public User(String lastName, String firstName, String mailAddress, String password) {
+    public User(String lastName, String firstName, String mailAddress,
+            String password) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.mailAddress = mailAddress;
@@ -60,15 +61,18 @@ public class User {
     }
 
     // 2. necessary + birthdate
-    public User(String lastName, String firstName, String mailAddress, String password, Date birthDate) {
+    public User(String lastName, String firstName, String mailAddress,
+            String password, Date birthDate) {
         this(lastName, firstName, mailAddress, password);
         this.birthDate = birthDate;
     }
 
     // 3. ALL inclusive
-    public User(String lastName, String firstName, String mailAddress, String password, Date birthDate, String bankAccNumber) {
+    public User(String lastName, String firstName, String mailAddress,
+            String password, Date birthDate, String iban, String bic) {
         this(lastName, firstName, mailAddress, password, birthDate);
-        this.bankAccNumber = bankAccNumber;
+        this.iban = iban;
+        this.bic = bic;
     }
 
     // Methods
@@ -111,14 +115,6 @@ public class User {
         this.password = password;
     }
 
-    public String getBankAccNumber() {
-        return bankAccNumber;
-    }
-
-    public void setBankAccNumber(String bankAccNumber) {
-        this.bankAccNumber = bankAccNumber;
-    }
-
     public Date getBirthDate() {
         return birthDate;
     }
@@ -127,11 +123,19 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public int getBankAccId() {
-        return bankAccId;
+    public String getIban() {
+        return iban;
     }
 
-    public void setBankAccId(int bankAccId) {
-        this.bankAccId = bankAccId;
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getBic() {
+        return bic;
+    }
+
+    public void setBic(String bic) {
+        this.bic = bic;
     }
 }
