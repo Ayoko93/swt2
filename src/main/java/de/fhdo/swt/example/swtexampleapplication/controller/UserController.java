@@ -91,7 +91,7 @@ public class UserController {
                     HttpStatus.FOUND);
             return "redirect:profile";
         } else {
-            model.addAttribute("errormsg", "E-Mail-Adresse oder Passwort sind "
+            model.addAttribute("errormsg", "E-Mail-Adresse oder Passwort ist "
                     + "falsch.");
             return "user-error";
         }
@@ -131,7 +131,8 @@ public class UserController {
             request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE, HttpStatus.FOUND);
             return "redirect:profile";
         } else {
-            model.addAttribute("errormsg", "E-Mail-Adresse bereits verwendet");
+            model.addAttribute("errormsg", "Ein Nutzer mit dieser "
+                    + "E-Mail-Adresse existiert bereits.");
             return "user-error";
         }
     }
