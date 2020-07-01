@@ -95,3 +95,27 @@ footer {
   }
 
 }
+
+
+div.sorting{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
+
+div.sorting p{
+  font-weight: bold;
+  margin: 0px;
+  margin-right: 10px;
+}
+
+div.sorting a{
+  text-decoration: none;
+  color: #888888;
+  margin-right: 10px;
+}
+
+div.sorting a:hover{
+  text-decoration: none;
+  color: green;
+}
