@@ -1,37 +1,38 @@
-package de.fhdo.fak.entity;
+package de.fhdo.fak.misc;
 
+import de.fhdo.fak.entity.Offer;
 import de.fhdo.fak.service.OfferService;
 
 import java.util.ArrayList;
 
 public class OfferFinder {
-    public double calcPrice(Offer exampleHoliday) {
-        return exampleHoliday.getTravelDuration() * exampleHoliday.getPricePerDay();
+    public double calcPrice(Offer offer) {
+        return offer.getTravelDuration() * offer.getPricePerDay();
     }
 
-    public boolean checkPriceRange(Offer exampleHoliday, int priceIdea) {
-        double allPrice = calcPrice(exampleHoliday);
+    public boolean checkPriceRange(Offer offer, int priceIdea) {
+        double allPrice = calcPrice(offer);
         return (allPrice != 0 && allPrice < priceIdea);
     }
 
-    public boolean checkMinPrice(Offer exampleHoliday, double minPrice) {
-        return exampleHoliday.getTotalPrice() >= minPrice;
+    public boolean checkMinPrice(Offer offer, double minPrice) {
+        return offer.getTotalPrice() >= minPrice;
     }
 
-    public boolean checkMaxPrice(Offer exampleHoliday, double maxPrice) {
-        return exampleHoliday.getTotalPrice() <= maxPrice;
+    public boolean checkMaxPrice(Offer offer, double maxPrice) {
+        return offer.getTotalPrice() <= maxPrice;
     }
 
-    public boolean checkContinent(Offer exampleHoliday, String continent) {
-        return exampleHoliday.getHotel().getContinent().equals(continent);
+    public boolean checkContinent(Offer offer, String continent) {
+        return offer.getHotel().getContinent().equals(continent);
     }
 
-    public boolean checkCountry(Offer exampleHoliday, String country) {
-        return exampleHoliday.getHotel().getCountry().equals(country);
+    public boolean checkCountry(Offer offer, String country) {
+        return offer.getHotel().getCountry().equals(country);
     }
 
-    public boolean checkCity(Offer exampleHoliday, String city) {
-        return exampleHoliday.getHotel().getCity().equals(city);
+    public boolean checkCity(Offer offer, String city) {
+        return offer.getHotel().getCity().equals(city);
     }
 
     // For one Search
@@ -45,7 +46,7 @@ public class OfferFinder {
         return destinationRange;
     }
 
-    public ArrayList<Offer> searchForHolidays(OfferService service,
+    public ArrayList<Offer> searchForOffers(OfferService service,
             double minCost, double maxCost, String continent, String country,
             String city, String startDate, String endDate, int person) {
         ArrayList<Offer> selectedHolidays = new ArrayList<>();

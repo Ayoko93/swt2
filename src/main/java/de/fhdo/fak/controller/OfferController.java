@@ -1,6 +1,6 @@
 package de.fhdo.fak.controller;
 
-import de.fhdo.fak.entity.OfferFinder;
+import de.fhdo.fak.misc.OfferFinder;
 import de.fhdo.fak.sorting.OfferComparatorFactory;
 import de.fhdo.fak.entity.Offer;
 import de.fhdo.fak.service.OfferService;
@@ -34,7 +34,7 @@ public class OfferController {
         double maxC = (maxCost.isEmpty()) ? Double.MAX_VALUE : Double.parseDouble(maxCost);
         int countPerson = (person.isEmpty()) ? 0 : Integer.parseInt(person);
 
-        ArrayList<Offer> offers = new OfferFinder().searchForHolidays(service,
+        ArrayList<Offer> offers = new OfferFinder().searchForOffers(service,
                 minC, maxC, continent, country, city, startDate, endDate,
                 countPerson);
         offers.sort(OfferComparatorFactory.create(sorting));
