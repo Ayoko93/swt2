@@ -21,9 +21,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @SpringBootApplication
 @EnableJpaRepositories("de.fhdo.swt.example.swtexampleapplication.repository")
 @EntityScan("de.fhdo.swt.example.swtexampleapplication.entity")
-public class SwtExampleApplication implements CommandLineRunner {
+public class FAKApplication implements CommandLineRunner {
 	public static void main(String[] args) {
-		SpringApplication.run(SwtExampleApplication.class, args);
+		SpringApplication.run(FAKApplication.class, args);
 	}
 
 	@Autowired

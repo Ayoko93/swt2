@@ -46,11 +46,11 @@ public class OfferFinder {
     }
 
     public ArrayList<Offer> searchForHolidays(OfferService service,
-            double minConst, double maxCost, String continent, String country,
+            double minCost, double maxCost, String continent, String country,
             String city, String startDate, String endDate, int person) {
         ArrayList<Offer> selectedHolidays = new ArrayList<>();
         for (Offer h : service.findAll()) {
-            if (!checkMinPrice(h, minConst))
+            if (!checkMinPrice(h, minCost))
                 continue;
             if (!checkMaxPrice(h, maxCost))
                 continue;
