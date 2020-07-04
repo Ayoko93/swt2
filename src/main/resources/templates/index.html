@@ -13,52 +13,60 @@
   <div id="centerdesign">
     <aside th:replace="fragments/aside :: aside"/>
     <main>
+
+
       <h2>Reisesuche</h2>
-      <div class="form">
-        <form class="search-form" method="get" action="/">
-          <div class="search_item" id="item_min">
-            <span>Min. Kosten:</span>
-            <input type="number" id="search_min_cost" placeholder="Min. Kosten" name="search_min_cost" th:value="${search_min_cost}"/>
-          </div>
-          <div class="search_item" id="item_max">
-            <span>Max. Kosten:</span>
-            <input type="number" id="search_max_cost" placeholder="Max. Kosten" name="search_max_cost" th:value="${search_max_cost}"/>
-          </div>
-          <div class="search_item" id="item_continent" >
-            <span>Kontinent:</span>
-            <input type="text" id="search_continent" placeholder="Kontinent" name="search_continent" th:value="${search_continent}"/>
-          </div>
-          <div class="search_item" id="item_country">
-            <span>Land:</span>
-            <input type="text" id="search_country" placeholder="Land" name="search_country" th:value="${search_country}"/>
-          </div>
-          <div class="search_item" id="item_city">
-            <span>Stadt:</span>
-            <input type="text" id="search_city" placeholder="Stadt" name="search_city" th:value="${search_city}"/>
-          </div>
-          <div class="search_item" id="item_start">
-            <span>Start Datum:</span>
-            <input type="date" id="search_start_date" placeholder="Start Datum" name="search_start_date" th:value="${search_start_date}"/>
-          </div>
-          <div class="search_item" id="item_end">
-            <span>End Datum:</span>
-            <input type="date" id="search_end_date" placeholder="End Datum" name="search_end_date" th:value="${search_end_date}"/>
-          </div>
-          <div class="search_item" id="item_person">
-            <span>Anzahl Personen:</span>
-            <input type="number" id="search_person" placeholder="Anzahl Personen" name="search_person" th:value="${search_person}"/>
-          </div>
-          <div class="search_item" id="item_sorting">
-            <span>Sortieren nach:</span>
-            <select name="sorting">
-              <option value="none">Keine</option>
-              <option value="hotelname">Hotelname</option>
-              <option value="totalprice">Gesamtpreis</option>
-            </select>
-          </div>
-          <button id="search_start">Suchen</button>
-        </form>
-      </div>
+      <details open>
+
+        <summary>Suche öffnen</summary>
+
+        <div class="form">
+          <form class="search-form" method="get" action="/">
+            <div class="search_item" id="item_min">
+              <span>Min. Kosten:</span>
+              <input type="number" id="search_min_cost" placeholder="Min. Kosten" name="search_min_cost" th:value="${search_min_cost}"/>
+            </div>
+            <div class="search_item" id="item_max">
+              <span>Max. Kosten:</span>
+              <input type="number" id="search_max_cost" placeholder="Max. Kosten" name="search_max_cost" th:value="${search_max_cost}"/>
+            </div>
+            <div class="search_item" id="item_continent" >
+              <span>Kontinent:</span>
+              <input type="text" id="search_continent" placeholder="Kontinent" name="search_continent" th:value="${search_continent}"/>
+            </div>
+            <div class="search_item" id="item_country">
+              <span>Land:</span>
+              <input type="text" id="search_country" placeholder="Land" name="search_country" th:value="${search_country}"/>
+            </div>
+            <div class="search_item" id="item_city">
+              <span>Stadt:</span>
+              <input type="text" id="search_city" placeholder="Stadt" name="search_city" th:value="${search_city}"/>
+            </div>
+            <div class="search_item" id="item_start">
+              <span>Start Datum:</span>
+              <input type="date" id="search_start_date" placeholder="Start Datum" name="search_start_date" th:value="${search_start_date}"/>
+            </div>
+            <div class="search_item" id="item_end">
+              <span>End Datum:</span>
+              <input type="date" id="search_end_date" placeholder="End Datum" name="search_end_date" th:value="${search_end_date}"/>
+            </div>
+            <div class="search_item" id="item_person">
+              <span>Anzahl Personen:</span>
+              <input type="number" id="search_person" placeholder="Anzahl Personen" name="search_person" th:value="${search_person}"/>
+            </div>
+            <div class="search_item" id="item_sorting">
+              <span>Sortieren nach:</span>
+              <select name="sorting">
+                <option value="none">Keine</option>
+                <option value="hotelname">Hotelname</option>
+                <option value="totalprice">Gesamtpreis</option>
+              </select>
+            </div>
+            <button id="search_start">Suche starten</button>
+          </form>
+        </div>
+      </details>
+
       <h2>Wir empfehlen Ihnen...</h2>
       <!--<div class="sorting">
       <p>Sortiere nach: </p>

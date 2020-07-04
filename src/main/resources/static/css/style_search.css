@@ -9,7 +9,7 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.form input {
+.form input, select, summary{
   background: #f2f2f2;
   border: 0;
   padding: 15px;
@@ -88,6 +88,10 @@
   grid-area: start;
 }
 
+#item_sorting{
+  grid-area: sorting;
+}
+
 .search-form {
   height: auto;
   display: grid;
@@ -96,8 +100,8 @@
   grid-template-columns: 1 1 1;
   grid-template-areas:
     "mincost maxcost person"
-    "startdate enddate ."
-    "continent country city"
+    "startdate enddate continent"
+    "country city sorting"
     "start start start";
 }
 
@@ -119,6 +123,7 @@
       "continent"
       "country"
       "city"
+      "sorting"
       "start";
   }
 
