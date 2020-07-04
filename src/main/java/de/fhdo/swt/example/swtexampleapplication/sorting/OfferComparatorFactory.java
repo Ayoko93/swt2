@@ -5,7 +5,7 @@ import de.fhdo.swt.example.swtexampleapplication.entity.Offer;
 import java.util.Comparator;
 
 public class OfferComparatorFactory {
-    public static Comparator<Offer> createComparatorByName(String name){
+    public static Comparator<Offer> create(String name){
         switch (name.toLowerCase()) {
             case "hotelname":
                 return new OfferNameComparator();

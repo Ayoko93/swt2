@@ -74,7 +74,7 @@
         <p class="hotel-startDate" th:text="@{${#dates.format(recommended.startDate, 'dd-MMM-yyyy')}}"/>
         <p class="hotel-endDate" th:text="@{${#dates.format(recommended.endDate, 'dd-MMM-yyyy')}}"/>
         <p class="hotel-price" th:text="@{${recommended.totalPrice} + ' ' + ${recommended.currency}}"/>
-        <a class="hotel-showDetails" href="holiday-detail.html" th:href="@{'/holiday/' + ${recommended.id}}">Details anzeigen</a>
+        <a class="hotel-showDetails" th:href="@{'/offer/' + ${recommended.id}}">Details anzeigen</a>
       </div>
     </main>
     <footer th:replace="fragments/footer :: footer"/>

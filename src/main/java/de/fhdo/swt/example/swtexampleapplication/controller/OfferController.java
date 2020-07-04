@@ -28,14 +28,16 @@ public class OfferController {
             @RequestParam(value = "search_city", required = false, defaultValue = "") String city,
             @RequestParam(value = "search_start_date", required = false, defaultValue = "") String startDate,
             @RequestParam(value = "search_end_date", required = false, defaultValue = "") String endDate,
-            @RequestParam(value = "search_person", required = false, defaultValue = "") String person) {
+            @RequestParam(value = "search_person", required = false, defaultValue = "") String person,
+            @RequestParam(value = "sorting", required = false, defaultValue = "") String sorting) {
         double minC = (minConst.isEmpty()) ? 0 : Double.parseDouble(minConst);
         double maxC = (maxCost.isEmpty()) ? Double.MAX_VALUE : Double.parseDouble(maxCost);
         int countPerson = (person.isEmpty()) ? 0 : Integer.parseInt(person);
 
-        ArrayList<Offer> selectedHolidays = new OfferFinder()
-                .searchForHolidays(service, minC, maxC, continent, country,
-                city, startDate, endDate, countPerson);
+        ArrayList<Offer> offers = new OfferFinder().searchForHolidays(service,
+                minC, maxC, continent, country, city, startDate, endDate,
+                countPerson);
+        offers.sort(OfferComparatorFactory.create(sorting));
         
         model.addAttribute("search_min_cost", minConst);
         model.addAttribute("search_max_cost", maxCost);
@@ -45,30 +47,14 @@ public class OfferController {
         model.addAttribute("search_start_date", startDate);
         model.addAttribute("search_end_date", endDate);
         model.addAttribute("search_person", person);
-        model.addAttribute("holidays", selectedHolidays);
-        model.addAttribute("recommendations", selectedHolidays);
+        model.addAttribute("recommendations", offers);
         return "index";
     }
 
-    @GetMapping("/holidays/{sorting}")
-    public String showHolidaysForm(Offer holiday, Model model, @PathVariable String sorting) {
-        Iterable<Offer> data = service.findAll();
-        ArrayList<Offer> list = new ArrayList<>();
-        data.forEach(h -> list.add(h));
-
-        list.sort(OfferComparatorFactory.createComparatorByName(sorting));
-
-        model.addAttribute("holidays", list);
-        model.addAttribute("recommendations", list);
-        return "index";
-    }
-
-
-    @GetMapping("/holiday/{id}")
+    @GetMapping("/offer/{id}")
     public String showHolidaysForm(Offer holiday, Model model, @PathVariable long id) {
         Offer data = service.find(id);
-
-        model.addAttribute("holiday", data);
-        return "holiday-detail";
+        model.addAttribute("offer", data);
+        return "offer-detail";
     }
 }

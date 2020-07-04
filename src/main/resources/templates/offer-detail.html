@@ -12,19 +12,19 @@
     <div id="centerdesign">
       <aside th:replace="fragments/aside :: aside"/>
       <main id="hauptinhalt">
-        <h2 th:text="${holiday.hotel.name}"/>
+        <h2 th:text="${offer.hotel.name}"/>
         <div class="row">
-          <p class="place"><b th:text="@{${holiday.hotel.country} + ' - ' + ${holiday.hotel.city}}"/></p>
+          <p class="place"><b th:text="@{${offer.hotel.country} + ' - ' + ${offer.hotel.city}}"/></p>
           <p><b>Bewertung:</b> &starf;&starf;&starf;&starf;&star;</p>
         </div>
-        <img width="100%" th:src="${holiday.hotel.imagePath}" alt="Bild vom Hotel" />
+        <img width="100%" th:src="${offer.hotel.imagePath}" alt="Bild vom Hotel" />
         <h3>Beschreibung</h3>
-        <p th:text="${holiday.hotel.description}"/>
+        <p th:text="${offer.hotel.description}"/>
         <div class="hotel-details row">
-          <p><b>Zeitraum:</b><span th:text="@{${#dates.format(holiday.startDate, 'dd.MM.yyyy')} + ' - ' + ${#dates.format(holiday.endDate, 'dd.MM.yyyy')}}"/></p>
-          <p><b>Verpflegung:</b><span th:text="${holiday.priceModel}"/></p>
-          <p><b>Reiseveranstalter:</b><span th:text="${holiday.travelAgency}"/></p>
-          <p><b>Preis:</b><span th:text="@{${holiday.totalPrice} + ' ' + ${holiday.currency}}"/></p>
+          <p><b>Zeitraum:</b><span th:text="@{${#dates.format(offer.startDate, 'dd.MM.yyyy')} + ' - ' + ${#dates.format(offer.endDate, 'dd.MM.yyyy')}}"/></p>
+          <p><b>Verpflegung:</b><span th:text="${offer.priceModel}"/></p>
+          <p><b>Reiseveranstalter:</b><span th:text="${offer.travelAgency}"/></p>
+          <p><b>Preis:</b><span th:text="@{${offer.totalPrice} + ' ' + ${offer.currency}}"/></p>
         </div>
         <form action="POST">
           <input class="buchen-button" type="submit" name="buchen" value="Kostenpflichtig buchen">
