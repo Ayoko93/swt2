@@ -138,4 +138,16 @@ public class User {
     public void setBic(String bic) {
         this.bic = bic;
     }
+
+    public Iterable<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void addRating(Rating rating) {
+        ratings.add(rating);
+    }
+
+    public void removeRating(Rating rating) {
+        ratings.add(rating);
+    }
 }
