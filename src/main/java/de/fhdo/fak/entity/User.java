@@ -143,7 +143,7 @@ public class User {
         this.bic = bic;
     }
 
-    public Iterable<Rating> getRatings() {
+    public List<Rating> getRatings() {
         return ratings;
     }
 
@@ -153,5 +153,17 @@ public class User {
 
     public void removeRating(Rating rating) {
         ratings.add(rating);
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void addBooking(Booking booking) {
+        bookings.add(booking);
+    }
+
+    public void removeBooking(Booking booking) {
+        bookings.remove(booking);
     }
 }

@@ -34,7 +34,7 @@ public class OfferService implements EntityService<Offer> {
 	@Override
 	public Offer find(long id) {
 		return repo.findById(id).orElseThrow(
-				() -> new NoSuchElementException("Could not find holiday with "
+				() -> new NoSuchElementException("Could not find offer with "
 				+ "id " + id));
 	}
 
