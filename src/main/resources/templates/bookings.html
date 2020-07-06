@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style_rating_dialog.css}"/>
 </head>
 <body>
-    <header th:replace="fragments/header :: header"/>
+  <header th:replace="fragments/header :: header"/>
   <div id="centerdesign">
     <aside th:replace="fragments/aside :: aside"/>
     <main>
@@ -17,36 +17,35 @@
         <!-- Modal content -->
         <div class="modal-content">
           <div class="modal-header">
-            <span class="close">&times;</span>
+            <span id="close">&times;</span>
             <h2>Reise bewerten</h2>
           </div>
           <div class="modal-body">
-            <div class="modal-body-text">
-              <p>Bitte bewerten Sie Ihre letzte Reise, sodass wir unser Portal immer weiter verbessern können.</p>
-              <textarea id="story" name="story" rows="5" cols="33"></textarea>
-            </div>
-            <div class="modal-body-stars">
-              <p>Wie viele Sterne bekommt Ihr Urlaub?</p>
-              <form id="ratingsForm">
+            <form id="ratingsForm" method="POST" action="/rate">
+              <input type="text" name="hotel" id="hotelid" hidden>
+              <div class="modal-body-text">
+                <p>Bitte bewerten Sie Ihre letzte Reise, sodass wir unser Portal immer weiter verbessern können.</p>
+                <textarea id="story" name="comment" rows="5" cols="33"></textarea>
+              </div>
+              <div class="modal-body-stars">
+                <p>Wie viele Sterne bekommt Ihr Urlaub?</p>
                 <div class="stars">
-                  <input type="radio" name="star" class="star-1" id="star-1">
+                  <input type="radio" name="rating" class="star-1" id="star-1" value="1">
                   <label class="star-1" for="star-1">1</label>
-                  <input type="radio" name="star" class="star-2" id="star-2">
+                  <input type="radio" name="rating" class="star-2" id="star-2" value="2">
                   <label class="star-2" for="star-2">2</label>
-                  <input type="radio" name="star" class="star-3" id="star-3">
+                  <input type="radio" name="rating" class="star-3" id="star-3" value="3">
                   <label class="star-3" for="star-3">3</label>
-                  <input type="radio" name="star" class="star-4" id="star-4">
+                  <input type="radio" name="rating" class="star-4" id="star-4" value="4">
                   <label class="star-4" for="star-4">4</label>
-                  <input type="radio" name="star" class="star-5" id="star-5">
+                  <input type="radio" name="rating" class="star-5" id="star-5" value="5">
                   <label class="star-5" for="star-5">5</label>
-                  <span></span>
                 </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a href="">Schließen</a>
-            <a href="">Bewertung abgeben</a>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" value="Bewertung abgeben">
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -59,20 +58,12 @@
         <p class="hotel-startDate" th:text="@{${#dates.format(booking.offer.startDate, 'dd-MMM-yyyy')}}"/>
         <p class="hotel-endDate" th:text="@{${#dates.format(booking.offer.endDate, 'dd-MMM-yyyy')}}"/>
         <p class="hotel-price" th:text="@{${booking.offer.totalPrice} + ' ' + ${booking.offer.currency}}"/>
-        <a class="hotel-addRating button" id="b_open">Jetzt bewerten</a>
+        <a class="hotel-addRating button rate" th:hotelid="${booking.offer.hotel.id}">Jetzt bewerten</a>
         <a class="hotel-showDetails button" th:href="@{'/offer/' + ${booking.offer.id}}">Details anzeigen</a>
       </div>
     </main>
   </div>
   <footer th:replace="fragments/footer :: footer"/>
-  <script th:inline="javascript">
-    let options = document.getElementById('sorting').getElementsByTagName('option');
-    for (let i = 0; i < options.length; i++)
-      if (options[i].value === /*[[${sorting}]]*/ 'none') {
-        options[i].selected = 'selected';
-        break;
-      }
-  </script>
   <script th:src="@{/js/script.js}"></script>
 </body>
 </html>

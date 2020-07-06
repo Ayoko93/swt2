@@ -1,20 +1,21 @@
-var modal = document.getElementById("myModal");
-var btnOpen = document.getElementById("b_open");
-var span = document.getElementsByClassName("close")[0];
+var rateButtons = document.getElementsByClassName("rate");
+var closeButton = document.getElementById("close");
+var ratingDialog = document.getElementById("myModal");
 
-modal.style.display = "none";
+ratingDialog.style.display = "none";
 
-btnOpen.onclick = function () {
-  modal.style.display = "block";
+closeButton.onclick = function () {
+  ratingDialog.style.display = "none";
 };
-
-span.onclick = function () {
-  modal.style.display = "none";
-};
-
 
 window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == ratingDialog) {
+    ratingDialog.style.display = "none";
   }
 };
+
+for(let i = 0; i < rateButtons.length; i++)
+  rateButtons[i].onclick = function (event) {
+    ratingDialog.style.display = "block";
+    document.getElementById("hotelid").value = event.srcElement.attributes.hotelid.nodeValue;
+  }

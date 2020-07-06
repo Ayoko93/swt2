@@ -46,7 +46,7 @@ public class BookingController {
         User user = SessionManager.instance.getUser();
         if(user == null) {
             model.addAttribute("errormsg", "Bitte loggen Sie sich ein und "
-                    + "buchen sie das Angebot erneut.");
+                    + "buchen Sie das Angebot erneut.");
             return "user-error";
         }
 
