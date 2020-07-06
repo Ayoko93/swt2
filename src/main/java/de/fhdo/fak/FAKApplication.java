@@ -37,6 +37,7 @@ public class FAKApplication implements CommandLineRunner {
 	@Autowired
 	private EntityService<User> userService;
 
+	@SuppressWarnings("unused")
 	private void resetTestData() {
 		hotelService.deleteAll();
 		offerService.deleteAll();
@@ -143,6 +144,6 @@ public class FAKApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		resetTestData();
+		// resetTestData();
 	}
 }
