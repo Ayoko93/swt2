@@ -1,58 +1,74 @@
 package de.fhdo.fak.controller;
 
 import de.fhdo.fak.entity.Booking;
-import de.fhdo.fak.entity.Hotel;
 import de.fhdo.fak.entity.Offer;
 import de.fhdo.fak.entity.User;
+import de.fhdo.fak.misc.SessionManager;
+import de.fhdo.fak.service.BookingService;
 import de.fhdo.fak.service.OfferService;
-import de.fhdo.fak.service.RatingService;
+import de.fhdo.fak.service.UserService;
+
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.ArrayList;
-import java.util.Date;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class BookingController {
-
     @Autowired
-    private RatingService service;
+    private BookingService service;
+    @Autowired
+    private OfferService offers;
+    @Autowired
+    private UserService users;
 
     @GetMapping("/bookings")
-    public String showBookingForm(Model model){
-
-        Hotel h = new Hotel();
-        h.setName("djkvghyvdfjhovyjuhkiyvv");
-        h.setImagePath("fvsouhifsvy<huoi<vdfpio");
-        h.setDescription("ygljiuyfhöi");
-
-        User u = new User();
-        u.setFirstName("Thimo");
-        u.setLastName("Whitefarmer");
-
-        Offer o = new Offer();
-        o.setPricePerDay(1234);
-        o.setHotel(h);
-        o.setStartDate(new Date());
-        o.setEndDate(new Date());
-        o.setCurrency("€");
-        o.setTravelDuration(23);
-
-        Booking b = new Booking();
-        b.setUser(u);
-        b.setOffer(o);
-
-        ArrayList<Booking> list = new ArrayList<>();
-        list.add(b);
-
-
-        model.addAttribute("bookinglist", list);
-
-
-        return "bookings";
+    public String bookingsGet(Model model) {
+        User user = SessionManager.instance.getUser();
+        if(user == null) {
+            model.addAttribute("errormsg", "Bitte loggen Sie sich ein, um "
+                    + "diese Seite zu sehen.");
+            return "user-error";
+        } else {
+            model.addAttribute("bookinglist", service.findForUser(user));
+            return "bookings";
+        }
     }
 
+    @PostMapping("/book")
+    public String bookPost(Model model,
+            @RequestParam("offer") String offerid) {
+        User user = SessionManager.instance.getUser();
+        if(user == null) {
+            model.addAttribute("errormsg", "Bitte loggen Sie sich ein und "
+                    + "buchen sie das Angebot erneut.");
+            return "user-error";
+        }
 
+        Offer offer;
+        try {
+            long id = Long.parseLong(offerid);
+            offer = offers.find(id);
+        } catch(NumberFormatException | NoSuchElementException e) {
+            return "error";
+        }
+
+        if(offer.isBooked())
+            return "error";
+
+        Booking booking = new Booking(user, offer);
+        user.addBooking(booking);
+        offer.setBooking(booking);
+
+        service.save(booking);
+        users.save(user);
+        offers.save(offer);
+
+        return "redirect:/bookings";
+    }
 }

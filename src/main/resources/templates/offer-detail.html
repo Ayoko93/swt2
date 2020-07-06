@@ -26,10 +26,10 @@
           <p><b>Reiseveranstalter:</b><span th:text="${offer.travelAgency}"/></p>
           <p><b>Preis:</b><span th:text="@{${offer.totalPrice} + ' ' + ${offer.currency}}"/></p>
         </div>
-        <form action="POST">
+        <form th:unless="${offer.isBooked()}" method="POST" action="/book">
+          <input type="text" name="offer" th:value="${offer.id}" hidden>
           <input class="buchen-button" type="submit" name="buchen" value="Kostenpflichtig buchen">
         </form>
-
         <div class="comments">
           <h3>Kommentare</h3>
           <div class="rating-card" th:each="rating : ${offer.hotel.ratings}">
@@ -42,9 +42,6 @@
             <p class="rating-text" th:text="${rating.comment}"/>
           </div>
         </div>
-
-
-
       </main>
     <footer th:replace="fragments/footer :: footer"/>
   </div>

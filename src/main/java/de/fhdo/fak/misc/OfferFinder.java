@@ -24,15 +24,15 @@ public class OfferFinder {
     }
 
     public boolean checkContinent(Offer offer, String continent) {
-        return offer.getHotel().getContinent().equals(continent);
+        return continent.isEmpty() || offer.getHotel().getContinent().equals(continent);
     }
 
     public boolean checkCountry(Offer offer, String country) {
-        return offer.getHotel().getCountry().equals(country);
+        return country.isEmpty() || offer.getHotel().getCountry().equals(country);
     }
 
     public boolean checkCity(Offer offer, String city) {
-        return offer.getHotel().getCity().equals(city);
+        return city.isEmpty() || offer.getHotel().getCity().equals(city);
     }
 
     // For one Search
@@ -50,22 +50,11 @@ public class OfferFinder {
             double minCost, double maxCost, String continent, String country,
             String city, String startDate, String endDate, int person) {
         ArrayList<Offer> selectedHolidays = new ArrayList<>();
-        for (Offer h : service.findAll()) {
-            if (!checkMinPrice(h, minCost))
-                continue;
-            if (!checkMaxPrice(h, maxCost))
-                continue;
-            if (!continent.isEmpty() && !checkContinent(h, continent))
-                continue;
-            if (!country.isEmpty() && !checkCountry(h, country))
-                continue;
-            if (!city.isEmpty() && !checkCity(h, city))
-                continue;
-
-            //TODO: Datum wird nicht berücksichtigt
-            selectedHolidays.add(h);
-        }
+        for (Offer offer : service.findUnbooked())
+            if (checkMinPrice(offer, minCost) && checkMaxPrice(offer, maxCost)
+                    && checkContinent(offer, continent)
+                    && checkCountry(offer, country) && checkCity(offer, city))
+                selectedHolidays.add(offer);
         return selectedHolidays;
     }
-
 }

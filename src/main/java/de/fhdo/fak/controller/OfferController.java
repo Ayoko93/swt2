@@ -20,7 +20,7 @@ public class OfferController {
     private OfferService service;
 
     @GetMapping("/")
-    public String showHolidaysForm(Offer holiday, Model model,
+    public String indexGet(Offer holiday, Model model,
             @RequestParam(value = "search_min_cost", required = false, defaultValue = "") String minConst,
             @RequestParam(value = "search_max_cost", required = false, defaultValue = "") String maxCost,
             @RequestParam(value = "search_continent", required = false, defaultValue = "") String continent,
@@ -53,7 +53,7 @@ public class OfferController {
     }
 
     @GetMapping("/offer/{id}")
-    public String showHolidaysForm(Offer holiday, Model model, @PathVariable long id) {
+    public String offerGet(Offer holiday, Model model, @PathVariable long id) {
         Offer data = service.find(id);
         model.addAttribute("offer", data);
         return "offer-detail";

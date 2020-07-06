@@ -25,6 +25,13 @@ public class OfferService implements EntityService<Offer> {
 	private OfferRepository repo;
 
 	/**
+	 * Finds all offers that have not been booked.
+	 */
+	public Iterable<Offer> findUnbooked() {
+		return repo.findByBooking(null);
+	}
+
+	/**
 	 * Finds a holiday by it's id.
 	 * @param id the holiday's id
 	 * @return the holiday the id belongs to
