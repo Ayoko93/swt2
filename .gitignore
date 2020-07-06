@@ -41,3 +41,5 @@ target/
 /db/import.sh
 /db/export.sh
 /src/main/resources/application.properties
+
+!.idea/
