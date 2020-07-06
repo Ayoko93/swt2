@@ -1,7 +1,7 @@
 package de.fhdo.fak.entity;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.annotation.Nullable;
 import javax.persistence.CascadeType;
@@ -45,7 +45,11 @@ public class User {
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private Set<Rating> ratings;
+    private List<Rating> ratings;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Rating> bookings;
 
     public User() { }
 

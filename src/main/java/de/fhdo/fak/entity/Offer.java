@@ -2,7 +2,9 @@ package de.fhdo.fak.entity;
 
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.annotation.Nullable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,6 +35,11 @@ public class Offer {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Hotel hotel;
+
+    @Nullable
+    @OneToOne(mappedBy = "offer", cascade = CascadeType.ALL,
+			orphanRemoval = true)
+    private Booking booking;
 
     public long getId() {
         return id;
