@@ -113,6 +113,14 @@ public class Offer {
         return pricePerDay*travelDuration;
     }
 
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
     public boolean isBooked() {
         return booking != null;
     }
