@@ -112,4 +112,8 @@ public class Offer {
     public double getTotalPrice(){
         return pricePerDay*travelDuration;
     }
+
+    public boolean isBooked() {
+        return booking != null;
+    }
 }

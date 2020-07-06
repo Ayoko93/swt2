@@ -41,6 +41,16 @@ public class Booking {
 	}
 
 	/**
+	 * Constructs an instance of this class.
+	 * @param offer the offer the booking is for
+	 * @param user  the user that booked the offer
+	 */
+	public Booking(Offer offer, User user) {
+		this.offer = offer;
+		this.user = user;
+	}
+
+	/**
 	 * @return the bookings id
 	 */
 	public long getId() {
