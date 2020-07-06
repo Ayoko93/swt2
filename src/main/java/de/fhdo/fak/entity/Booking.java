@@ -23,16 +23,16 @@ public class Booking {
 	private long id;
 
 	/**
-	 * The offer the booking is for.
-	 */
-	@OneToOne(fetch = FetchType.LAZY)
-	private Offer offer;
-
-	/**
 	 * The user that booked the offer.
 	 */
     @ManyToOne(fetch = FetchType.LAZY)
 	private User user;
+
+	/**
+	 * The offer the booking is for.
+	 */
+	@OneToOne(fetch = FetchType.LAZY)
+	private Offer offer;
 
 	/**
 	 * Constructs an instance of this class.
@@ -42,12 +42,12 @@ public class Booking {
 
 	/**
 	 * Constructs an instance of this class.
-	 * @param offer the offer the booking is for
 	 * @param user  the user that booked the offer
+	 * @param offer the offer the booking is for
 	 */
-	public Booking(Offer offer, User user) {
-		this.offer = offer;
+	public Booking(User user, Offer offer) {
 		this.user = user;
+		this.offer = offer;
 	}
 
 	/**
@@ -55,21 +55,6 @@ public class Booking {
 	 */
 	public long getId() {
 		return id;
-	}
-
-	/**
-	 * @return the offer the booking is for
-	 */
-	public Offer getOffer() {
-		return offer;
-	}
-
-	/**
-	 * Sets the offer the booking is for.
-	 * @param offer the offer the booking is for
-	 */
-	public void setOffer(Offer offer) {
-		this.offer = offer;
 	}
 
 	/**
@@ -85,5 +70,20 @@ public class Booking {
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	/**
+	 * @return the offer the booking is for
+	 */
+	public Offer getOffer() {
+		return offer;
+	}
+
+	/**
+	 * Sets the offer the booking is for.
+	 * @param offer the offer the booking is for
+	 */
+	public void setOffer(Offer offer) {
+		this.offer = offer;
 	}
 }

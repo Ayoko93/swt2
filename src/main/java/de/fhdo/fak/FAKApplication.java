@@ -10,11 +10,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import de.fhdo.fak.entity.Offer;
-import de.fhdo.fak.entity.HolidayProfile;
+import de.fhdo.fak.entity.Booking;
 import de.fhdo.fak.entity.Hotel;
-import de.fhdo.fak.entity.Rating;
 import de.fhdo.fak.entity.User;
-import de.fhdo.fak.service.EntityService;
+import de.fhdo.fak.service.BookingService;
+import de.fhdo.fak.service.HotelService;
+import de.fhdo.fak.service.OfferService;
+import de.fhdo.fak.service.RatingService;
+import de.fhdo.fak.service.UserService;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -27,23 +30,23 @@ public class FAKApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	private EntityService<Hotel> hotelService;
+	private HotelService hotelService;
 	@Autowired
-	private EntityService<Offer> offerService;
+	private OfferService offerService;
 	@Autowired
-	private EntityService<HolidayProfile> holidayProfileService;
+	private RatingService ratingService;
 	@Autowired
-	private EntityService<Rating> ratingService;
+	private UserService userService;
 	@Autowired
-	private EntityService<User> userService;
+	private BookingService bookingService;
 
 	@SuppressWarnings("unused")
 	private void resetTestData() {
 		hotelService.deleteAll();
 		offerService.deleteAll();
-		holidayProfileService.deleteAll();
 		ratingService.deleteAll();
 		userService.deleteAll();
+		bookingService.deleteAll();
 
 		Hotel hotel1 = new Hotel();
 		hotel1.setContinent("Nordamerika");
@@ -140,10 +143,24 @@ public class FAKApplication implements CommandLineRunner {
 
 		User user = new User("Preuschoff", "Jan","preuschoffjan@gmail.com", "123456");
 		userService.save(user);
+
+		Booking booking1 = new Booking(user, offer2);
+		Booking booking2 = new Booking(user, offer3);
+		bookingService.save(booking1);
+		bookingService.save(booking2);
+		
+		offer2.setBooking(booking1);
+		offer3.setBooking(booking2);
+		offerService.save(offer2);
+		offerService.save(offer3);
+
+		user.addBooking(booking1);
+		user.addBooking(booking2);
+		userService.save(user);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		 resetTestData();
+		resetTestData();
 	}
 }

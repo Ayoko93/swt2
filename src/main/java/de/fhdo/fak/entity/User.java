@@ -1,5 +1,6 @@
 package de.fhdo.fak.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -45,13 +46,14 @@ public class User {
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<Rating> ratings;
+    private List<Rating> ratings = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<Booking> bookings;
+    private List<Booking> bookings = new ArrayList<>();
 
-    public User() { }
+    public User() {
+    }
 
     // Constructors
     // 1. necessary
@@ -148,7 +150,10 @@ public class User {
     }
 
     public void addRating(Rating rating) {
-        ratings.add(rating);
+        if(rating == null)
+            throw new IllegalArgumentException("Rating is null");
+        else if(ratings.add(rating))
+            rating.setAuthor(this);
     }
 
     public void removeRating(Rating rating) {
@@ -160,7 +165,10 @@ public class User {
     }
 
     public void addBooking(Booking booking) {
-        bookings.add(booking);
+        if(booking == null)
+            throw new IllegalArgumentException("Booking is null");
+        else if(bookings.add(booking))
+            booking.setUser(this);
     }
 
     public void removeBooking(Booking booking) {

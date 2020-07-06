@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import de.fhdo.fak.entity.Booking;
 import de.fhdo.fak.entity.User;
@@ -14,6 +15,7 @@ import de.fhdo.fak.repository.BookingRepository;
  * A service for accessing the booking repository.
  * @author Jan Preuschoff
  */
+@Service
 public class BookingService implements EntityService<Booking> {
 	/**
 	 * The repository used to get bookings.
