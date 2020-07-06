@@ -47,6 +47,7 @@ public class OfferController {
         model.addAttribute("search_start_date", startDate);
         model.addAttribute("search_end_date", endDate);
         model.addAttribute("search_person", person);
+        model.addAttribute("sorting", sorting);
         model.addAttribute("recommendations", offers);
         return "index";
     }

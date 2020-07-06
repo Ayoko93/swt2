@@ -56,7 +56,7 @@
             </div>
             <div class="search_item" id="item_sorting">
               <span>Sortieren nach:</span>
-              <select name="sorting">
+              <select name="sorting" th:value="${sorting}">
                 <option value="none">Keine</option>
                 <option value="hotelname">Hotelname</option>
                 <option value="totalprice">Gesamtpreis</option>
