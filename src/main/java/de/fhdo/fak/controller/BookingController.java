@@ -11,7 +11,7 @@ public class BookingController {
 
 
     @GetMapping("/bookings")
-    public String showSupportTicketsForm(Model model){
+    public String showBookingForm(Model model){
 
 
 
