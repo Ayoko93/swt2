@@ -1,47 +1,94 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAK Reiseportal</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/style_index.css}"/>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/style_holiday_card.css}"/>/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FAK Reiseportal</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style_index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style_booking_card.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style_rating_dialog.css}"/>
 </head>
 <body>
-  <header th:replace="fragments/header :: header"/>
-  <div id="centerdesign">
+<header th:replace="fragments/header :: header"/>
+<div id="centerdesign">
     <aside th:replace="fragments/aside :: aside"/>
     <main>
 
 
-      <h2>Deine Buchungen</h2>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Reise bewerten</h2>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-body-text">
+                        <p>Bitte bewerte deine letzte Reise, sodass wir unser Portal immer weiter verbessern können.</p>
+                        <textarea id="story" name="story" rows="5" cols="33"></textarea>
+                    </div>
+                    <div class="modal-body-stars">
+
+                        <p>Wie viele Sterne bekommt dein Urlaub?</p>
+
+                        <form id="ratingsForm">
+                            <div class="stars">
+                                <input type="radio" name="star" class="star-1" id="star-1">
+                                <label class="star-1" for="star-1">1</label>
+                                <input type="radio" name="star" class="star-2" id="star-2">
+                                <label class="star-2" for="star-2">2</label>
+                                <input type="radio" name="star" class="star-3" id="star-3">
+                                <label class="star-3" for="star-3">3</label>
+                                <input type="radio" name="star" class="star-4" id="star-4">
+                                <label class="star-4" for="star-4">4</label>
+                                <input type="radio" name="star" class="star-5" id="star-5">
+                                <label class="star-5" for="star-5">5</label>
+                                <span></span>
+                            </div>
+                        </form>
 
 
-      <div th:each="recommended : ${recommendations}" class="holiday-card">
-        <h4 class="hotel-name" th:text="${recommended.hotel.name}">Luxury Bahia Principe Akumal</h4>
-        <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif" th:src="${recommended.hotel.imagePath}" alt="Bild vom Hotel"/>
-        <!-- <p class="hotel-country" th:text="${recommended.country}">Germany</p> -->
-        <!-- <p class="hotel-city" th:text="${recommended.city}">Dortmund</p> -->
-        <p class="hotel-description" th:text="${recommended.hotel.description}"/>
-        <p class="hotel-startDate" th:text="@{${#dates.format(recommended.startDate, 'dd-MMM-yyyy')}}"/>
-        <p class="hotel-endDate" th:text="@{${#dates.format(recommended.endDate, 'dd-MMM-yyyy')}}"/>
-        <p class="hotel-price" th:text="@{${recommended.totalPrice} + ' ' + ${recommended.currency}}"/>
-        <a class="hotel-showDetails" th:href="@{'/offer/' + ${recommended.id}}">Details anzeigen</a>
-      </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="">Schließen</a>
+                    <a href="">Bewertung abgeben</a>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Deine Buchungen</h2>
+        <div th:each="booking : ${bookinglist}" class="holiday-card">
+            <h4 class="hotel-name" th:text="${booking.offer.hotel.name}">Luxury Bahia Principe Akumal</h4>
+            <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif"
+                 th:src="${booking.offer.hotel.imagePath}" alt="Bild vom Hotel"/>
+            <p class="hotel-description" th:text="${booking.offer.hotel.description}"/>
+            <p class="hotel-startDate" th:text="@{${#dates.format(booking.offer.startDate, 'dd-MMM-yyyy')}}"/>
+            <p class="hotel-endDate" th:text="@{${#dates.format(booking.offer.endDate, 'dd-MMM-yyyy')}}"/>
+            <p class="hotel-price" th:text="@{${booking.offer.totalPrice} + ' ' + ${booking.offer.currency}}"/>
+            <a class="hotel-addRating button" id="b_open">Jetzt bewerten</a>
+            <a class="hotel-showDetails button" th:href="@{'/offer/' + ${booking.offer.id}}">Details anzeigen</a>
+        </div>
+
 
     </main>
 
 
-
     <footer th:replace="fragments/footer :: footer"/>
-  </div>
-  <script th:inline="javascript">
+</div>
+<script th:inline="javascript">
     let options = document.getElementById('sorting').getElementsByTagName('option');
-    for(let i = 0; i < options.length; i++)
-      if(options[i].value === /*[[${sorting}]]*/ 'none') {
-        options[i].selected = 'selected';
-        break;
-      }
-  </script>
+    for (let i = 0; i < options.length; i++)
+        if (options[i].value === /*[[${sorting}]]*/ 'none') {
+            options[i].selected = 'selected';
+            break;
+        }
+</script>
+
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>

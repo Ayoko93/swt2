@@ -29,6 +29,22 @@
         <form action="POST">
           <input class="buchen-button" type="submit" name="buchen" value="Kostenpflichtig buchen">
         </form>
+
+        <div class="comments">
+          <h3>Kommentare</h3>
+          <div class="rating-card" th:each="rating : ${offer.hotel.ratings}">
+            <span class="rating-value" th:if="${rating.rating} == 1">&starf;&star;&star;&star;&star;</span>
+            <span class="rating-value" th:if="${rating.rating} == 2">&starf;&starf;&star;&star;&star;</span>
+            <span class="rating-value" th:if="${rating.rating} == 3">&starf;&starf;&starf;&star;&star;</span>
+            <span class="rating-value" th:if="${rating.rating} == 4">&starf;&starf;&starf;&starf;&star;</span>
+            <span class="rating-value" th:if="${rating.rating} == 5">&starf;&starf;&starf;&starf;&starf;</span>
+            <p class="rating-author" th:text="@{'Autor: ' + ${rating.author.firstName} + ' ' + ${rating.author.lastName}}"/>
+            <p class="rating-text" th:text="${rating.comment}"/>
+          </div>
+        </div>
+
+
+
       </main>
     <footer th:replace="fragments/footer :: footer"/>
   </div>
