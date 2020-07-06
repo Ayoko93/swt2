@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 @Controller
 public class OfferController {
@@ -54,8 +55,12 @@ public class OfferController {
 
     @GetMapping("/offer/{id}")
     public String offerGet(Offer holiday, Model model, @PathVariable long id) {
-        Offer data = service.find(id);
-        model.addAttribute("offer", data);
-        return "offer-detail";
+        try {
+            Offer offer = service.find(id);
+            model.addAttribute("offer", offer);
+            return "offer-detail";
+        } catch(NoSuchElementException e) {
+            return "error";
+        }
     }
 }

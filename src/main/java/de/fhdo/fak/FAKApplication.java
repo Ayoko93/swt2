@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import de.fhdo.fak.entity.Offer;
+import de.fhdo.fak.entity.Rating;
 import de.fhdo.fak.entity.Booking;
 import de.fhdo.fak.entity.Hotel;
 import de.fhdo.fak.entity.User;
@@ -156,6 +157,20 @@ public class FAKApplication implements CommandLineRunner {
 
 		user.addBooking(booking1);
 		user.addBooking(booking2);
+
+		Rating rating1 = new Rating(5, user, hotel1);
+		Rating rating2 = new Rating(1, "Absoluter Mist.", user, hotel2);
+
+		user.addRating(rating1);
+		user.addRating(rating2);
+		hotel1.addRating(rating1);
+		hotel2.addRating(rating2);
+
+		ratingService.save(rating1);
+		ratingService.save(rating2);
+		hotelService.save(hotel1);
+		hotelService.save(hotel2);
+
 		userService.save(user);
 	}
 
