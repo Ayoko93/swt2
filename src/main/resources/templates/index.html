@@ -56,7 +56,7 @@
             </div>
             <div class="search_item" id="item_sorting">
               <span>Sortieren nach:</span>
-              <select name="sorting" th:value="${sorting}">
+              <select name="sorting" id="sorting">
                 <option value="none">Keine</option>
                 <option value="hotelname">Hotelname</option>
                 <option value="totalprice">Gesamtpreis</option>
@@ -87,5 +87,13 @@
     </main>
     <footer th:replace="fragments/footer :: footer"/>
   </div>
+  <script th:inline="javascript">
+    let options = document.getElementById('sorting').getElementsByTagName('option');
+    for(let i = 0; i < options.length; i++)
+      if(options[i].value === /*[[${sorting}]]*/ 'none') {
+        options[i].selected = 'selected';
+        break;
+      }
+  </script>
 </body>
 </html>
