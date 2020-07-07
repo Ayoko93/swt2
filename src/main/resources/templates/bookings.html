@@ -9,61 +9,70 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style_rating_dialog.css}"/>
 </head>
 <body>
-  <header th:replace="fragments/header :: header"/>
-  <div id="centerdesign">
+<header th:replace="fragments/header :: header"/>
+<div id="centerdesign">
     <aside th:replace="fragments/aside :: aside"/>
+
     <main>
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span id="close">&times;</span>
-            <h2>Reise bewerten</h2>
-          </div>
-          <div class="modal-body">
-            <form id="ratingsForm" method="POST" action="/rate">
-              <input type="text" name="hotel" id="hotelid" hidden>
-              <div class="modal-body-text">
-                <p>Bitte bewerten Sie Ihre letzte Reise, sodass wir unser Portal immer weiter verbessern können.</p>
-                <textarea id="story" name="comment" rows="5" cols="33"></textarea>
-              </div>
-              <div class="modal-body-stars">
-                <p>Wie viele Sterne bekommt Ihr Urlaub?</p>
-                <div class="stars">
-                  <input type="radio" name="rating" class="star-1" id="star-1" value="1">
-                  <label class="star-1" for="star-1">1</label>
-                  <input type="radio" name="rating" class="star-2" id="star-2" value="2">
-                  <label class="star-2" for="star-2">2</label>
-                  <input type="radio" name="rating" class="star-3" id="star-3" value="3">
-                  <label class="star-3" for="star-3">3</label>
-                  <input type="radio" name="rating" class="star-4" id="star-4" value="4">
-                  <label class="star-4" for="star-4">4</label>
-                  <input type="radio" name="rating" class="star-5" id="star-5" value="5">
-                  <label class="star-5" for="star-5">5</label>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="close">&times;</span>
+                    <h2>Reise bewerten</h2>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <input type="submit" value="Bewertung abgeben">
-              </div>
-            </form>
-          </div>
+
+
+                <form id="ratingsForm" method="POST" action="/rate">
+                    <div class="modal-body">
+                        <input type="text" name="hotel" id="hotelid" hidden>
+
+                        <div class="modal-body-text">
+                            <p>Bitte bewerten Sie Ihre letzte Reise, sodass wir unser Portal immer weiter verbessern können.</p>
+                            <textarea id="story" name="comment" rows="5" cols="33"></textarea>
+                        </div>
+
+                        <div class="modal-body-stars">
+                            <p>Wie viele Sterne bekommt Ihr Urlaub?</p>
+                            <div class="stars">
+                                <input type="radio" name="rating" class="star-1" id="star-1" value="1">
+                                <label class="star-1" for="star-1">1</label>
+                                <input type="radio" name="rating" class="star-2" id="star-2" value="2">
+                                <label class="star-2" for="star-2">2</label>
+                                <input type="radio" name="rating" class="star-3" id="star-3" value="3">
+                                <label class="star-3" for="star-3">3</label>
+                                <input type="radio" name="rating" class="star-4" id="star-4" value="4">
+                                <label class="star-4" for="star-4">4</label>
+                                <input type="radio" name="rating" class="star-5" id="star-5" value="5">
+                                <label class="star-5" for="star-5">5</label>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <input type="submit" value="Bewertung abgeben">
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-      <h2>Ihre Buchungen</h2>
-      <div th:each="booking : ${bookinglist}" class="holiday-card">
-        <h4 class="hotel-name" th:text="${booking.offer.hotel.name}"/>
-        <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif"
-            th:src="${booking.offer.hotel.imagePath}" alt="Bild vom Hotel"/>
-        <p class="hotel-description" th:text="${booking.offer.hotel.description}"/>
-        <p class="hotel-startDate" th:text="@{${#dates.format(booking.offer.startDate, 'dd-MMM-yyyy')}}"/>
-        <p class="hotel-endDate" th:text="@{${#dates.format(booking.offer.endDate, 'dd-MMM-yyyy')}}"/>
-        <p class="hotel-price" th:text="@{${booking.offer.totalPrice} + ' ' + ${booking.offer.currency}}"/>
-        <a class="hotel-addRating button rate" th:hotelid="${booking.offer.hotel.id}">Jetzt bewerten</a>
-        <a class="hotel-showDetails button" th:href="@{'/offer/' + ${booking.offer.id}}">Details anzeigen</a>
-      </div>
+
+        <h2>Ihre Buchungen</h2>
+        <div th:each="booking : ${bookinglist}" class="holiday-card">
+            <h4 class="hotel-name" th:text="${booking.offer.hotel.name}"/>
+            <img class="hotel-img" src="../static/img/Luxury_Bahia_Principe.jfif"
+                 th:src="${booking.offer.hotel.imagePath}" alt="Bild vom Hotel"/>
+            <p class="hotel-description" th:text="${booking.offer.hotel.description}"/>
+            <p class="hotel-startDate" th:text="@{${#dates.format(booking.offer.startDate, 'dd-MMM-yyyy')}}"/>
+            <p class="hotel-endDate" th:text="@{${#dates.format(booking.offer.endDate, 'dd-MMM-yyyy')}}"/>
+            <p class="hotel-price" th:text="@{${booking.offer.totalPrice} + ' ' + ${booking.offer.currency}}"/>
+            <a class="hotel-addRating button rate" th:hotelid="${booking.offer.hotel.id}">Jetzt bewerten</a>
+            <a class="hotel-showDetails button" th:href="@{'/offer/' + ${booking.offer.id}}">Details anzeigen</a>
+        </div>
+
     </main>
-  </div>
-  <footer th:replace="fragments/footer :: footer"/>
-  <script th:src="@{/js/script.js}"></script>
+</div>
+<footer th:replace="fragments/footer :: footer"/>
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>
