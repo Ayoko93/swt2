@@ -28,7 +28,8 @@
                         <input type="text" name="hotel" id="hotelid" hidden>
 
                         <div class="modal-body-text">
-                            <p>Bitte bewerten Sie Ihre letzte Reise, sodass wir unser Portal immer weiter verbessern können.</p>
+                            <p>Bitte bewerten Sie Ihre letzte Reise, sodass wir unser Portal immer weiter verbessern
+                                können.</p>
                             <textarea id="story" name="comment" rows="5" cols="33"></textarea>
                         </div>
 
@@ -49,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="modal-footer">
                         <input type="submit" value="Bewertung abgeben">
                     </div>
@@ -71,8 +72,9 @@
         </div>
 
     </main>
+    <footer th:replace="fragments/footer :: footer"/>
 </div>
-<footer th:replace="fragments/footer :: footer"/>
+
 <script th:src="@{/js/script.js}"></script>
 </body>
 </html>
