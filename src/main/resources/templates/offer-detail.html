@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" th:href="@{/css/style_index.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style_holiday_card.css}">
   <link rel="stylesheet" type="text/css" th:href="@{/css/style_holiday-detail.css}">
   <title>FAK Reiseportal</title>
 </head>
@@ -32,7 +33,7 @@
         </form>
         <div class="comments">
           <h3>Kommentare</h3>
-          <div class="rating-card" th:each="rating : ${offer.hotel.ratings}">
+          <div class="card" th:each="rating : ${offer.hotel.ratings}">
             <span class="rating-value" th:if="${rating.rating} == 1">&starf;&star;&star;&star;&star;</span>
             <span class="rating-value" th:if="${rating.rating} == 2">&starf;&starf;&star;&star;&star;</span>
             <span class="rating-value" th:if="${rating.rating} == 3">&starf;&starf;&starf;&star;&star;</span>

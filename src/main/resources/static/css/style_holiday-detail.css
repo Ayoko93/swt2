@@ -23,3 +23,7 @@
 .buchen-button:hover{
     background-color: limegreen;
 }
+
+.rating-author{
+    font-weight: bold;
+}
