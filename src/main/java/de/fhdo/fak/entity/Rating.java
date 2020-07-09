@@ -100,8 +100,7 @@ public class Rating {
      *                                  range of values, defined by
      *                                  {@link #minStars} and {@link maxStars}
      */
-    public Rating(int stars, @Nullable String comment, User author,
-            Hotel hotel) {
+    public Rating(int stars, @Nullable String comment, User author, Hotel hotel) {
         setRating(stars);
         this.comment = comment;
         setAuthor(author);
@@ -131,7 +130,7 @@ public class Rating {
      */
     public void setRating(int stars) {
         if (stars <= maxStars && stars >= minStars)
-            this.stars = maxStars;
+            this.stars = stars;
         else
             throw new IllegalArgumentException("The amount of stars for a "
                     + "rating has to be between 0 and 5");
