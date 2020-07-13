@@ -35,6 +35,14 @@ public class OfferFinder {
         return city.isEmpty() || offer.getHotel().getCity().equals(city);
     }
 
+    public boolean checkStartDate(Offer offer, String start){
+        return start.isEmpty() || offer.getStartDate().toString().compareTo(start) >= 0;
+    }
+
+    public boolean checkEndDate(Offer offer, String end){
+        return end.isEmpty() || offer.getEndDate().toString().compareTo(end) <= 0;
+    }
+
     // For one Search
     private int destinationRange = 10;
 
@@ -53,7 +61,7 @@ public class OfferFinder {
         for (Offer offer : service.findUnbooked())
             if (checkMinPrice(offer, minCost) && checkMaxPrice(offer, maxCost)
                     && checkContinent(offer, continent)
-                    && checkCountry(offer, country) && checkCity(offer, city))
+                    && checkCountry(offer, country) && checkCity(offer, city) && checkStartDate(offer, startDate) && checkEndDate(offer, endDate))
                 selectedHolidays.add(offer);
         return selectedHolidays;
     }
